@@ -2,13 +2,17 @@
     <string name="app_name">Chess Game</string>
     <string name="title_activity_main">MainActivity</string>
     <!-- Strings used for fragments for navigation -->
-    <string name="menu_fragment_label">Menu</string>
-    <string name="board_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
 
+    <!-- Menu Fragment Strings -->
+    <string name="menu_fragment_label">Menu</string>
     <string name="title">Chess</string>
     <string name="play">Play</string>
+
+
+    <!-- Board Fragment Strings -->
+    <string name="board_fragment_label">Board</string>
+    <string name="chess_board_description">Chess Board</string>
+
 
     <string name="lorem_ipsum">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris
