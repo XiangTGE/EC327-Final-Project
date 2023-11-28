@@ -7,9 +7,9 @@
 
     <fragment
         android:id="@+id/FirstFragment"
-        android:name="com.example.chessgame.FirstFragment"
-        android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first">
+        android:name="com.example.chessgame.Menu"
+        android:label="@string/menu_fragment_label"
+        tools:layout="@layout/menu">
 
         <action
             android:id="@+id/action_FirstFragment_to_SecondFragment"
@@ -17,9 +17,9 @@
     </fragment>
     <fragment
         android:id="@+id/SecondFragment"
-        android:name="com.example.chessgame.SecondFragment"
-        android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second">
+        android:name="com.example.chessgame.Board"
+        android:label="@string/board_fragment_label"
+        tools:layout="@layout/board">
 
         <action
             android:id="@+id/action_SecondFragment_to_FirstFragment"
