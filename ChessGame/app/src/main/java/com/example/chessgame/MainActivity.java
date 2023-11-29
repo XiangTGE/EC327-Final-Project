@@ -1,12 +1,10 @@
 package com.example.chessgame;
 
+import android.content.Intent;
 import android.os.Bundle;
-
-import com.google.android.material.snackbar.Snackbar;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.view.View;
+import android.widget.Button;
 
 import androidx.core.view.WindowCompat;
 import androidx.navigation.NavController;
@@ -19,27 +17,29 @@ import com.example.chessgame.databinding.ActivityMainBinding;
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration appBarConfiguration;
-    private ActivityMainBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        // Set up menu screen
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.menu);
 
-        binding = ActivityMainBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
+        // Play button, will bring user to board upon tapping
+        Button playButton = (Button) findViewById(R.id.play_button);
 
-        setSupportActionBar(binding.toolbar);
 
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
 
-        binding.fab.setOnClickListener(new View.OnClickListener() {
+        playButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAnchorView(R.id.fab)
-                        .setAction("Action", null).show();
+
+                //
+                Intent intent = new Intent (getApplicationContext(), MainActivity2.class);
+                startActivity(intent);
             }
         });
     }
