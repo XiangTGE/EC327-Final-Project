@@ -1,9 +1,11 @@
-class Piece {
-    bool color;
-    bool hasMoved;
-    bool isAlive;
-    bool isAttacking;
-    string type;
+package com.example.chessgame;
+
+public class Piece {
+    boolean color;
+    boolean hasMoved;
+    boolean isAlive;
+    boolean isAttacking;
+    String type;
     int xPos;
     int yPos;
 
@@ -11,7 +13,7 @@ class Piece {
     {
         int xPos = xNewPos;
         int yPos = yNewPos;
-        bool hasMoved = false;
+        boolean hasMoved = false;
     }
     public boolean isValidMove(int xNewPos, int yNewPos)
     {
