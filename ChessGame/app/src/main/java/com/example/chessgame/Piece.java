@@ -5,6 +5,7 @@ public class Piece {
     boolean hasMoved;
     boolean isAlive;
     boolean isAttacking;
+    boolean isBlocked;
     String type;
     int xPos;
     int yPos;
@@ -31,7 +32,7 @@ public class Piece {
     }
     public int[] getPosition()
     {
-        int position = {xPos, yPos};
+        int position[] = {xPos, yPos};
         return position;
     }
 }
@@ -72,6 +73,9 @@ class Pawn extends Piece
         {
             return false;
         }
+
+        // Default return statement so I can compile the code, feel free to edit this ~Xiang
+        return false;
     }
 }
 
@@ -406,8 +410,8 @@ class Queen extends Piece
 
 class King extends Piece
 {
-    bool isChecked = false;
-    bool isCheckmated = false;
+    boolean isChecked = false;
+    boolean isCheckmated = false;
 
     public King() {
         type = "King";

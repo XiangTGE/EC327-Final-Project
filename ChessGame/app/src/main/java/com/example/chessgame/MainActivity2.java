@@ -1,20 +1,15 @@
 package com.example.chessgame;
 
 import androidx.appcompat.app.AppCompatActivity;
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
-import org.w3c.dom.Text;
 
-import com.example.chessgame.Piece;
+import android.os.Bundle;
+import android.widget.TextView;
 
 
 public class MainActivity2 extends AppCompatActivity {
 
     //public TextView[][] BoardTiles = new TextView[8][8];
-    public TextView[][] BoardPieceSlot = new TextView[8][8];                                        // Stores where proper piece images should be placed
+    public TextView[][] BoardPieceSlots = new TextView[8][8];                                        // Stores where proper piece images should be placed
     public Piece[][] BoardPositions = new Piece[8][8];                                              // Stores the positions of pieces
 
 
@@ -130,7 +125,7 @@ public class MainActivity2 extends AppCompatActivity {
         BoardPositions[7][6] = wPawn8;
 
         BoardPositions[0][0] = bRook1;
-        BoardPositions[1][0] = bKnight1);
+        BoardPositions[1][0] = bKnight1;
         BoardPositions[2][0] = bBishop1;
         BoardPositions[3][0] = bQueen;
         BoardPositions[4][0] = bKing;
@@ -152,9 +147,78 @@ public class MainActivity2 extends AppCompatActivity {
     // Set up board (UI)
     private void setUpBoard () {
 
+        // Initialize where each slot is, place them in the array for easy access
+        BoardPieceSlots[0][0] = (TextView) findViewById(R.id.R00);
+        BoardPieceSlots[1][0] = (TextView) findViewById(R.id.R10);
+        BoardPieceSlots[2][0] = (TextView) findViewById(R.id.R20);
+        BoardPieceSlots[3][0] = (TextView) findViewById(R.id.R30);
+        BoardPieceSlots[4][0] = (TextView) findViewById(R.id.R40);
+        BoardPieceSlots[5][0] = (TextView) findViewById(R.id.R50);
+        BoardPieceSlots[6][0] = (TextView) findViewById(R.id.R60);
+        BoardPieceSlots[7][0] = (TextView) findViewById(R.id.R70);
 
-        BoardPieceSlot[0][0] = (TextView) findViewById(R.id.R17);
-        BoardPieceSlot[0][0].setBackgroundResource(R.drawable.bking);
+        BoardPieceSlots[0][1] = (TextView) findViewById(R.id.R01);
+        BoardPieceSlots[1][1] = (TextView) findViewById(R.id.R11);
+        BoardPieceSlots[2][1] = (TextView) findViewById(R.id.R21);
+        BoardPieceSlots[3][1] = (TextView) findViewById(R.id.R31);
+        BoardPieceSlots[4][1] = (TextView) findViewById(R.id.R41);
+        BoardPieceSlots[5][1] = (TextView) findViewById(R.id.R51);
+        BoardPieceSlots[6][1] = (TextView) findViewById(R.id.R61);
+        BoardPieceSlots[7][1] = (TextView) findViewById(R.id.R71);
+
+        BoardPieceSlots[0][2] = (TextView) findViewById(R.id.R02);
+        BoardPieceSlots[1][2] = (TextView) findViewById(R.id.R12);
+        BoardPieceSlots[2][2] = (TextView) findViewById(R.id.R22);
+        BoardPieceSlots[3][2] = (TextView) findViewById(R.id.R32);
+        BoardPieceSlots[4][2] = (TextView) findViewById(R.id.R42);
+        BoardPieceSlots[5][2] = (TextView) findViewById(R.id.R52);
+        BoardPieceSlots[6][2] = (TextView) findViewById(R.id.R62);
+        BoardPieceSlots[7][2] = (TextView) findViewById(R.id.R72);
+
+        BoardPieceSlots[0][3] = (TextView) findViewById(R.id.R03);
+        BoardPieceSlots[1][3] = (TextView) findViewById(R.id.R13);
+        BoardPieceSlots[2][3] = (TextView) findViewById(R.id.R23);
+        BoardPieceSlots[3][3] = (TextView) findViewById(R.id.R33);
+        BoardPieceSlots[4][3] = (TextView) findViewById(R.id.R43);
+        BoardPieceSlots[5][3] = (TextView) findViewById(R.id.R53);
+        BoardPieceSlots[6][3] = (TextView) findViewById(R.id.R63);
+        BoardPieceSlots[7][3] = (TextView) findViewById(R.id.R73);
+
+        BoardPieceSlots[0][4] = (TextView) findViewById(R.id.R04);
+        BoardPieceSlots[1][4] = (TextView) findViewById(R.id.R14);
+        BoardPieceSlots[2][4] = (TextView) findViewById(R.id.R24);
+        BoardPieceSlots[3][4] = (TextView) findViewById(R.id.R34);
+        BoardPieceSlots[4][4] = (TextView) findViewById(R.id.R44);
+        BoardPieceSlots[5][4] = (TextView) findViewById(R.id.R54);
+        BoardPieceSlots[6][4] = (TextView) findViewById(R.id.R64);
+        BoardPieceSlots[7][4] = (TextView) findViewById(R.id.R74);
+
+        BoardPieceSlots[0][5] = (TextView) findViewById(R.id.R05);
+        BoardPieceSlots[1][5] = (TextView) findViewById(R.id.R15);
+        BoardPieceSlots[2][5] = (TextView) findViewById(R.id.R25);
+        BoardPieceSlots[3][5] = (TextView) findViewById(R.id.R35);
+        BoardPieceSlots[4][5] = (TextView) findViewById(R.id.R45);
+        BoardPieceSlots[5][5] = (TextView) findViewById(R.id.R55);
+        BoardPieceSlots[6][5] = (TextView) findViewById(R.id.R65);
+        BoardPieceSlots[7][5] = (TextView) findViewById(R.id.R75);
+
+        BoardPieceSlots[0][6] = (TextView) findViewById(R.id.R06);
+        BoardPieceSlots[1][6] = (TextView) findViewById(R.id.R16);
+        BoardPieceSlots[2][6] = (TextView) findViewById(R.id.R26);
+        BoardPieceSlots[3][6] = (TextView) findViewById(R.id.R36);
+        BoardPieceSlots[4][6] = (TextView) findViewById(R.id.R46);
+        BoardPieceSlots[5][6] = (TextView) findViewById(R.id.R56);
+        BoardPieceSlots[6][6] = (TextView) findViewById(R.id.R66);
+        BoardPieceSlots[7][6] = (TextView) findViewById(R.id.R76);
+
+        BoardPieceSlots[0][7] = (TextView) findViewById(R.id.R07);
+        BoardPieceSlots[1][7] = (TextView) findViewById(R.id.R07);
+        BoardPieceSlots[2][7] = (TextView) findViewById(R.id.R27);
+        BoardPieceSlots[3][7] = (TextView) findViewById(R.id.R37);
+        BoardPieceSlots[4][7] = (TextView) findViewById(R.id.R47);
+        BoardPieceSlots[5][7] = (TextView) findViewById(R.id.R57);
+        BoardPieceSlots[6][7] = (TextView) findViewById(R.id.R67);
+        BoardPieceSlots[7][7] = (TextView) findViewById(R.id.R77);
     }
 
     @Override
