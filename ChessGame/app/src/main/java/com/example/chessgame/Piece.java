@@ -11,6 +11,7 @@ class Piece {
     {
         int xPos = xNewPos;
         int yPos = yNewPos;
+        bool hasMoved = false;
     }
     public boolean isValidMove(int xNewPos, int yNewPos)
     {
@@ -20,6 +21,16 @@ class Piece {
     public void kill()
     {
         isAlive = false;
+    }
+    public boolean isBlocked()
+    {
+        //check if piece is blocked
+        return false;
+    }
+    public int[] getPosition()
+    {
+        int position = {xPos, yPos};
+        return position;
     }
 }
 
@@ -33,7 +44,7 @@ class Pawn extends Piece
     public boolean isValidMove(int xNewPos, int yNewPos)
     {
         //check if move is valid
-        if(!hasMoved)
+        if(!hasMoved && !isBlocked)
         {
             if(xNewPos == xPos && yNewPos == yPos + 1)
             {
