@@ -10,6 +10,14 @@ public class Piece {
     int xPos;
     int yPos;
 
+    // Constructor of Piece class
+    // true if color is white, false if color is black
+    public Piece (boolean color) {
+
+        this.color = color;
+    }
+
+
     public void move(int xNewPos, int yNewPos)
     {
         int xPos = xNewPos;
@@ -39,7 +47,9 @@ public class Piece {
 
 class Pawn extends Piece
 {   
-    public Pawn() {
+    public Pawn(boolean color) {
+
+        super(color);
         type = "Pawn";
     }
 
@@ -81,7 +91,9 @@ class Pawn extends Piece
 
 class Rook extends Piece
 {
-    public Rook() {
+    public Rook(boolean color) {
+
+        super(color);
         type = "Rook";
     }
 
@@ -99,7 +111,9 @@ class Rook extends Piece
 
 class Knight extends Piece
 {
-    public Knight() {
+    public Knight(boolean color) {
+
+        super(color);
         type = "Knight";
     }
 
@@ -148,7 +162,9 @@ class Knight extends Piece
 
 class Bishop extends Piece
 {
-    public Bishop() {
+    public Bishop(boolean color) {
+
+        super (color);
         type = "Bishop";
     }
 
@@ -277,7 +293,9 @@ class Bishop extends Piece
 
 class Queen extends Piece
 {
-    public Queen() {
+    public Queen(boolean color) {
+        
+        super(color);
         type = "Queen";
     }
 
@@ -413,7 +431,9 @@ class King extends Piece
     boolean isChecked = false;
     boolean isCheckmated = false;
 
-    public King() {
+    public King(boolean color) {
+
+        super (color);
         type = "King";
     }
 

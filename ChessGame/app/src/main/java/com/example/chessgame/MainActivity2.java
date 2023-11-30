@@ -57,44 +57,44 @@ public class MainActivity2 extends AppCompatActivity {
     private void initializeBoard () {
 
         // Initialize Piece objects
-        bKing = new King();
-        wKing = new King();
+        bKing = new King(false);
+        wKing = new King(true);
 
-        bQueen = new Queen();
-        wQueen = new Queen();
+        bQueen = new Queen(false);
+        wQueen = new Queen(true);
 
-        bRook1 = new Rook();
-        bRook2 = new Rook();
-        wRook1 = new Rook();
-        wRook2 = new Rook();
+        bRook1 = new Rook(false);
+        bRook2 = new Rook(false);
+        wRook1 = new Rook(true);
+        wRook2 = new Rook(true);
 
-        bKnight1 = new Knight();
-        bKnight2 = new Knight();
-        wKnight1 = new Knight();
-        wKnight2 = new Knight();
+        bKnight1 = new Knight(false);
+        bKnight2 = new Knight(false);
+        wKnight1 = new Knight(true);
+        wKnight2 = new Knight(true);
 
-        bBishop1 = new Bishop();
-        bBishop2 = new Bishop();
-        wBishop1 = new Bishop();
-        wBishop2 = new Bishop();
+        bBishop1 = new Bishop(false);
+        bBishop2 = new Bishop(false);
+        wBishop1 = new Bishop(true);
+        wBishop2 = new Bishop(true);
 
-        bPawn1 = new Pawn();
-        bPawn2 = new Pawn();
-        bPawn3 = new Pawn();
-        bPawn4 = new Pawn();
-        bPawn5 = new Pawn();
-        bPawn6 = new Pawn();
-        bPawn7 = new Pawn();
-        bPawn8 = new Pawn();
+        bPawn1 = new Pawn(false);
+        bPawn2 = new Pawn(false);
+        bPawn3 = new Pawn(false);
+        bPawn4 = new Pawn(false);
+        bPawn5 = new Pawn(false);
+        bPawn6 = new Pawn(false);
+        bPawn7 = new Pawn(false);
+        bPawn8 = new Pawn(false);
 
-        wPawn1 = new Pawn();
-        wPawn2 = new Pawn();
-        wPawn3 = new Pawn();
-        wPawn4 = new Pawn();
-        wPawn5 = new Pawn();
-        wPawn6 = new Pawn();
-        wPawn7 = new Pawn();
-        wPawn8 = new Pawn();
+        wPawn1 = new Pawn(true);
+        wPawn2 = new Pawn(true);
+        wPawn3 = new Pawn(true);
+        wPawn4 = new Pawn(true);
+        wPawn5 = new Pawn(true);
+        wPawn6 = new Pawn(true);
+        wPawn7 = new Pawn(true);
+        wPawn8 = new Pawn(true);
 
 
         // Store where pieces will be in starting position
@@ -219,6 +219,16 @@ public class MainActivity2 extends AppCompatActivity {
         BoardPieceSlots[5][7] = (TextView) findViewById(R.id.R57);
         BoardPieceSlots[6][7] = (TextView) findViewById(R.id.R67);
         BoardPieceSlots[7][7] = (TextView) findViewById(R.id.R77);
+
+
+        // Place piece images on the board
+        for (int i = 0; i < 8; i++) {
+
+            for (int j = 0; j < 8; j++) {
+
+                
+            }
+        }
     }
 
     @Override
