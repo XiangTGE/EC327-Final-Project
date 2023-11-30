@@ -5,12 +5,15 @@
 
     <!-- Menu Fragment Strings -->
     <string name="menu_fragment_label">Menu</string>
-    <string name="title">Chess</string>
+    <string name="title">TREASURE CHESS</string>
+    <string name="group_name">Binary Bishops</string>
     <string name="play">Play</string>
 
 
     <!-- Board Fragment Strings -->
     <string name="board_fragment_label">Board</string>
     <string name="chess_board_description">Chess Board</string>
+    <string name="player1">Player 1</string>
+    <string name="player2">Player 2</string>
 
 </resources>

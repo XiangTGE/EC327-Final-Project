@@ -15,21 +15,17 @@
             android:id="@id/play_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:shadowColor="@color/colorBoardDark"
+            android:backgroundTint="@android:color/black"
             android:text="@string/play"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            tools:rippleColor="#B53D3D"
-            tools:textColor="@color/black"
-            />
-
-
+            tools:textColor="@color/white" />
 
 
         <TextView
             android:id="@+id/title_text"
-            android:layout_width="110dp"
+            android:layout_width="300dp"
             android:layout_height="83dp"
             android:layout_marginBottom="20dp"
             android:text="@string/title"
@@ -37,6 +33,7 @@
             android:textSize="34sp"
             app:layout_constraintBottom_toTopOf="@id/menu_pic"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -45,6 +42,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="66dp"
+            android:cropToPadding="true"
             android:src="@drawable/chesspieces"
             app:layout_constraintBottom_toTopOf="@+id/play_button"
             app:layout_constraintEnd_toEndOf="parent"
