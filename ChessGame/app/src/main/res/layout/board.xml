@@ -1,13 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/background_image"
-    tools:context=".Board">
-
     <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="16dp">
@@ -15,23 +10,21 @@
 
         <!-- Chess board grid layout -->
         <GridLayout
-            android:id="@+id/gridLayout2"
+            android:id="@+id/boardTiles"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="100dp"
             android:columnCount="8"
             android:rowCount="8"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
 
             <TextView
                 android:id="@+id/R000"
                 android:layout_width="43dp"
                 android:layout_height="43dp"
-                android:background="@color/colorBoardDark"
-                />
+                android:background="@color/colorBoardDark" />
 
             <TextView
                 android:id="@+id/R010"
@@ -416,16 +409,15 @@
 
         <!-- Separate grid to place the pieces (they will be on the background of the textViews -->
         <GridLayout
-            android:id="@+id/gridLayout"
+            android:id="@+id/boardSlots"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="100dp"
             android:columnCount="8"
             android:rowCount="8"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
 
             <TextView
                 android:id="@+id/R00"
@@ -861,7 +853,7 @@
 
             <TextView
                 android:id="@+id/R06"
-                android:layout_width="43dp"
+                android:layout_width="45dp"
                 android:layout_height="43dp"
                 android:clickable="true"
                 android:elevation="1dp"
@@ -924,6 +916,15 @@
 
             <TextView
                 android:id="@+id/R76"
+                android:layout_width="43dp"
+                android:layout_height="43dp"
+                android:clickable="true"
+                android:elevation="1dp"
+                android:longClickable="false"
+                android:onClick="onClick" />
+
+            <TextView
+                android:id="@+id/R07"
                 android:layout_width="43dp"
                 android:layout_height="43dp"
                 android:clickable="true"
@@ -996,6 +997,3 @@
         </GridLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-</androidx.core.widget.NestedScrollView>
