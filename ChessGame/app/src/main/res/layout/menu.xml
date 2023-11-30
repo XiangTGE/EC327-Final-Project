@@ -15,10 +15,17 @@
             android:id="@id/play_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:shadowColor="@color/colorBoardDark"
             android:text="@string/play"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            tools:rippleColor="#B53D3D"
+            tools:textColor="@color/black"
+            />
+
+
+
 
         <TextView
             android:id="@+id/title_text"
@@ -38,7 +45,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="66dp"
-            android:src="@drawable/chessPieces"
+            android:src="@drawable/chesspieces"
             app:layout_constraintBottom_toTopOf="@+id/play_button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

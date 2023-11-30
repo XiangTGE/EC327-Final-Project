@@ -401,7 +401,7 @@
 
             <TextView
                 android:id="@+id/R057"
-                android:layout_width="43dp"
+                android:layout_width="41dp"
                 android:layout_height="43dp"
                 android:background="@color/colorBoardDark" />
 
