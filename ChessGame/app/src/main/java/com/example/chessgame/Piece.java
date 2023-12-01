@@ -294,7 +294,7 @@ class Bishop extends Piece
 class Queen extends Piece
 {
     public Queen(boolean color) {
-        
+
         super(color);
         type = "Queen";
     }
