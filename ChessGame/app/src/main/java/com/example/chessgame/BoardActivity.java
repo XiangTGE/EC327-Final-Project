@@ -598,12 +598,16 @@ public class BoardActivity extends AppCompatActivity {
                     boolean isValidMove = clickedPiece.isValidMove(StartCoordinate, EndCoordinate);
                     if(isValidMove)
                     {
-                        if(!clickedPiece.isChecked && !clickedPiece.isCheckmated)
+                        boolean check = isKinginCheck(clickedPiece.isWhite());
+                        if(!check)
                         {
                             game.movePiece(StartCoordinate, EndCoordinate);
                             turn = !turn;
                         }
-                        
+                        else
+                        {
+                            error("King is in check!");
+                        }
                     }
                 }
                 else if(clickedPiece.isWhite() != selectedPiece.isWhite())
