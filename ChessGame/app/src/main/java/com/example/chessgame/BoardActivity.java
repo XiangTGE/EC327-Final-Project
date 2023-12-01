@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 
-public class MainActivity2 extends AppCompatActivity {
+public class BoardActivity extends AppCompatActivity {
 
     //public TextView[][] BoardTiles = new TextView[8][8];
     public TextView[][] BoardPieceSlots = new TextView[8][8];                                        // Stores where proper piece images should be placed
