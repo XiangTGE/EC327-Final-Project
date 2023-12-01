@@ -24,6 +24,8 @@ public class Piece {
         int yPos = yNewPos;
         boolean hasMoved = false;
     }
+
+
     public boolean isValidMove(int xNewPos, int yNewPos)
     {
         //check if move is valid
