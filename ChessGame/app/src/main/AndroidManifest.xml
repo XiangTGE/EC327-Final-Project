@@ -32,6 +32,19 @@
             android:name=".MainActivity2"
             android:exported="false"
             android:label="MainActivity2" />
+
+        <!-- InfoActivity for creating info screen -->
+        <activity
+            android:name=".InfoActivity"
+            android:label="InfoActivity"
+            android:exported="true">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
     </application>
 
 </manifest>
