@@ -221,18 +221,13 @@ public class BoardActivity extends AppCompatActivity {
         BoardPieceSlots[7][7] = (TextView) findViewById(R.id.R77);
 
 
-        // Place piece images on the board
-        for (int i = 0; i < 8; i++) {
-
-            for (int j = 0; j < 8; j++) {
-
-                
-            }
-        }
+        // Place piece images on the board, assuming that the proper piece
+        // positions are already recorded in BoardPositions
+        setBoard();
     }
 
 
-    // Set pieces on board according to
+    // Refreshes the board positions based on what is in BoardPositions
     private void setBoard() {
 
         for (int i = 0; i < 8; i++) {
@@ -241,7 +236,7 @@ public class BoardActivity extends AppCompatActivity {
                 Piece p = BoardPositions[i][j];
                 int x;
 
-                if (Board[i][j].getPiece() != null) {
+                if (BoardPositions[i][j] != null) {
                     if (p instanceof King) x = 0;
                     else if (p instanceof Queen) x = 1;
                     else if (p instanceof Rook) x = 2;
@@ -253,49 +248,49 @@ public class BoardActivity extends AppCompatActivity {
                     switch (x) {
                         case 0:
                             if (p.isWhite()) {
-                                DisplayBoard[i][j].setBackgroundResource(R.drawable.wking);
+                                BoardPieceSlots[i][j].setBackgroundResource(R.drawable.wking);
                             } else {
-                                DisplayBoard[i][j].setBackgroundResource(R.drawable.bking);
+                                BoardPieceSlots[i][j].setBackgroundResource(R.drawable.bking);
                             }
                             break;
 
                         case 1:
                             if (p.isWhite()) {
-                                DisplayBoard[i][j].setBackgroundResource(R.drawable.wqueen);
+                                BoardPieceSlots[i][j].setBackgroundResource(R.drawable.wqueen);
                             } else {
-                                DisplayBoard[i][j].setBackgroundResource(R.drawable.bqueen);
+                                BoardPieceSlots[i][j].setBackgroundResource(R.drawable.bqueen);
                             }
                             break;
 
                         case 2:
                             if (p.isWhite()) {
-                                DisplayBoard[i][j].setBackgroundResource(R.drawable.wrook);
+                                BoardPieceSlots[i][j].setBackgroundResource(R.drawable.wrook);
                             } else {
-                                DisplayBoard[i][j].setBackgroundResource(R.drawable.brook);
+                                BoardPieceSlots[i][j].setBackgroundResource(R.drawable.brook);
                             }
                             break;
 
                         case 3:
                             if (p.isWhite()) {
-                                DisplayBoard[i][j].setBackgroundResource(R.drawable.wbishop);
+                                BoardPieceSlots[i][j].setBackgroundResource(R.drawable.wbishop);
                             } else {
-                                DisplayBoard[i][j].setBackgroundResource(R.drawable.bbishop);
+                                BoardPieceSlots[i][j].setBackgroundResource(R.drawable.bbishop);
                             }
                             break;
 
                         case 4:
                             if (p.isWhite()) {
-                                DisplayBoard[i][j].setBackgroundResource(R.drawable.wknight);
+                                BoardPieceSlots[i][j].setBackgroundResource(R.drawable.wknight);
                             } else {
-                                DisplayBoard[i][j].setBackgroundResource(R.drawable.bknight);
+                                BoardPieceSlots[i][j].setBackgroundResource(R.drawable.bknight);
                             }
                             break;
 
                         case 5:
                             if (p.isWhite()) {
-                                DisplayBoard[i][j].setBackgroundResource(R.drawable.wpawn);
+                                BoardPieceSlots[i][j].setBackgroundResource(R.drawable.wpawn);
                             } else {
-                                DisplayBoard[i][j].setBackgroundResource(R.drawable.bpawn);
+                                BoardPieceSlots[i][j].setBackgroundResource(R.drawable.bpawn);
                             }
                             break;
 
@@ -303,11 +298,11 @@ public class BoardActivity extends AppCompatActivity {
 
                     }
                 }else{
-                    DisplayBoard[i][j].setBackgroundResource(0);
+                    BoardPieceSlots[i][j].setBackgroundResource(0);
                 }
             }
         }
-        isKingInDanger();
+        //isKingInDanger();
     }
 
     @Override
