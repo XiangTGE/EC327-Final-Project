@@ -68,7 +68,7 @@ public class Piece {
         return color;
     }
 
-    
+
 }
 
 class Pawn extends Piece
@@ -467,41 +467,57 @@ class King extends Piece
     public boolean isValidMove(int xNewPos, int yNewPos)
     {
         //check if move is valid
-        if(xNewPos == xPos + 1 && yNewPos == yPos + 1)
+        if(!isChecked && !isCheckmated)
         {
-            return true;
+            if(xNewPos == xPos + 1 && yNewPos == yPos + 1)
+            {
+                return true;
+            }
+            else if(xNewPos == xPos + 1 && yNewPos == yPos - 1)
+            {
+                return true;
+            }
+            else if(xNewPos == xPos - 1 && yNewPos == yPos + 1)
+            {
+                return true;
+            }
+            else if(xNewPos == xPos - 1 && yNewPos == yPos - 1)
+            {
+                return true;
+            }
+            else if(xNewPos == xPos && yNewPos == yPos + 1)
+            {
+                return true;
+            }
+            else if(xNewPos == xPos && yNewPos == yPos - 1)
+            {
+                return true;
+            }
+            else if(xNewPos == xPos + 1 && yNewPos == yPos)
+            {
+                return true;
+            }
+            else if(xNewPos == xPos - 1 && yNewPos == yPos)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
-        else if(xNewPos == xPos + 1 && yNewPos == yPos - 1)
-        {
-            return true;
-        }
-        else if(xNewPos == xPos - 1 && yNewPos == yPos + 1)
-        {
-            return true;
-        }
-        else if(xNewPos == xPos - 1 && yNewPos == yPos - 1)
-        {
-            return true;
-        }
-        else if(xNewPos == xPos && yNewPos == yPos + 1)
-        {
-            return true;
-        }
-        else if(xNewPos == xPos && yNewPos == yPos - 1)
-        {
-            return true;
-        }
-        else if(xNewPos == xPos + 1 && yNewPos == yPos)
-        {
-            return true;
-        }
-        else if(xNewPos == xPos - 1 && yNewPos == yPos)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        // else if(isChecked && !isCheckmated)
+        // {
+        //     //add functionailty for checking if king is in check and then moving it out
+        //     return true; //delete this later
+        // }
+        // else if(isCheckmated)
+        // {
+        //     //add functionality for checking if king is in checkmate and ending game
+        //     return false; //delete this later
+        // }
+        else return false;
     }
+
+
 }

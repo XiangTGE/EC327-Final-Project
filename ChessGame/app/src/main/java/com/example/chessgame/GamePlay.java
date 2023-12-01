@@ -3,6 +3,7 @@ package com.example.chessgame;
 public class GamePlay {
 
     public Piece[][] BoardPositions = new Piece[8][8];                                              // Stores the positions of pieces
+    public boolean turn = 1; //Game starts with white
 
     // Declare Piece objects
     Piece bKing;
@@ -55,6 +56,8 @@ public class GamePlay {
 
         move = 0;
         initializeBoard();
+
+        
     }
 
 
