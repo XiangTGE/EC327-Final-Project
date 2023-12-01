@@ -67,6 +67,8 @@ public class Piece {
 
         return color;
     }
+
+    
 }
 
 class Pawn extends Piece

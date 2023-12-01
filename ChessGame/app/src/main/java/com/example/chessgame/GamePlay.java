@@ -4,7 +4,6 @@ public class GamePlay {
 
     public Piece[][] BoardPositions = new Piece[8][8];                                              // Stores the positions of pieces
 
-
     // Declare Piece objects
     Piece bKing;
     Piece wKing;

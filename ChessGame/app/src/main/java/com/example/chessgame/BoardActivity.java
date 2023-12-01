@@ -172,6 +172,28 @@ public class BoardActivity extends AppCompatActivity {
         // Place piece images on the board, assuming that the proper piece
         // positions are already recorded in BoardPositions
         setBoard(game.getBoardPositions());
+
+
+
+        // Set up listeners for each tile
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                BoardPieceSlots[i][j].setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        for (int i = 0; i < 8; i++) {
+                            for (int j = 0; j < 8; j++) {
+                                if (v == BoardPieceSlots[i][j]) {
+                                    // The piece at BoardPositions[i][j] was clicked
+                                    Piece clickedPiece = BoardPositions[i][j];
+                                    // Do something with clickedPiece
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+        }
     }
 
 
@@ -534,7 +556,7 @@ public class BoardActivity extends AppCompatActivity {
 
             StartCoordinate[0] = row;
             StartCoordinate[1] = col;
-            BoardPieceSlots[row][col]
+            //BoardPieceSlots[row][col];
         } else {
 
             EndCoordinate[0] = row;
@@ -557,7 +579,32 @@ public class BoardActivity extends AppCompatActivity {
         // Get the game going!
         while (!game.gameOver()) {
 
-
+            // Get user input
+            if(clickedPiece.isWhite() == game.isWhiteTurn()) {
+                // Do something with clickedPiece
+                Piece selectedPiece = clickedPiece;
+                if(clickedPiece == null)
+                {
+                    boolean isValidMove = clickedPiece.isValidMove(StartCoordinate, EndCoordinate);
+                    if(isValidMove)
+                    {
+                        game.movePiece(StartCoordinate, EndCoordinate);
+                    }
+                }
+                else if(clickedPiece.isWhite() != selectedPiece.isWhite())
+                {
+                    boolean isValidMove = clickedPiece.isValidMove(StartCoordinate, EndCoordinate);
+                    if(isValidMove)
+                    {
+                        game.movePiece(StartCoordinate, EndCoordinate);
+                        clickedPiece.kill();
+                    }
+                }
+            }
+            else
+            {
+                error("Not your turn!");
+            }
 
             // 
 
