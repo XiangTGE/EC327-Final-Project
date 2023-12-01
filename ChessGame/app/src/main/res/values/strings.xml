@@ -22,4 +22,7 @@
         This pirate-themed chess app by Binary Bishops (Memo Ortega, Alex Melnick, Steven Hopkins, and Xiang Jin)
         was conceived as a means to learn about Android app development and Java for a Software Engineering course at Boston University.</string>
 
+    <!-- Miscellaneous Strings -->
+    <string name="back">Back</string>
+
 </resources>

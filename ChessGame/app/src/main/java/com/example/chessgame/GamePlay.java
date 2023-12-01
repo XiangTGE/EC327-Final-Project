@@ -46,6 +46,11 @@ public class GamePlay {
     Piece wPawn8;
 
 
+    // Game parameters
+    int move = 0;                                                                                   // Stores the move number (even is white's turn,
+                                                                                                    // odd is black's turn)
+
+
     // Set up board, start the game
     public GamePlay () {
 
@@ -148,5 +153,21 @@ public class GamePlay {
     public Piece[][] getBoardPositions () {
 
         return BoardPositions;
+    }
+
+
+    // Rerun game
+    public void rerunGame () {
+
+        initializeBoard();
+    }
+
+
+    // Check game over status
+    public boolean gameOver () {
+
+        // Determine if game is over, true if yes, false if no
+        //Default return for now (CHANGE THIS LATER!!!!)
+        return true;
     }
 }

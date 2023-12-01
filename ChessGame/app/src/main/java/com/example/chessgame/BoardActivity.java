@@ -178,12 +178,18 @@ public class BoardActivity extends AppCompatActivity {
     // Run the game, melds back-end and front-end
     void runGame () {
 
-        // Set up the board (ONLY RUNS ONCE!!)
+        // Set up the board (ONLY RUNS ONCE!!) in UI
         setUpBoard();
 
 
-        // Refresh board - set up board pieces
-        setBoard(game.getBoardPositions());
+        // Get the game going!
+        while (!game.gameOver()) {
+
+
+
+            // Refresh board - set up board pieces
+            setBoard(game.getBoardPositions());
+        }
     }
 
 
@@ -201,5 +207,8 @@ public class BoardActivity extends AppCompatActivity {
 
         // Run the game
         runGame();
+
+
+        // Determine if user wants to play again? (lower priority issue)
     }
 }
