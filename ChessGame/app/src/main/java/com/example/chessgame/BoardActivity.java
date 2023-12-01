@@ -4,15 +4,18 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.widget.TextView;
+import android.view.View;
 
 
 public class BoardActivity extends AppCompatActivity {
 
-    //public TextView[][] BoardTiles = new TextView[8][8];
     public TextView[][] BoardPieceSlots = new TextView[8][8];                                       // Stores where proper piece images should be placed
+    public int[] StartCoordinate = new int[2];                                                      // Stores coordinates where piece may be
+    public int[] EndCoordinate = new int[2];                                                        // Stores coordinates where piece may go
+    public int tapNumber;                                                                           // Stores what "number" tap the users have done, odd number
+                                                                                                    // means it is a start coordinate, even means it is an end coordinate
     GamePlay game;                                                                                  // GamePlay object to keep track of game operations
                                                                                                     // in the background
-
 
     // Set up board (UI)
     private void setUpBoard () {
@@ -82,7 +85,7 @@ public class BoardActivity extends AppCompatActivity {
         BoardPieceSlots[7][6] = (TextView) findViewById(R.id.R76);
 
         BoardPieceSlots[0][7] = (TextView) findViewById(R.id.R07);
-        BoardPieceSlots[1][7] = (TextView) findViewById(R.id.R07);
+        BoardPieceSlots[1][7] = (TextView) findViewById(R.id.R17);
         BoardPieceSlots[2][7] = (TextView) findViewById(R.id.R27);
         BoardPieceSlots[3][7] = (TextView) findViewById(R.id.R37);
         BoardPieceSlots[4][7] = (TextView) findViewById(R.id.R47);
@@ -175,6 +178,299 @@ public class BoardActivity extends AppCompatActivity {
         //isKingInDanger();
     }
 
+
+    // Get user input from tapping a tile and tapping another tile
+    @Override
+    public void onClick(View v) {
+
+        int col;
+        int row;
+
+
+        switch (v.getId()) {
+            case R.id.R00:
+                col = 0;
+                row = 0;
+                break;
+            case R.id.R10:
+                col = 1;
+                row = 0;
+                break;
+            case R.id.R20:
+                col = 2;
+                row = 0;
+                break;
+            case R.id.R30:
+                col = 3;
+                row = 0;
+                break;
+            case R.id.R40:
+                col = 4;
+                row = 0;
+                break;
+            case R.id.R50:
+                col = 5;
+                row = 0;
+                break;
+            case R.id.R60:
+                col = 6;
+                row = 0;
+                break;
+            case R.id.R70:
+                col = 7;
+                row = 0;
+                break;
+
+            case R.id.R01:
+                col = 0;
+                row = 1;
+                break;
+            case R.id.R11:
+                col = 1;
+                row = 1;
+                break;
+            case R.id.R21:
+                col = 2;
+                row = 1;
+                break;
+            case R.id.R31:
+                col = 3;
+                row = 1;
+                break;
+            case R.id.R41:
+                col = 4;
+                row = 1;
+                break;
+            case R.id.R51:
+                col = 5;
+                row = 1;
+                break;
+            case R.id.R61:
+                col = 6;
+                row = 1;
+                break;
+            case R.id.R71:
+                col = 7;
+                row = 1;
+                break;
+
+            case R.id.R02:
+                col = 0;
+                row = 2;
+                break;
+            case R.id.R12:
+                col = 1;
+                row = 2;
+                break;
+            case R.id.R22:
+                col = 2;
+                row = 2;
+                break;
+            case R.id.R32:
+                col = 3;
+                row = 2;
+                break;
+            case R.id.R42:
+                col = 4;
+                row = 2;
+                break;
+            case R.id.R52:
+                col = 5;
+                row = 2;
+                break;
+            case R.id.R62:
+                col = 6;
+                row = 2;
+                break;
+            case R.id.R72:
+                col = 7;
+                row = 2;
+                break;
+
+            case R.id.R03:
+                col = 0;
+                row = 3;
+                break;
+            case R.id.R13:
+                col = 1;
+                row = 3;
+                break;
+            case R.id.R23:
+                col = 2;
+                row = 3;
+                break;
+            case R.id.R33:
+                col = 3;
+                row = 3;
+                break;
+            case R.id.R43:
+                col = 4;
+                row = 3;
+                break;
+            case R.id.R53:
+                col = 5;
+                row = 3;
+                break;
+            case R.id.R63:
+                col = 6;
+                row = 3;
+                break;
+            case R.id.R73:
+                col = 7;
+                row = 3;
+                break;
+
+            case R.id.R04:
+                col = 0;
+                row = 4;
+                break;
+            case R.id.R14:
+                col = 1;
+                row = 4;
+                break;
+            case R.id.R24:
+                col = 2;
+                row = 4;
+                break;
+            case R.id.R34:
+                col = 3;
+                row = 4;
+                break;
+            case R.id.R44:
+                col = 4;
+                row = 4;
+                break;
+            case R.id.R54:
+                col = 5;
+                row = 4;
+                break;
+            case R.id.R64:
+                col = 6;
+                row = 4;
+                break;
+            case R.id.R74:
+                col = 7;
+                row = 4;
+                break;
+
+            case R.id.R05:
+                col = 0;
+                row = 5;
+                break;
+            case R.id.R15:
+                col = 1;
+                row = 5;
+                break;
+            case R.id.R25:
+                col = 2;
+                row = 5;
+                break;
+            case R.id.R35:
+                col = 3;
+                row = 5;
+                break;
+            case R.id.R45:
+                col = 4;
+                row = 5;
+                break;
+            case R.id.R55:
+                col = 5;
+                row = 5;
+                break;
+            case R.id.R65:
+                col = 6;
+                row = 5;
+                break;
+            case R.id.R75:
+                col = 7;
+                row = 5;
+                break;
+
+            case R.id.R06:
+                col = 0;
+                row = 6;
+                break;
+            case R.id.R16:
+                col = 1;
+                row = 6;
+                break;
+            case R.id.R26:
+                col = 2;
+                row = 6;
+                break;
+            case R.id.R36:
+                col = 3;
+                row = 6;
+                break;
+            case R.id.R46:
+                col = 4;
+                row = 6;
+                break;
+            case R.id.R56:
+                col = 5;
+                row = 6;
+                break;
+            case R.id.R66:
+                col = 6;
+                row = 6;
+                break;
+            case R.id.R76:
+                col = 7;
+                row = 6;
+                break;
+
+            case R.id.R07:
+                col = 0;
+                row = 7;
+                break;
+            case R.id.R17:
+                col = 1;
+                row = 7;
+                break;
+            case R.id.R27:
+                col = 2;
+                row = 7;
+                break;
+            case R.id.R37:
+                col = 3;
+                row = 7;
+                break;
+            case R.id.R47:
+                col = 4;
+                row = 7;
+                break;
+            case R.id.R57:
+                col = 5;
+                row = 7;
+                break;
+            case R.id.R67:
+                col = 6;
+                row = 7;
+                break;
+            case R.id.R77:
+                col = 7;
+                row = 7;
+                break;
+        }
+
+
+        // Determine whether tap refers to StartCoordinate or EndCoordinate
+        if (tapNumber % 2 != 0) {
+
+            StartCoordinate[0] = row;
+            StartCoordinate[1] = col;
+        } else {
+
+            EndCoordinate[0] = row;
+            EndCoordinate[1] = col;
+        }
+
+
+        // Update tap number
+        tapNumber++;
+    }
+
+
     // Run the game, melds back-end and front-end
     void runGame () {
 
@@ -184,6 +480,7 @@ public class BoardActivity extends AppCompatActivity {
 
         // Get the game going!
         while (!game.gameOver()) {
+
 
 
 

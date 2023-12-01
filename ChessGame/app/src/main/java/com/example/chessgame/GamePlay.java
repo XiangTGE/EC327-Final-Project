@@ -47,13 +47,14 @@ public class GamePlay {
 
 
     // Game parameters
-    int move = 0;                                                                                   // Stores the move number (even is white's turn,
+    int move;                                                                                       // Stores the move number (even is white's turn,
                                                                                                     // odd is black's turn)
 
 
     // Set up board, start the game
     public GamePlay () {
 
+        move = 0;
         initializeBoard();
     }
 
