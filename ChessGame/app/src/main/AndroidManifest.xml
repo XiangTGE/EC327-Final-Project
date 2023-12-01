@@ -27,9 +27,9 @@
 
         </activity>
 
-        <!-- MainActivity2 for creating board screen -->
+        <!-- BoardActivity for creating board screen -->
         <activity
-            android:name=".MainActivity2"
+            android:name=".BoardActivity"
             android:exported="false"
             android:label="MainActivity2" />
 
