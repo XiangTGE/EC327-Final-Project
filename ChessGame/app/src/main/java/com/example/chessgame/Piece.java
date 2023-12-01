@@ -43,6 +43,13 @@ public class Piece {
         int position[] = {xPos, yPos};
         return position;
     }
+
+
+    // Get color of piece (1 if white, 0 if black)
+    boolean isWhite () {
+
+        return color;
+    }
 }
 
 class Pawn extends Piece
