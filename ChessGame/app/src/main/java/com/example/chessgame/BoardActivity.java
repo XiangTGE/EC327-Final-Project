@@ -9,6 +9,7 @@ import android.view.View;
 
 public class BoardActivity extends AppCompatActivity {
 
+    public TextView[][] BoardTiles = new TextView[8][8];                                            // Stores ids of board tiles
     public TextView[][] BoardPieceSlots = new TextView[8][8];                                       // Stores where proper piece images should be placed
     public int[] StartCoordinate = new int[2];                                                      // Stores coordinates where piece may be
     public int[] EndCoordinate = new int[2];                                                        // Stores coordinates where piece may go
@@ -19,6 +20,80 @@ public class BoardActivity extends AppCompatActivity {
 
     // Set up board (UI)
     private void setUpBoard () {
+
+        // Initialize where each slot
+        BoardTiles[0][0] = (TextView) findViewById(R.id.R000);
+        BoardTiles[1][0] = (TextView) findViewById(R.id.R010);
+        BoardTiles[2][0] = (TextView) findViewById(R.id.R020);
+        BoardTiles[3][0] = (TextView) findViewById(R.id.R030);
+        BoardTiles[4][0] = (TextView) findViewById(R.id.R040);
+        BoardTiles[5][0] = (TextView) findViewById(R.id.R050);
+        BoardTiles[6][0] = (TextView) findViewById(R.id.R060);
+        BoardTiles[7][0] = (TextView) findViewById(R.id.R070);
+
+        BoardTiles[0][1] = (TextView) findViewById(R.id.R001);
+        BoardTiles[1][1] = (TextView) findViewById(R.id.R011);
+        BoardTiles[2][1] = (TextView) findViewById(R.id.R021);
+        BoardTiles[3][1] = (TextView) findViewById(R.id.R031);
+        BoardTiles[4][1] = (TextView) findViewById(R.id.R041);
+        BoardTiles[5][1] = (TextView) findViewById(R.id.R051);
+        BoardTiles[6][1] = (TextView) findViewById(R.id.R061);
+        BoardTiles[7][1] = (TextView) findViewById(R.id.R071);
+
+        BoardTiles[0][2] = (TextView) findViewById(R.id.R002);
+        BoardTiles[1][2] = (TextView) findViewById(R.id.R012);
+        BoardTiles[2][2] = (TextView) findViewById(R.id.R022);
+        BoardTiles[3][2] = (TextView) findViewById(R.id.R032);
+        BoardTiles[4][2] = (TextView) findViewById(R.id.R042);
+        BoardTiles[5][2] = (TextView) findViewById(R.id.R052);
+        BoardTiles[6][2] = (TextView) findViewById(R.id.R062);
+        BoardTiles[7][2] = (TextView) findViewById(R.id.R072);
+
+        BoardTiles[0][3] = (TextView) findViewById(R.id.R003);
+        BoardTiles[1][3] = (TextView) findViewById(R.id.R013);
+        BoardTiles[2][3] = (TextView) findViewById(R.id.R023);
+        BoardTiles[3][3] = (TextView) findViewById(R.id.R033);
+        BoardTiles[4][3] = (TextView) findViewById(R.id.R043);
+        BoardTiles[5][3] = (TextView) findViewById(R.id.R053);
+        BoardTiles[6][3] = (TextView) findViewById(R.id.R063);
+        BoardTiles[7][3] = (TextView) findViewById(R.id.R073);
+
+        BoardTiles[0][4] = (TextView) findViewById(R.id.R004);
+        BoardTiles[1][4] = (TextView) findViewById(R.id.R014);
+        BoardTiles[2][4] = (TextView) findViewById(R.id.R024);
+        BoardTiles[3][4] = (TextView) findViewById(R.id.R034);
+        BoardTiles[4][4] = (TextView) findViewById(R.id.R044);
+        BoardTiles[5][4] = (TextView) findViewById(R.id.R054);
+        BoardTiles[6][4] = (TextView) findViewById(R.id.R064);
+        BoardTiles[7][4] = (TextView) findViewById(R.id.R074);
+
+        BoardTiles[0][5] = (TextView) findViewById(R.id.R005);
+        BoardTiles[1][5] = (TextView) findViewById(R.id.R015);
+        BoardTiles[2][5] = (TextView) findViewById(R.id.R025);
+        BoardTiles[3][5] = (TextView) findViewById(R.id.R035);
+        BoardTiles[4][5] = (TextView) findViewById(R.id.R045);
+        BoardTiles[5][5] = (TextView) findViewById(R.id.R055);
+        BoardTiles[6][5] = (TextView) findViewById(R.id.R065);
+        BoardTiles[7][5] = (TextView) findViewById(R.id.R075);
+
+        BoardTiles[0][6] = (TextView) findViewById(R.id.R006);
+        BoardTiles[1][6] = (TextView) findViewById(R.id.R016);
+        BoardTiles[2][6] = (TextView) findViewById(R.id.R026);
+        BoardTiles[3][6] = (TextView) findViewById(R.id.R036);
+        BoardTiles[4][6] = (TextView) findViewById(R.id.R046);
+        BoardTiles[5][6] = (TextView) findViewById(R.id.R056);
+        BoardTiles[6][6] = (TextView) findViewById(R.id.R066);
+        BoardTiles[7][6] = (TextView) findViewById(R.id.R076);
+
+        BoardTiles[0][7] = (TextView) findViewById(R.id.R007);
+        BoardTiles[1][7] = (TextView) findViewById(R.id.R017);
+        BoardTiles[2][7] = (TextView) findViewById(R.id.R027);
+        BoardTiles[3][7] = (TextView) findViewById(R.id.R037);
+        BoardTiles[4][7] = (TextView) findViewById(R.id.R047);
+        BoardTiles[5][7] = (TextView) findViewById(R.id.R057);
+        BoardTiles[6][7] = (TextView) findViewById(R.id.R067);
+        BoardTiles[7][7] = (TextView) findViewById(R.id.R077);
+
 
         // Initialize where each slot is, place them in the array for easy access
         BoardPieceSlots[0][0] = (TextView) findViewById(R.id.R00);
@@ -459,6 +534,7 @@ public class BoardActivity extends AppCompatActivity {
 
             StartCoordinate[0] = row;
             StartCoordinate[1] = col;
+            BoardPieceSlots[row][col]
         } else {
 
             EndCoordinate[0] = row;
@@ -482,6 +558,8 @@ public class BoardActivity extends AppCompatActivity {
         while (!game.gameOver()) {
 
 
+
+            // 
 
 
             // Refresh board - set up board pieces
