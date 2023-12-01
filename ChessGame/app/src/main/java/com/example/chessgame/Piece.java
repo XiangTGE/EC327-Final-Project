@@ -1,5 +1,20 @@
 package com.example.chessgame;
+/*
+//////  THINGS TO IMPLEMENT AND/OR CONSIDER///////
+Board refresh function.
+    ** After each move, the board should be refreshed to reflect the new positions of the pieces.
+        This function should be called after each move.
+        This function should also be called when the board is first initialized.
 
+    ** The hasMoved variable should be set to true after a piece has moved ??
+    ** The isAlive variable should be set to false after a piece has been killed ??
+        - Would it make more sense to call a destructor on that object?
+    ** The isAttacking variable should be set to true after a piece has attacked ??
+    ** isBlocked is not fully fleshed out yet.
+        - Should this be folded in to isValidMove?
+
+
+ */
 public class Piece {
     boolean color;
     boolean hasMoved;
@@ -22,7 +37,7 @@ public class Piece {
     {
         int xPos = xNewPos;
         int yPos = yNewPos;
-        boolean hasMoved = false;
+        boolean hasMoved = false; // should hasMoved be set to true here?
     }
     public boolean isValidMove(int xNewPos, int yNewPos)
     {
@@ -108,7 +123,7 @@ class Rook extends Piece
     public boolean isValidMove(int xNewPos, int yNewPos)
     {
         //check if move is valid
-        if(xNewPos == xPos || yNewPos == yPos)
+        if(xNewPos == xPos || yNewPos == yPos) // Also have to consider rook moving to the same location. Can't allow that to happen
         {
             return true;
         }
