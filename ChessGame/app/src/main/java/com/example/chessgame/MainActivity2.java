@@ -231,6 +231,85 @@ public class MainActivity2 extends AppCompatActivity {
         }
     }
 
+
+    // Set pieces on board according to
+    private void setBoard() {
+
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+
+                Piece p = BoardPositions[i][j];
+                int x;
+
+                if (Board[i][j].getPiece() != null) {
+                    if (p instanceof King) x = 0;
+                    else if (p instanceof Queen) x = 1;
+                    else if (p instanceof Rook) x = 2;
+                    else if (p instanceof Bishop) x = 3;
+                    else if (p instanceof Knight) x = 4;
+                    else if (p instanceof Pawn) x = 5;
+                    else x = 6;
+
+                    switch (x) {
+                        case 0:
+                            if (p.isWhite()) {
+                                DisplayBoard[i][j].setBackgroundResource(R.drawable.wking);
+                            } else {
+                                DisplayBoard[i][j].setBackgroundResource(R.drawable.bking);
+                            }
+                            break;
+
+                        case 1:
+                            if (p.isWhite()) {
+                                DisplayBoard[i][j].setBackgroundResource(R.drawable.wqueen);
+                            } else {
+                                DisplayBoard[i][j].setBackgroundResource(R.drawable.bqueen);
+                            }
+                            break;
+
+                        case 2:
+                            if (p.isWhite()) {
+                                DisplayBoard[i][j].setBackgroundResource(R.drawable.wrook);
+                            } else {
+                                DisplayBoard[i][j].setBackgroundResource(R.drawable.brook);
+                            }
+                            break;
+
+                        case 3:
+                            if (p.isWhite()) {
+                                DisplayBoard[i][j].setBackgroundResource(R.drawable.wbishop);
+                            } else {
+                                DisplayBoard[i][j].setBackgroundResource(R.drawable.bbishop);
+                            }
+                            break;
+
+                        case 4:
+                            if (p.isWhite()) {
+                                DisplayBoard[i][j].setBackgroundResource(R.drawable.wknight);
+                            } else {
+                                DisplayBoard[i][j].setBackgroundResource(R.drawable.bknight);
+                            }
+                            break;
+
+                        case 5:
+                            if (p.isWhite()) {
+                                DisplayBoard[i][j].setBackgroundResource(R.drawable.wpawn);
+                            } else {
+                                DisplayBoard[i][j].setBackgroundResource(R.drawable.bpawn);
+                            }
+                            break;
+
+                        default:
+
+                    }
+                }else{
+                    DisplayBoard[i][j].setBackgroundResource(0);
+                }
+            }
+        }
+        isKingInDanger();
+    }
+
     @Override
     protected void onCreate (Bundle savedInstanceState) {
 
