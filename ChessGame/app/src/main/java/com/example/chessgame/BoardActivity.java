@@ -189,7 +189,7 @@ public class BoardActivity extends AppCompatActivity {
         setBoard(game);
 
 
-    /*
+    
         // Set up listeners for each tile
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
@@ -200,15 +200,56 @@ public class BoardActivity extends AppCompatActivity {
                             for (int j = 0; j < 8; j++) {
                                 if (v == BoardPieceSlots[i][j]) {
                                     // The piece at BoardPositions[i][j] was clicked
-                                    Piece clickedPiece = BoardPositions[i][j];
-                                    // Do something with clickedPiece
+
+                                    // Feed coordinate to back-end
+                                    game.handleCoordinates(i, j);
+
+
+                                    // Check if this is a valid tap, display proper messages if not
+                                    if (!game.validCoordinates()) {
+
+                                        // Display error message
+                                        if (game.isWhiteTurn()) {
+
+                                            WhiteInvalidMoveMsg.setVisibility(View.VISIBLE);
+                                        } else {
+
+                                            BlackInvalidMoveMsg.setVisibility(View.VISIBLE);
+                                        }
+
+                                        // Refresh board tiles
+                                        refreshBoardTiles();
+                                    } else {
+
+                                        // Erase error messages that might have been there from previous taps
+                                        WhiteInvalidMoveMsg.setVisibility(View.INVISIBLE);
+                                        BlackInvalidMoveMsg.setVisibility(View.INVISIBLE);
+
+                                        // Check if a move has been made; if so, then update board positions
+                                        if (game.isValidStartTap()) {
+
+                                            // Highlight tile tapped
+                                            BoardPieceSlots[i][j].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.light_green));
+                                        } else {
+
+                                            // If we are here, a move should have been made by GamePlay
+                                            if (game.isValidMoveMade()) {
+
+                                                // Update board positions
+                                                setBoard(game);
+
+                                                // Refresh board tiles
+                                                refreshBoardTiles();
+                                            }
+                                        }
+                                    }
                                 }
                             }
                         }
                     }
                 });
             }
-        }*/
+        }
     }
 
 

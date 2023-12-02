@@ -8,6 +8,9 @@ public class GamePlay {
     public int[] StartCoordinates = new int[2];                                                     // Start coordinate (piece to move)
     public int[] EndCoordinates = new int[2];                                                       // End coordinate (place to move to)
     public boolean coordinatesValid;                                                                // Flags whether an entered coordinate was valid
+    public boolean validStartTap;                                                                   // Flags whether a valid start tap has been made by a player
+    public boolean validMoveMade;                                                                   // Flags whether a valid move has been made by a player,
+                                                                                                    // BoardPositions updated accordingly
 
 
     // Declare Piece objects
@@ -176,7 +179,51 @@ public class GamePlay {
 
 
         }
+
+        // Determine if the tap associated with those coordinates are valid
+        // Update coordinatesValid flag
+
+
+        // Update whether that was a valid tap that was also a "Start Tap"
+        // Update validStartTap flag
     }
+
+
+    // Return boolean indicating whether it is white's turn (true if yes, false otherwise)
+    public boolean isWhiteTurn () {
+
+        return whiteTurn;
+    }
+
+
+    // Returns whether a "Start Tap" has been made, reset flag to false once it is called
+    public boolean isValidStartTap () {
+
+        if (validStartTap) {
+
+            validStartTap = false;
+            return true;
+        } else {
+
+            return false;
+        }
+    }
+
+
+    // Returns whether a move has recently been made (let's UI know to update board positions)
+    // Resets validMoveMade flag to false when called
+    public boolean isValidMoveMade () {
+
+        if (validMoveMade) {
+
+            validMoveMade = false;
+            return true;
+        } else {
+
+            return false;
+        }
+    }
+
 
 
     // Return whether coordinates valid
