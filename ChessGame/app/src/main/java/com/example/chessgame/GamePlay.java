@@ -12,6 +12,8 @@ public class GamePlay {
                                                                                                     // BoardPositions updated accordingly
     public int gameEndState;                                                                        // 1 if white won, -1 if black won, 0 if draw
 
+    public int validTapCount;                                                                       // Keeps track of how many valid taps have been made
+                                                                                                    // (used to determine whether a full move has been made)
 
     // Declare Piece objects
     Piece bKing;
@@ -186,12 +188,50 @@ public class GamePlay {
     public void handleCoordinates (int col, int row) {
 
         // Process entered coordinates from the user (is it a start coordinate, end coordinate?)
-        if (whiteTurn) {
+        if (whiteTurn && BoardPositions[col][row].isWhite() && validTapCount % 4 == 0) {
+            // If it is white's turn and a white piece is tapped, then it is a valid start tap
+            validStartTap = true;
+            validTapCount++;
+            coordinatesValid = true;
 
+            StartCoordinates[0] = col;
+            StartCoordinates[1] = row;
+        }
+        else if(whiteTurn && BoardPositions[StartCoordinates[0]][StartCoordinates[1]].isValidMove() && validTapCount % 4 == 1)
+        {
+            validStartTap = false;
+            validTapCount++;
+            coordinatesValid = true;
 
-        } else {
+            EndCoordinates[0] = col;
+            EndCoordinates[1] = row;
 
+            BoardPositions[StartCoordinates[0]][StartCoordinates[1]].move(EndCoordinates[0], EndCoordinates[1]);
+            whiteTurn = false;
+        }    
+        else if (!whiteTurn && !BoardPositions[col][row].isWhite() && validTapCount % 4 == 2) {
+            validStartTap = true;
+            validTapCount++;
+            coordinatesValid = true;
 
+            StartCoordinates[0] = col;
+            StartCoordinates[1] = row;
+        }    
+        else if(!whiteTurn && BoardPositions[StartCoordinates[0]][StartCoordinates[1]].isValidMove() && validTapCount % 4 == 3)
+        {
+            validStartTap = false;
+            validTapCount++;
+            coordinatesValid = true;
+
+            EndCoordinates[0] = col;
+            EndCoordinates[1] = row;
+
+            BoardPositions[StartCoordinates[0]][StartCoordinates[1]].move(EndCoordinates[0], EndCoordinates[1]);
+            whiteTurn = true;
+        }   
+        else {
+            validStartTap = false;
+            coordinatesValid = false;
         }
 
         // Determine if the tap associated with those coordinates are valid
