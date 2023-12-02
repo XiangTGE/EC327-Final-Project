@@ -4,13 +4,13 @@ public class GamePlay {
 
     public Piece[][] BoardPositions = new Piece[8][8];                                              // Stores the positions of pieces
     public boolean whiteTurn;                                                                       // Game starts with white
-    //public boolean
     public int[] StartCoordinates = new int[2];                                                     // Start coordinate (piece to move)
     public int[] EndCoordinates = new int[2];                                                       // End coordinate (place to move to)
     public boolean coordinatesValid;                                                                // Flags whether an entered coordinate was valid
     public boolean validStartTap;                                                                   // Flags whether a valid start tap has been made by a player
     public boolean validMoveMade;                                                                   // Flags whether a valid move has been made by a player,
                                                                                                     // BoardPositions updated accordingly
+    public int gameEndState;                                                                        // 1 if white won, -1 if black won, 0 if draw
 
 
     // Declare Piece objects
@@ -168,6 +168,13 @@ public class GamePlay {
     }
 
 
+    // Make a move (only called when a valid move entry has been made with Start and End tap)
+    private void makeMove () {
+
+        // Update BoardPositions using StartCoordinates and EndCoordinates
+    }
+
+
     // Handle coordinate info (user input) from front-end
     public void handleCoordinates (int col, int row) {
 
@@ -184,8 +191,17 @@ public class GamePlay {
         // Update coordinatesValid flag
 
 
-        // Update whether that was a valid tap that was also a "Start Tap"
-        // Update validStartTap flag
+        // Check if a valid Start Tap had been made previously, if so then check if this is a
+        // valid End Tap using Piece class method isValidMove
+
+
+        // Update whether that was a valid tap that was also a "Start Tap" (update validStartTap)
+
+
+        // Determine if a full move (Start Tap and End Tap) are made, if so then make the move
+        // Update validMoveMade flag
+
+        
     }
 
 
@@ -233,18 +249,11 @@ public class GamePlay {
     }
 
 
-    // Rerun game
-    public void rerunGame () {
-
-        initializeBoard();
-    }
-
-
     // Check game over status
     public boolean gameOver () {
 
         // Determine if game is over, true if yes, false if no
         //Default return for now (CHANGE THIS LATER!!!!)
-        return true;
+        return false;
     }
 }
