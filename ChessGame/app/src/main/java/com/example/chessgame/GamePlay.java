@@ -197,7 +197,7 @@ public class GamePlay {
             StartCoordinates[0] = col;
             StartCoordinates[1] = row;
         }
-        else if(whiteTurn && BoardPositions[StartCoordinates[0]][StartCoordinates[1]].isValidMove() && validTapCount % 4 == 1)
+        else if(whiteTurn && BoardPositions[StartCoordinates[0]][StartCoordinates[1]].isValidMove(EndCoordinates[0],EndCoordinates[1]) && validTapCount % 4 == 1)
         {
             validStartTap = false;
             validTapCount++;
@@ -217,7 +217,7 @@ public class GamePlay {
             StartCoordinates[0] = col;
             StartCoordinates[1] = row;
         }    
-        else if(!whiteTurn && BoardPositions[StartCoordinates[0]][StartCoordinates[1]].isValidMove() && validTapCount % 4 == 3)
+        else if(!whiteTurn && BoardPositions[StartCoordinates[0]][StartCoordinates[1]].isValidMove(EndCoordinates[0],EndCoordinates[1]) && validTapCount % 4 == 3)
         {
             validStartTap = false;
             validTapCount++;
