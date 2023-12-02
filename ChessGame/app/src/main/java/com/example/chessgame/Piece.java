@@ -22,8 +22,8 @@ public class Piece {
     boolean isAttacking;
     boolean isBlocked;
     String type;
-    int xPos;
-    int yPos;
+    // int xPos;
+    // int yPos;
 
     // Constructor of Piece class
     // true if color is white, false if color is black
@@ -33,12 +33,12 @@ public class Piece {
     }
 
 
-    public void move(int xNewPos, int yNewPos)
-    {
-        int xPos = xNewPos;
-        int yPos = yNewPos;
-        boolean hasMoved = false; // should hasMoved be set to true here?
-    }
+    // public void move(int xNewPos, int yNewPos)
+    // {
+    //     int xPos = xNewPos;
+    //     int yPos = yNewPos;
+    //     boolean hasMoved = false; // should hasMoved be set to true here?
+    // }
 
 
     public boolean isValidMove(int xNewPos, int yNewPos)
@@ -58,6 +58,19 @@ public class Piece {
     public int[] getPosition()
     {
         int position[] = {xPos, yPos};
+        
+        for(int i = 0; i < 8; i++)
+        {
+            for(int j = 0; j < 8; i++)
+            {
+                if(Board.board[i][j] == this)
+                {
+                    position[0] = i;
+                    position[1] = j;
+                }
+            }
+        }
+        
         return position;
     }
 
@@ -506,17 +519,82 @@ class King extends Piece
                 return false;
             }
         }
-        // else if(isChecked && !isCheckmated)
-        // {
-        //     //add functionailty for checking if king is in check and then moving it out
-        //     return true; //delete this later
-        // }
-        // else if(isCheckmated)
-        // {
-        //     //add functionality for checking if king is in checkmate and ending game
-        //     return false; //delete this later
-        // }
-        else return false;
+        else if(isChecked)
+        {
+            //add functionailty for checking if king is in check and then moving it out
+            
+            //check if new position would leave the king in check
+            //check all pieces of the opposite color to see if they can attack the king at the new pos
+            if(color)
+            {
+                //check if any black pieces can attack the king at the new pos
+                boolean[] bAttack = new boolean[16];
+                bAttack[0] = bRook1.isValidMove(xNewPos,yNewPos);
+                bAttack[1] = bKnight1.isValidMove(xNewPos,yNewPos);
+                bAttack[2] = bBishop1.isValidMove(xNewPos,yNewPos);
+                bAttack[3] = bQueen.isValidMove(xNewPos,yNewPos);
+                bAttack[4] = bKing.isValidMove(xNewPos,yNewPos);
+                bAttack[5] = bBishop2.isValidMove(xNewPos,yNewPos);
+                bAttack[6] = bKnight2.isValidMove(xNewPos,yNewPos);
+                bAttack[7] = bRook2.isValidMove(xNewPos,yNewPos);
+                bAttack[8] = bPawn1.isValidMove(xNewPos,yNewPos);
+                bAttack[9] = bPawn2.isValidMove(xNewPos,yNewPos);
+                bAttack[10] = bPawn3.isValidMove(xNewPos,yNewPos);
+                bAttack[11] = bPawn4.isValidMove(xNewPos,yNewPos);
+                bAttack[12] = bPawn5.isValidMove(xNewPos,yNewPos);
+                bAttack[13] = bPawn6.isValidMove(xNewPos,yNewPos);
+                bAttack[14] = bPawn7.isValidMove(xNewPos,yNewPos);
+                bAttack[15] = bPawn8.isValidMove(xNewPos,yNewPos);
+
+                for(int i = 0; i < 16; i++)
+                {
+                    if(bAttack[i])
+                    {
+                        return false;
+                    }
+                }
+
+            }
+            else
+            {
+                boolean[] wAttack = new boolean[16];
+                wAttack[0] = wRook1.isValidMove(xNewPos,yNewPos);
+                wAttack[1] = wKnight1.isValidMove(xNewPos,yNewPos);
+                wAttack[2] = wBishop1.isValidMove(xNewPos,yNewPos);
+                wAttack[3] = wQueen.isValidMove(xNewPos,yNewPos);
+                wAttack[4] = wKing.isValidMove(xNewPos,yNewPos);
+                wAttack[5] = wBishop2.isValidMove(xNewPos,yNewPos);
+                wAttack[6] = wKnight2.isValidMove(xNewPos,yNewPos);
+                wAttack[7] = wRook2.isValidMove(xNewPos,yNewPos);
+                wAttack[8] = wPawn1.isValidMove(xNewPos,yNewPos);
+                wAttack[9] = wPawn2.isValidMove(xNewPos,yNewPos);
+                wAttack[10] = wPawn3.isValidMove(xNewPos,yNewPos);
+                wAttack[11] = wPawn4.isValidMove(xNewPos,yNewPos);
+                wAttack[12] = wPawn5.isValidMove(xNewPos,yNewPos);
+                wAttack[13] = wPawn6.isValidMove(xNewPos,yNewPos);
+                wAttack[14] = wPawn7.isValidMove(xNewPos,yNewPos);
+                wAttack[15] = wPawn8.isValidMove(xNewPos,yNewPos);
+
+                for(int i = 0; i < 16; i++)
+                {
+                    if(wAttack[i])
+                    {
+                        return false;
+                    }
+                }
+            }
+            return true; //King successfully leaves check
+        }
+        else if(isCheckmated)
+        {
+            //if in checkmate, there are no valid moves
+            return false;
+        }
+        else
+        {
+            //if none of the above, return false
+            return false;
+        }
     }
 
 
