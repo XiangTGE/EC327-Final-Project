@@ -476,4 +476,492 @@ public class GamePlay {
         }
         return isKingInCheck;
     }
+
+    public boolean isValidMove(Piece piece, int xNewPos, int yNewPos)
+    {
+        if(piece.isAlive)
+        {
+            int[] possition = piece.getPosition();
+            int xPos = possition[0];
+            int yPos = possition[1];
+            
+            if(piece.type == "King")
+            {
+                if(piece.isWhite)
+                {
+                    if(!isKinginCheck(true))
+                    {
+                        
+
+                        if(xNewPos == xPos + 1 && yNewPos == yPos + 1)
+                        {
+                            return true;
+                        }
+                        else if(xNewPos == xPos + 1 && yNewPos == yPos - 1)
+                        {
+                            return true;
+                        }
+                        else if(xNewPos == xPos - 1 && yNewPos == yPos + 1)
+                        {
+                            return true;
+                        }
+                        else if(xNewPos == xPos - 1 && yNewPos == yPos - 1)
+                        {
+                            return true;
+                        }
+                        else if(xNewPos == xPos && yNewPos == yPos + 1)
+                        {
+                            return true;
+                        }
+                        else if(xNewPos == xPos && yNewPos == yPos - 1)
+                        {
+                            return true;
+                        }
+                        else if(xNewPos == xPos + 1 && yNewPos == yPos)
+                        {
+                            return true;
+                        }
+                        else if(xNewPos == xPos - 1 && yNewPos == yPos)
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                    }
+                    else
+                    {
+                        if(color)
+                        {
+                            //check if any black pieces can attack the king at the new pos
+                            boolean[] bAttack = new boolean[16];
+                            bAttack[0] = bRook1.isValidMove(xNewPos,yNewPos);
+                            bAttack[1] = bKnight1.isValidMove(xNewPos,yNewPos);
+                            bAttack[2] = bBishop1.isValidMove(xNewPos,yNewPos);
+                            bAttack[3] = bQueen.isValidMove(xNewPos,yNewPos);
+                            bAttack[4] = bKing.isValidMove(xNewPos,yNewPos);
+                            bAttack[5] = bBishop2.isValidMove(xNewPos,yNewPos);
+                            bAttack[6] = bKnight2.isValidMove(xNewPos,yNewPos);
+                            bAttack[7] = bRook2.isValidMove(xNewPos,yNewPos);
+                            bAttack[8] = bPawn1.isValidMove(xNewPos,yNewPos);
+                            bAttack[9] = bPawn2.isValidMove(xNewPos,yNewPos);
+                            bAttack[10] = bPawn3.isValidMove(xNewPos,yNewPos);
+                            bAttack[11] = bPawn4.isValidMove(xNewPos,yNewPos);
+                            bAttack[12] = bPawn5.isValidMove(xNewPos,yNewPos);
+                            bAttack[13] = bPawn6.isValidMove(xNewPos,yNewPos);
+                            bAttack[14] = bPawn7.isValidMove(xNewPos,yNewPos);
+                            bAttack[15] = bPawn8.isValidMove(xNewPos,yNewPos);
+
+                            for(int i = 0; i < 16; i++)
+                            {
+                                if(bAttack[i])
+                                {
+                                    return false;
+                                }
+                            }
+                    
+                            return true;
+                        }
+                        else
+                        {
+                            boolean[] wAttack = new boolean[16];
+                            wAttack[0] = wRook1.isValidMove(xNewPos,yNewPos);
+                            wAttack[1] = wKnight1.isValidMove(xNewPos,yNewPos);
+                            wAttack[2] = wBishop1.isValidMove(xNewPos,yNewPos);
+                            wAttack[3] = wQueen.isValidMove(xNewPos,yNewPos);
+                            wAttack[4] = wKing.isValidMove(xNewPos,yNewPos);
+                            wAttack[5] = wBishop2.isValidMove(xNewPos,yNewPos);
+                            wAttack[6] = wKnight2.isValidMove(xNewPos,yNewPos);
+                            wAttack[7] = wRook2.isValidMove(xNewPos,yNewPos);
+                            wAttack[8] = wPawn1.isValidMove(xNewPos,yNewPos);
+                            wAttack[9] = wPawn2.isValidMove(xNewPos,yNewPos);
+                            wAttack[10] = wPawn3.isValidMove(xNewPos,yNewPos);
+                            wAttack[11] = wPawn4.isValidMove(xNewPos,yNewPos);
+                            wAttack[12] = wPawn5.isValidMove(xNewPos,yNewPos);
+                            wAttack[13] = wPawn6.isValidMove(xNewPos,yNewPos);
+                            wAttack[14] = wPawn7.isValidMove(xNewPos,yNewPos);
+                            wAttack[15] = wPawn8.isValidMove(xNewPos,yNewPos);
+
+                            for(int i = 0; i < 16; i++)
+                            {
+                                if(wAttack[i])
+                                {
+                                    return false;
+                                }
+                            }
+
+                            return true;
+                        }
+                    }
+                }
+            }
+            else if(piece.type == "Queen")
+            {
+                if(xor(xNewPos == xPos,yNewPos == yPos))
+                {
+                    return true;
+                }
+                else if(xNewPos == xPos + 1 && yNewPos == yPos + 1)
+                {
+                    return true;
+                }
+                else if(xNewPos == xPos + 2 && yNewPos == yPos + 2)
+                {
+                    return true;
+                }
+                else if(xNewPos == xPos + 3 && yNewPos == yPos + 3)
+                {
+                    return true;
+                }
+                else if(xNewPos == xPos + 4 && yNewPos == yPos + 4)
+                {
+                    return true;
+                }
+                else if(xNewPos == xPos + 5 && yNewPos == yPos + 5)
+                {
+                    return true;
+                }
+                else if(xNewPos == xPos + 6 && yNewPos == yPos + 6)
+                {
+                    return true;
+                }
+                else if(xNewPos == xPos + 7 && yNewPos == yPos + 7)
+                {
+                    return true;
+                }
+                else if(xNewPos == xPos - 1 && yNewPos == yPos + 1)
+                {
+                    return true;
+                }
+                else if(xNewPos == xPos - 2 && yNewPos == yPos + 2)
+                {
+                    return true;
+                }
+                else if(xNewPos == xPos - 3 && yNewPos == yPos + 3)
+                {
+                    return true;
+                }
+                else if(xNewPos == xPos - 4 && yNewPos == yPos + 4)
+                {
+                    return true;
+                }
+                else if(xNewPos == xPos - 5 && yNewPos == yPos + 5)
+                {
+                    return true;
+                }
+                else if(xNewPos == xPos - 6 && yNewPos == yPos + 6)
+                {
+                    return true;
+                }
+                else if(xNewPos == xPos - 7 && yNewPos == yPos + 7)
+                {
+                    return true;
+                }
+                else if(xNewPos == xPos + 1 && yNewPos == yPos - 1)
+                {
+                    return true;
+                }
+                else if(xNewPos == xPos + 2 && yNewPos == yPos - 2)
+                {
+                    return true;
+                }
+                else if(xNewPos == xPos + 3 && yNewPos == yPos - 3)
+                {
+                    return true;
+                }
+                else if(xNewPos == xPos + 4 && yNewPos == yPos - 4)
+                {
+                    return true;
+                }
+                else if(xNewPos == xPos + 5 && yNewPos == yPos - 5)
+                {
+                    return true;
+                }
+                else if(xNewPos == xPos + 6 && yNewPos == yPos - 6)
+                {
+                    return true;
+                }
+                else if(xNewPos == xPos + 7 && yNewPos == yPos - 7)
+                {
+                    return true;
+                }
+                else if(xNewPos == xPos - 1 && yNewPos == yPos - 1)
+                {
+                    return true;
+                }
+                else if(xNewPos == xPos - 2 && yNewPos == yPos - 2)
+                {
+                    return true;
+                }
+                else if(xNewPos == xPos - 3 && yNewPos == yPos - 3)
+                {
+                    return true;
+                }
+                else if(xNewPos == xPos - 4 && yNewPos == yPos - 4)
+                {
+                    return true;
+                }
+                else if(xNewPos == xPos - 5 && yNewPos == yPos - 5)
+                {
+                    return true;
+                }
+                else if(xNewPos == xPos - 6 && yNewPos == yPos - 6)
+                {
+                    return true;
+                }
+                else if(xNewPos == xPos - 7 && yNewPos == yPos - 7)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else if(piece.type == "Rook")
+            {
+                if(xor(xNewPos == xPos,yNewPos == yPos)) // Also have to consider rook moving to the same location. Can't allow that to happen
+                {
+                    return true;
+                }
+                else{
+                    return false;
+                }
+            }
+            else if(piece.type == "Bishop")
+            {
+                if(xNewPos == xPos + 1 && yNewPos == yPos + 1)
+                {
+                    return true;
+                }
+                else if(xNewPos == xPos + 2 && yNewPos == yPos + 2)
+                {
+                    return true;
+                }
+                else if(xNewPos == xPos + 3 && yNewPos == yPos + 3)
+                {
+                    return true;
+                }
+                else if(xNewPos == xPos + 4 && yNewPos == yPos + 4)
+                {
+                    return true;
+                }
+                else if(xNewPos == xPos + 5 && yNewPos == yPos + 5)
+                {
+                    return true;
+                }
+                else if(xNewPos == xPos + 6 && yNewPos == yPos + 6)
+                {
+                    return true;
+                }
+                else if(xNewPos == xPos + 7 && yNewPos == yPos + 7)
+                {
+                    return true;
+                }
+                else if(xNewPos == xPos - 1 && yNewPos == yPos + 1)
+                {
+                    return true;
+                }
+                else if(xNewPos == xPos - 2 && yNewPos == yPos + 2)
+                {
+                    return true;
+                }
+                else if(xNewPos == xPos - 3 && yNewPos == yPos + 3)
+                {
+                    return true;
+                }
+                else if(xNewPos == xPos - 4 && yNewPos == yPos + 4)
+                {
+                    return true;
+                }
+                else if(xNewPos == xPos - 5 && yNewPos == yPos + 5)
+                {
+                    return true;
+                }
+                else if(xNewPos == xPos - 6 && yNewPos == yPos + 6)
+                {
+                    return true;
+                }
+                else if(xNewPos == xPos - 7 && yNewPos == yPos + 7)
+                {
+                    return true;
+                }
+                else if(xNewPos == xPos + 1 && yNewPos == yPos - 1)
+                {
+                    return true;
+                }
+                else if(xNewPos == xPos + 2 && yNewPos == yPos - 2)
+                {
+                    return true;
+                }
+                else if(xNewPos == xPos + 3 && yNewPos == yPos - 3)
+                {
+                    return true;
+                }
+                else if(xNewPos == xPos + 4 && yNewPos == yPos - 4)
+                {
+                    return true;
+                }
+                else if(xNewPos == xPos + 5 && yNewPos == yPos - 5)
+                {
+                    return true;
+                }
+                else if(xNewPos == xPos + 6 && yNewPos == yPos - 6)
+                {
+                    return true;
+                }
+                else if(xNewPos == xPos + 7 && yNewPos == yPos - 7)
+                {
+                    return true;
+                }
+                else if(xNewPos == xPos - 1 && yNewPos == yPos - 1)
+                {
+                    return true;
+                }
+                else if(xNewPos == xPos - 2 && yNewPos == yPos - 2)
+                {
+                    return true;
+                }
+                else if(xNewPos == xPos - 3 && yNewPos == yPos - 3)
+                {
+                    return true;
+                }
+                else if(xNewPos == xPos - 4 && yNewPos == yPos - 4)
+                {
+                    return true;
+                }
+                else if(xNewPos == xPos - 5 && yNewPos == yPos - 5)
+                {
+                    return true;
+                }
+                else if(xNewPos == xPos - 6 && yNewPos == yPos - 6)
+                {
+                    return true;
+                }
+                else if(xNewPos == xPos - 7 && yNewPos == yPos - 7)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else if(piece.type == "Knight")
+            {
+                if(xNewPos == xPos + 2 && yNewPos == yPos + 1)
+                {
+                    return true;
+                }
+                else if(xNewPos == xPos + 2 && yNewPos == yPos - 1)
+                {
+                    return true;
+                }
+                else if(xNewPos == xPos - 2 && yNewPos == yPos + 1)
+                {
+                    return true;
+                }
+                else if(xNewPos == xPos - 2 && yNewPos == yPos - 1)
+                {
+                    return true;
+                }
+                else if(xNewPos == xPos + 1 && yNewPos == yPos + 2)
+                {
+                    return true;
+                }
+                else if(xNewPos == xPos + 1 && yNewPos == yPos - 2)
+                {
+                    return true;
+                }
+                else if(xNewPos == xPos - 1 && yNewPos == yPos + 2)
+                {
+                    return true;
+                }
+                else if(xNewPos == xPos - 1 && yNewPos == yPos - 2)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else if(piece.type == "Pawn")
+            {
+                if(piece.isWhite())
+                {
+                    if(!hasMoved && !piece.isBlocked())
+                    {
+                        if(xNewPos == xPos && yNewPos == yPos + 1)
+                        {
+                            piece.hasMoved = true;
+                            return true;
+                        }
+                        else if(xNewPos == xPos && yNewPos == yPos + 2)
+                        {
+                            piece.hasMoved = true;
+                            return true;
+                        }
+                    }
+                    else if(piece.pawnAttacking())
+                    {
+                        if(xNewPos == xPos + 1 && yNewPos == yPos + 1)
+                        {
+                            piece.hasMoved = true;
+                            return true;
+                        }
+                        else if(xNewPos == xPos - 1 && yNewPos == yPos + 1)
+                        {
+                            piece.hasMoved = true;
+                            return true;
+                        }
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+                else
+                {
+                    if(!hasMoved && !isBlocked)
+                    {
+                        if(xNewPos == xPos && yNewPos == yPos - 1)
+                        {
+                            piece.hasMoved = true;
+                            return true;
+                        }
+                        else if(xNewPos == xPos && yNewPos == yPos - 2)
+                        {
+                            piece.hasMoved = true;
+                            return true;
+                        }
+                    }
+                    else if(isAttacking)
+                    {
+                        if(xNewPos == xPos + 1 && yNewPos == yPos - 1)
+                        {
+                            piece.hasMoved = true;
+                            return true;
+                        }
+                        else if(xNewPos == xPos - 1 && yNewPos == yPos - 1)
+                        {
+                            piece.hasMoved = true;
+                            return true;
+                        }
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+            }
+            
+            return false;
+        }
+        else
+        {
+            return false;
+        }
+    }
 }

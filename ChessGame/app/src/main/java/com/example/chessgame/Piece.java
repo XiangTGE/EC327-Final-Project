@@ -41,11 +41,11 @@ public class Piece {
     // }
 
 
-    public boolean isValidMove(int xNewPos, int yNewPos)
-    {
-        //check if move is valid
-        return true;
-    }
+    // public boolean isValidMove(int xNewPos, int yNewPos)
+    // {
+    //     //check if move is valid
+    //     return true;
+    // }
     public void kill()
     {
         isAlive = false;
@@ -98,40 +98,40 @@ class Pawn extends Piece
         type = "Pawn";
     }
 
-    @Override
-    public boolean isValidMove(int xNewPos, int yNewPos)
-    {
-        //check if move is valid
-        if(!hasMoved && !isBlocked)
-        {
-            if(xNewPos == xPos && yNewPos == yPos + 1)
-            {
-                return true;
-            }
-            else if(xNewPos == xPos && yNewPos == yPos + 2)
-            {
-                return true;
-            }
-        }
-        else if(isAttacking)
-        {
-            if(xNewPos == xPos + 1 && yNewPos == yPos + 1)
-            {
-                return true;
-            }
-            else if(xNewPos == xPos - 1 && yNewPos == yPos + 1)
-            {
-                return true;
-            }
-        }
-        else
-        {
-            return false;
-        }
+    // @Override
+    // public boolean isValidMove(int xNewPos, int yNewPos)
+    // {
+    //     //check if move is valid
+    //     if(!hasMoved && !isBlocked)
+    //     {
+    //         if(xNewPos == xPos && yNewPos == yPos + 1)
+    //         {
+    //             return true;
+    //         }
+    //         else if(xNewPos == xPos && yNewPos == yPos + 2)
+    //         {
+    //             return true;
+    //         }
+    //     }
+    //     else if(isAttacking)
+    //     {
+    //         if(xNewPos == xPos + 1 && yNewPos == yPos + 1)
+    //         {
+    //             return true;
+    //         }
+    //         else if(xNewPos == xPos - 1 && yNewPos == yPos + 1)
+    //         {
+    //             return true;
+    //         }
+    //     }
+    //     else
+    //     {
+    //         return false;
+    //     }
 
-        // Default return statement so I can compile the code, feel free to edit this ~Xiang
-        return false;
-    }
+    //     // Default return statement so I can compile the code, feel free to edit this ~Xiang
+    //     return false;
+    // }
 }
 
 class Rook extends Piece
@@ -142,16 +142,16 @@ class Rook extends Piece
         type = "Rook";
     }
 
-    @Override
-    public boolean isValidMove(int xNewPos, int yNewPos)
-    {
-        //check if move is valid
-        if(xNewPos == xPos || yNewPos == yPos) // Also have to consider rook moving to the same location. Can't allow that to happen
-        {
-            return true;
-        }
-        return false;
-    }
+    // @Override
+    // public boolean isValidMove(int xNewPos, int yNewPos)
+    // {
+    //     //check if move is valid
+    //     if(xNewPos == xPos || yNewPos == yPos) // Also have to consider rook moving to the same location. Can't allow that to happen
+    //     {
+    //         return true;
+    //     }
+    //     return false;
+    // }
 }
 
 class Knight extends Piece
@@ -162,47 +162,47 @@ class Knight extends Piece
         type = "Knight";
     }
 
-    @Override
-    public boolean isValidMove(int xNewPos, int yNewPos)
-    {
-        //check if move is valid
-        if(xNewPos == xPos + 2 && yNewPos == yPos + 1)
-        {
-            return true;
-        }
-        else if(xNewPos == xPos + 2 && yNewPos == yPos - 1)
-        {
-            return true;
-        }
-        else if(xNewPos == xPos - 2 && yNewPos == yPos + 1)
-        {
-            return true;
-        }
-        else if(xNewPos == xPos - 2 && yNewPos == yPos - 1)
-        {
-            return true;
-        }
-        else if(xNewPos == xPos + 1 && yNewPos == yPos + 2)
-        {
-            return true;
-        }
-        else if(xNewPos == xPos + 1 && yNewPos == yPos - 2)
-        {
-            return true;
-        }
-        else if(xNewPos == xPos - 1 && yNewPos == yPos + 2)
-        {
-            return true;
-        }
-        else if(xNewPos == xPos - 1 && yNewPos == yPos - 2)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
+    // @Override
+    // public boolean isValidMove(int xNewPos, int yNewPos)
+    // {
+    //     //check if move is valid
+    //     if(xNewPos == xPos + 2 && yNewPos == yPos + 1)
+    //     {
+    //         return true;
+    //     }
+    //     else if(xNewPos == xPos + 2 && yNewPos == yPos - 1)
+    //     {
+    //         return true;
+    //     }
+    //     else if(xNewPos == xPos - 2 && yNewPos == yPos + 1)
+    //     {
+    //         return true;
+    //     }
+    //     else if(xNewPos == xPos - 2 && yNewPos == yPos - 1)
+    //     {
+    //         return true;
+    //     }
+    //     else if(xNewPos == xPos + 1 && yNewPos == yPos + 2)
+    //     {
+    //         return true;
+    //     }
+    //     else if(xNewPos == xPos + 1 && yNewPos == yPos - 2)
+    //     {
+    //         return true;
+    //     }
+    //     else if(xNewPos == xPos - 1 && yNewPos == yPos + 2)
+    //     {
+    //         return true;
+    //     }
+    //     else if(xNewPos == xPos - 1 && yNewPos == yPos - 2)
+    //     {
+    //         return true;
+    //     }
+    //     else
+    //     {
+    //         return false;
+    //     }
+    // }
 }
 
 class Bishop extends Piece
@@ -213,127 +213,127 @@ class Bishop extends Piece
         type = "Bishop";
     }
 
-    @Override
-    public boolean isValidMove(int xNewPos, int yNewPos)
-    {
-        //check if move is valid
-        if(xNewPos == xPos + 1 && yNewPos == yPos + 1)
-        {
-            return true;
-        }
-        else if(xNewPos == xPos + 2 && yNewPos == yPos + 2)
-        {
-            return true;
-        }
-        else if(xNewPos == xPos + 3 && yNewPos == yPos + 3)
-        {
-            return true;
-        }
-        else if(xNewPos == xPos + 4 && yNewPos == yPos + 4)
-        {
-            return true;
-        }
-        else if(xNewPos == xPos + 5 && yNewPos == yPos + 5)
-        {
-            return true;
-        }
-        else if(xNewPos == xPos + 6 && yNewPos == yPos + 6)
-        {
-            return true;
-        }
-        else if(xNewPos == xPos + 7 && yNewPos == yPos + 7)
-        {
-            return true;
-        }
-        else if(xNewPos == xPos - 1 && yNewPos == yPos + 1)
-        {
-            return true;
-        }
-        else if(xNewPos == xPos - 2 && yNewPos == yPos + 2)
-        {
-            return true;
-        }
-        else if(xNewPos == xPos - 3 && yNewPos == yPos + 3)
-        {
-            return true;
-        }
-        else if(xNewPos == xPos - 4 && yNewPos == yPos + 4)
-        {
-            return true;
-        }
-        else if(xNewPos == xPos - 5 && yNewPos == yPos + 5)
-        {
-            return true;
-        }
-        else if(xNewPos == xPos - 6 && yNewPos == yPos + 6)
-        {
-            return true;
-        }
-        else if(xNewPos == xPos - 7 && yNewPos == yPos + 7)
-        {
-            return true;
-        }
-        else if(xNewPos == xPos + 1 && yNewPos == yPos - 1)
-        {
-            return true;
-        }
-        else if(xNewPos == xPos + 2 && yNewPos == yPos - 2)
-        {
-            return true;
-        }
-        else if(xNewPos == xPos + 3 && yNewPos == yPos - 3)
-        {
-            return true;
-        }
-        else if(xNewPos == xPos + 4 && yNewPos == yPos - 4)
-        {
-            return true;
-        }
-        else if(xNewPos == xPos + 5 && yNewPos == yPos - 5)
-        {
-            return true;
-        }
-        else if(xNewPos == xPos + 6 && yNewPos == yPos - 6)
-        {
-            return true;
-        }
-        else if(xNewPos == xPos + 7 && yNewPos == yPos - 7)
-        {
-            return true;
-        }
-        else if(xNewPos == xPos - 1 && yNewPos == yPos - 1)
-        {
-            return true;
-        }
-        else if(xNewPos == xPos - 2 && yNewPos == yPos - 2)
-        {
-            return true;
-        }
-        else if(xNewPos == xPos - 3 && yNewPos == yPos - 3)
-        {
-            return true;
-        }
-        else if(xNewPos == xPos - 4 && yNewPos == yPos - 4)
-        {
-            return true;
-        }
-        else if(xNewPos == xPos - 5 && yNewPos == yPos - 5)
-        {
-            return true;
-        }
-        else if(xNewPos == xPos - 6 && yNewPos == yPos - 6)
-        {
-            return true;
-        }
-        else if(xNewPos == xPos - 7 && yNewPos == yPos - 7)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
+    // @Override
+    // public boolean isValidMove(int xNewPos, int yNewPos)
+    // {
+    //     //check if move is valid
+    //     if(xNewPos == xPos + 1 && yNewPos == yPos + 1)
+    //     {
+    //         return true;
+    //     }
+    //     else if(xNewPos == xPos + 2 && yNewPos == yPos + 2)
+    //     {
+    //         return true;
+    //     }
+    //     else if(xNewPos == xPos + 3 && yNewPos == yPos + 3)
+    //     {
+    //         return true;
+    //     }
+    //     else if(xNewPos == xPos + 4 && yNewPos == yPos + 4)
+    //     {
+    //         return true;
+    //     }
+    //     else if(xNewPos == xPos + 5 && yNewPos == yPos + 5)
+    //     {
+    //         return true;
+    //     }
+    //     else if(xNewPos == xPos + 6 && yNewPos == yPos + 6)
+    //     {
+    //         return true;
+    //     }
+    //     else if(xNewPos == xPos + 7 && yNewPos == yPos + 7)
+    //     {
+    //         return true;
+    //     }
+    //     else if(xNewPos == xPos - 1 && yNewPos == yPos + 1)
+    //     {
+    //         return true;
+    //     }
+    //     else if(xNewPos == xPos - 2 && yNewPos == yPos + 2)
+    //     {
+    //         return true;
+    //     }
+    //     else if(xNewPos == xPos - 3 && yNewPos == yPos + 3)
+    //     {
+    //         return true;
+    //     }
+    //     else if(xNewPos == xPos - 4 && yNewPos == yPos + 4)
+    //     {
+    //         return true;
+    //     }
+    //     else if(xNewPos == xPos - 5 && yNewPos == yPos + 5)
+    //     {
+    //         return true;
+    //     }
+    //     else if(xNewPos == xPos - 6 && yNewPos == yPos + 6)
+    //     {
+    //         return true;
+    //     }
+    //     else if(xNewPos == xPos - 7 && yNewPos == yPos + 7)
+    //     {
+    //         return true;
+    //     }
+    //     else if(xNewPos == xPos + 1 && yNewPos == yPos - 1)
+    //     {
+    //         return true;
+    //     }
+    //     else if(xNewPos == xPos + 2 && yNewPos == yPos - 2)
+    //     {
+    //         return true;
+    //     }
+    //     else if(xNewPos == xPos + 3 && yNewPos == yPos - 3)
+    //     {
+    //         return true;
+    //     }
+    //     else if(xNewPos == xPos + 4 && yNewPos == yPos - 4)
+    //     {
+    //         return true;
+    //     }
+    //     else if(xNewPos == xPos + 5 && yNewPos == yPos - 5)
+    //     {
+    //         return true;
+    //     }
+    //     else if(xNewPos == xPos + 6 && yNewPos == yPos - 6)
+    //     {
+    //         return true;
+    //     }
+    //     else if(xNewPos == xPos + 7 && yNewPos == yPos - 7)
+    //     {
+    //         return true;
+    //     }
+    //     else if(xNewPos == xPos - 1 && yNewPos == yPos - 1)
+    //     {
+    //         return true;
+    //     }
+    //     else if(xNewPos == xPos - 2 && yNewPos == yPos - 2)
+    //     {
+    //         return true;
+    //     }
+    //     else if(xNewPos == xPos - 3 && yNewPos == yPos - 3)
+    //     {
+    //         return true;
+    //     }
+    //     else if(xNewPos == xPos - 4 && yNewPos == yPos - 4)
+    //     {
+    //         return true;
+    //     }
+    //     else if(xNewPos == xPos - 5 && yNewPos == yPos - 5)
+    //     {
+    //         return true;
+    //     }
+    //     else if(xNewPos == xPos - 6 && yNewPos == yPos - 6)
+    //     {
+    //         return true;
+    //     }
+    //     else if(xNewPos == xPos - 7 && yNewPos == yPos - 7)
+    //     {
+    //         return true;
+    //     }
+    //     else
+    //     {
+    //         return false;
+    //     }
+    // }
 }
 
 class Queen extends Piece
@@ -344,131 +344,131 @@ class Queen extends Piece
         type = "Queen";
     }
 
-    @Override
-    public boolean isValidMove(int xNewPos, int yNewPos)
-    {
-        //check if move is valid
-        if(xNewPos == xPos || yNewPos == yPos)
-        {
-            return true;
-        }
-        else if(xNewPos == xPos + 1 && yNewPos == yPos + 1)
-        {
-            return true;
-        }
-        else if(xNewPos == xPos + 2 && yNewPos == yPos + 2)
-        {
-            return true;
-        }
-        else if(xNewPos == xPos + 3 && yNewPos == yPos + 3)
-        {
-            return true;
-        }
-        else if(xNewPos == xPos + 4 && yNewPos == yPos + 4)
-        {
-            return true;
-        }
-        else if(xNewPos == xPos + 5 && yNewPos == yPos + 5)
-        {
-            return true;
-        }
-        else if(xNewPos == xPos + 6 && yNewPos == yPos + 6)
-        {
-            return true;
-        }
-        else if(xNewPos == xPos + 7 && yNewPos == yPos + 7)
-        {
-            return true;
-        }
-        else if(xNewPos == xPos - 1 && yNewPos == yPos + 1)
-        {
-            return true;
-        }
-        else if(xNewPos == xPos - 2 && yNewPos == yPos + 2)
-        {
-            return true;
-        }
-        else if(xNewPos == xPos - 3 && yNewPos == yPos + 3)
-        {
-            return true;
-        }
-        else if(xNewPos == xPos - 4 && yNewPos == yPos + 4)
-        {
-            return true;
-        }
-        else if(xNewPos == xPos - 5 && yNewPos == yPos + 5)
-        {
-            return true;
-        }
-        else if(xNewPos == xPos - 6 && yNewPos == yPos + 6)
-        {
-            return true;
-        }
-        else if(xNewPos == xPos - 7 && yNewPos == yPos + 7)
-        {
-            return true;
-        }
-        else if(xNewPos == xPos + 1 && yNewPos == yPos - 1)
-        {
-            return true;
-        }
-        else if(xNewPos == xPos + 2 && yNewPos == yPos - 2)
-        {
-            return true;
-        }
-        else if(xNewPos == xPos + 3 && yNewPos == yPos - 3)
-        {
-            return true;
-        }
-        else if(xNewPos == xPos + 4 && yNewPos == yPos - 4)
-        {
-            return true;
-        }
-        else if(xNewPos == xPos + 5 && yNewPos == yPos - 5)
-        {
-            return true;
-        }
-        else if(xNewPos == xPos + 6 && yNewPos == yPos - 6)
-        {
-            return true;
-        }
-        else if(xNewPos == xPos + 7 && yNewPos == yPos - 7)
-        {
-            return true;
-        }
-        else if(xNewPos == xPos - 1 && yNewPos == yPos - 1)
-        {
-            return true;
-        }
-        else if(xNewPos == xPos - 2 && yNewPos == yPos - 2)
-        {
-            return true;
-        }
-        else if(xNewPos == xPos - 3 && yNewPos == yPos - 3)
-        {
-            return true;
-        }
-        else if(xNewPos == xPos - 4 && yNewPos == yPos - 4)
-        {
-            return true;
-        }
-        else if(xNewPos == xPos - 5 && yNewPos == yPos - 5)
-        {
-            return true;
-        }
-        else if(xNewPos == xPos - 6 && yNewPos == yPos - 6)
-        {
-            return true;
-        }
-        else if(xNewPos == xPos - 7 && yNewPos == yPos - 7)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
+    // @Override
+    // public boolean isValidMove(int xNewPos, int yNewPos)
+    // {
+    //     //check if move is valid
+    //     if(xNewPos == xPos || yNewPos == yPos)
+    //     {
+    //         return true;
+    //     }
+    //     else if(xNewPos == xPos + 1 && yNewPos == yPos + 1)
+    //     {
+    //         return true;
+    //     }
+    //     else if(xNewPos == xPos + 2 && yNewPos == yPos + 2)
+    //     {
+    //         return true;
+    //     }
+    //     else if(xNewPos == xPos + 3 && yNewPos == yPos + 3)
+    //     {
+    //         return true;
+    //     }
+    //     else if(xNewPos == xPos + 4 && yNewPos == yPos + 4)
+    //     {
+    //         return true;
+    //     }
+    //     else if(xNewPos == xPos + 5 && yNewPos == yPos + 5)
+    //     {
+    //         return true;
+    //     }
+    //     else if(xNewPos == xPos + 6 && yNewPos == yPos + 6)
+    //     {
+    //         return true;
+    //     }
+    //     else if(xNewPos == xPos + 7 && yNewPos == yPos + 7)
+    //     {
+    //         return true;
+    //     }
+    //     else if(xNewPos == xPos - 1 && yNewPos == yPos + 1)
+    //     {
+    //         return true;
+    //     }
+    //     else if(xNewPos == xPos - 2 && yNewPos == yPos + 2)
+    //     {
+    //         return true;
+    //     }
+    //     else if(xNewPos == xPos - 3 && yNewPos == yPos + 3)
+    //     {
+    //         return true;
+    //     }
+    //     else if(xNewPos == xPos - 4 && yNewPos == yPos + 4)
+    //     {
+    //         return true;
+    //     }
+    //     else if(xNewPos == xPos - 5 && yNewPos == yPos + 5)
+    //     {
+    //         return true;
+    //     }
+    //     else if(xNewPos == xPos - 6 && yNewPos == yPos + 6)
+    //     {
+    //         return true;
+    //     }
+    //     else if(xNewPos == xPos - 7 && yNewPos == yPos + 7)
+    //     {
+    //         return true;
+    //     }
+    //     else if(xNewPos == xPos + 1 && yNewPos == yPos - 1)
+    //     {
+    //         return true;
+    //     }
+    //     else if(xNewPos == xPos + 2 && yNewPos == yPos - 2)
+    //     {
+    //         return true;
+    //     }
+    //     else if(xNewPos == xPos + 3 && yNewPos == yPos - 3)
+    //     {
+    //         return true;
+    //     }
+    //     else if(xNewPos == xPos + 4 && yNewPos == yPos - 4)
+    //     {
+    //         return true;
+    //     }
+    //     else if(xNewPos == xPos + 5 && yNewPos == yPos - 5)
+    //     {
+    //         return true;
+    //     }
+    //     else if(xNewPos == xPos + 6 && yNewPos == yPos - 6)
+    //     {
+    //         return true;
+    //     }
+    //     else if(xNewPos == xPos + 7 && yNewPos == yPos - 7)
+    //     {
+    //         return true;
+    //     }
+    //     else if(xNewPos == xPos - 1 && yNewPos == yPos - 1)
+    //     {
+    //         return true;
+    //     }
+    //     else if(xNewPos == xPos - 2 && yNewPos == yPos - 2)
+    //     {
+    //         return true;
+    //     }
+    //     else if(xNewPos == xPos - 3 && yNewPos == yPos - 3)
+    //     {
+    //         return true;
+    //     }
+    //     else if(xNewPos == xPos - 4 && yNewPos == yPos - 4)
+    //     {
+    //         return true;
+    //     }
+    //     else if(xNewPos == xPos - 5 && yNewPos == yPos - 5)
+    //     {
+    //         return true;
+    //     }
+    //     else if(xNewPos == xPos - 6 && yNewPos == yPos - 6)
+    //     {
+    //         return true;
+    //     }
+    //     else if(xNewPos == xPos - 7 && yNewPos == yPos - 7)
+    //     {
+    //         return true;
+    //     }
+    //     else
+    //     {
+    //         return false;
+    //     }
+    // }
 }
 
 class King extends Piece
@@ -482,126 +482,126 @@ class King extends Piece
         type = "King";
     }
 
-    @Override
-    public boolean isValidMove(int xNewPos, int yNewPos)
-    {
-        //check if move is valid
-        if(!isChecked && !isCheckmated)
-        {
-            if(xNewPos == xPos + 1 && yNewPos == yPos + 1)
-            {
-                return true;
-            }
-            else if(xNewPos == xPos + 1 && yNewPos == yPos - 1)
-            {
-                return true;
-            }
-            else if(xNewPos == xPos - 1 && yNewPos == yPos + 1)
-            {
-                return true;
-            }
-            else if(xNewPos == xPos - 1 && yNewPos == yPos - 1)
-            {
-                return true;
-            }
-            else if(xNewPos == xPos && yNewPos == yPos + 1)
-            {
-                return true;
-            }
-            else if(xNewPos == xPos && yNewPos == yPos - 1)
-            {
-                return true;
-            }
-            else if(xNewPos == xPos + 1 && yNewPos == yPos)
-            {
-                return true;
-            }
-            else if(xNewPos == xPos - 1 && yNewPos == yPos)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-        else if(isChecked)
-        {
-            //add functionailty for checking if king is in check and then moving it out
+    // @Override
+    // public boolean isValidMove(int xNewPos, int yNewPos)
+    // {
+    //     //check if move is valid
+    //     if(!isChecked && !isCheckmated)
+    //     {
+    //         if(xNewPos == xPos + 1 && yNewPos == yPos + 1)
+    //         {
+    //             return true;
+    //         }
+    //         else if(xNewPos == xPos + 1 && yNewPos == yPos - 1)
+    //         {
+    //             return true;
+    //         }
+    //         else if(xNewPos == xPos - 1 && yNewPos == yPos + 1)
+    //         {
+    //             return true;
+    //         }
+    //         else if(xNewPos == xPos - 1 && yNewPos == yPos - 1)
+    //         {
+    //             return true;
+    //         }
+    //         else if(xNewPos == xPos && yNewPos == yPos + 1)
+    //         {
+    //             return true;
+    //         }
+    //         else if(xNewPos == xPos && yNewPos == yPos - 1)
+    //         {
+    //             return true;
+    //         }
+    //         else if(xNewPos == xPos + 1 && yNewPos == yPos)
+    //         {
+    //             return true;
+    //         }
+    //         else if(xNewPos == xPos - 1 && yNewPos == yPos)
+    //         {
+    //             return true;
+    //         }
+    //         else
+    //         {
+    //             return false;
+    //         }
+    //     }
+    //     else if(isChecked)
+    //     {
+    //         //add functionailty for checking if king is in check and then moving it out
             
-            //check if new position would leave the king in check
-            //check all pieces of the opposite color to see if they can attack the king at the new pos
-            if(color)
-            {
-                //check if any black pieces can attack the king at the new pos
-                boolean[] bAttack = new boolean[16];
-                bAttack[0] = bRook1.isValidMove(xNewPos,yNewPos);
-                bAttack[1] = bKnight1.isValidMove(xNewPos,yNewPos);
-                bAttack[2] = bBishop1.isValidMove(xNewPos,yNewPos);
-                bAttack[3] = bQueen.isValidMove(xNewPos,yNewPos);
-                bAttack[4] = bKing.isValidMove(xNewPos,yNewPos);
-                bAttack[5] = bBishop2.isValidMove(xNewPos,yNewPos);
-                bAttack[6] = bKnight2.isValidMove(xNewPos,yNewPos);
-                bAttack[7] = bRook2.isValidMove(xNewPos,yNewPos);
-                bAttack[8] = bPawn1.isValidMove(xNewPos,yNewPos);
-                bAttack[9] = bPawn2.isValidMove(xNewPos,yNewPos);
-                bAttack[10] = bPawn3.isValidMove(xNewPos,yNewPos);
-                bAttack[11] = bPawn4.isValidMove(xNewPos,yNewPos);
-                bAttack[12] = bPawn5.isValidMove(xNewPos,yNewPos);
-                bAttack[13] = bPawn6.isValidMove(xNewPos,yNewPos);
-                bAttack[14] = bPawn7.isValidMove(xNewPos,yNewPos);
-                bAttack[15] = bPawn8.isValidMove(xNewPos,yNewPos);
+    //         //check if new position would leave the king in check
+    //         //check all pieces of the opposite color to see if they can attack the king at the new pos
+    //         if(color)
+    //         {
+    //             //check if any black pieces can attack the king at the new pos
+    //             boolean[] bAttack = new boolean[16];
+    //             bAttack[0] = bRook1.isValidMove(xNewPos,yNewPos);
+    //             bAttack[1] = bKnight1.isValidMove(xNewPos,yNewPos);
+    //             bAttack[2] = bBishop1.isValidMove(xNewPos,yNewPos);
+    //             bAttack[3] = bQueen.isValidMove(xNewPos,yNewPos);
+    //             bAttack[4] = bKing.isValidMove(xNewPos,yNewPos);
+    //             bAttack[5] = bBishop2.isValidMove(xNewPos,yNewPos);
+    //             bAttack[6] = bKnight2.isValidMove(xNewPos,yNewPos);
+    //             bAttack[7] = bRook2.isValidMove(xNewPos,yNewPos);
+    //             bAttack[8] = bPawn1.isValidMove(xNewPos,yNewPos);
+    //             bAttack[9] = bPawn2.isValidMove(xNewPos,yNewPos);
+    //             bAttack[10] = bPawn3.isValidMove(xNewPos,yNewPos);
+    //             bAttack[11] = bPawn4.isValidMove(xNewPos,yNewPos);
+    //             bAttack[12] = bPawn5.isValidMove(xNewPos,yNewPos);
+    //             bAttack[13] = bPawn6.isValidMove(xNewPos,yNewPos);
+    //             bAttack[14] = bPawn7.isValidMove(xNewPos,yNewPos);
+    //             bAttack[15] = bPawn8.isValidMove(xNewPos,yNewPos);
 
-                for(int i = 0; i < 16; i++)
-                {
-                    if(bAttack[i])
-                    {
-                        return false;
-                    }
-                }
+    //             for(int i = 0; i < 16; i++)
+    //             {
+    //                 if(bAttack[i])
+    //                 {
+    //                     return false;
+    //                 }
+    //             }
 
-            }
-            else
-            {
-                boolean[] wAttack = new boolean[16];
-                wAttack[0] = wRook1.isValidMove(xNewPos,yNewPos);
-                wAttack[1] = wKnight1.isValidMove(xNewPos,yNewPos);
-                wAttack[2] = wBishop1.isValidMove(xNewPos,yNewPos);
-                wAttack[3] = wQueen.isValidMove(xNewPos,yNewPos);
-                wAttack[4] = wKing.isValidMove(xNewPos,yNewPos);
-                wAttack[5] = wBishop2.isValidMove(xNewPos,yNewPos);
-                wAttack[6] = wKnight2.isValidMove(xNewPos,yNewPos);
-                wAttack[7] = wRook2.isValidMove(xNewPos,yNewPos);
-                wAttack[8] = wPawn1.isValidMove(xNewPos,yNewPos);
-                wAttack[9] = wPawn2.isValidMove(xNewPos,yNewPos);
-                wAttack[10] = wPawn3.isValidMove(xNewPos,yNewPos);
-                wAttack[11] = wPawn4.isValidMove(xNewPos,yNewPos);
-                wAttack[12] = wPawn5.isValidMove(xNewPos,yNewPos);
-                wAttack[13] = wPawn6.isValidMove(xNewPos,yNewPos);
-                wAttack[14] = wPawn7.isValidMove(xNewPos,yNewPos);
-                wAttack[15] = wPawn8.isValidMove(xNewPos,yNewPos);
+    //         }
+    //         else
+    //         {
+    //             boolean[] wAttack = new boolean[16];
+    //             wAttack[0] = wRook1.isValidMove(xNewPos,yNewPos);
+    //             wAttack[1] = wKnight1.isValidMove(xNewPos,yNewPos);
+    //             wAttack[2] = wBishop1.isValidMove(xNewPos,yNewPos);
+    //             wAttack[3] = wQueen.isValidMove(xNewPos,yNewPos);
+    //             wAttack[4] = wKing.isValidMove(xNewPos,yNewPos);
+    //             wAttack[5] = wBishop2.isValidMove(xNewPos,yNewPos);
+    //             wAttack[6] = wKnight2.isValidMove(xNewPos,yNewPos);
+    //             wAttack[7] = wRook2.isValidMove(xNewPos,yNewPos);
+    //             wAttack[8] = wPawn1.isValidMove(xNewPos,yNewPos);
+    //             wAttack[9] = wPawn2.isValidMove(xNewPos,yNewPos);
+    //             wAttack[10] = wPawn3.isValidMove(xNewPos,yNewPos);
+    //             wAttack[11] = wPawn4.isValidMove(xNewPos,yNewPos);
+    //             wAttack[12] = wPawn5.isValidMove(xNewPos,yNewPos);
+    //             wAttack[13] = wPawn6.isValidMove(xNewPos,yNewPos);
+    //             wAttack[14] = wPawn7.isValidMove(xNewPos,yNewPos);
+    //             wAttack[15] = wPawn8.isValidMove(xNewPos,yNewPos);
 
-                for(int i = 0; i < 16; i++)
-                {
-                    if(wAttack[i])
-                    {
-                        return false;
-                    }
-                }
-            }
-            return true; //King successfully leaves check
-        }
-        else if(isCheckmated)
-        {
-            //if in checkmate, there are no valid moves
-            return false;
-        }
-        else
-        {
-            //if none of the above, return false
-            return false;
-        }
-    }
+    //             for(int i = 0; i < 16; i++)
+    //             {
+    //                 if(wAttack[i])
+    //                 {
+    //                     return false;
+    //                 }
+    //             }
+    //         }
+    //         return true; //King successfully leaves check
+    //     }
+    //     else if(isCheckmated)
+    //     {
+    //         //if in checkmate, there are no valid moves
+    //         return false;
+    //     }
+    //     else
+    //     {
+    //         //if none of the above, return false
+    //         return false;
+    //     }
+    // }
 
 
 }
