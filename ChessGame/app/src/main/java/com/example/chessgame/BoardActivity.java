@@ -202,50 +202,51 @@ public class BoardActivity extends AppCompatActivity {
                                     // The piece at BoardPositions[i][j] was clicked
 
                                     // Feed coordinate to back-end
-                                    game.handleCoordinates(i, j);
+                                    //game.handleCoordinates(i, j);
 
+                                    BoardPieceSlots[i][j].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.light_green));
 
                                     // Check if this is a valid tap, display proper messages if not
-                                    if (!game.validCoordinates()) {
-
-                                        // Display error message
-                                        if (game.isWhiteTurn()) {
-
-                                            WhiteInvalidMoveMsg.setVisibility(View.VISIBLE);
-                                        } else {
-
-                                            BlackInvalidMoveMsg.setVisibility(View.VISIBLE);
-                                        }
-
-                                        // Refresh board tiles
-                                        //resetBoardTiles();
-                                    } else {
-
-                                        // Erase error messages that might have been there from previous taps
-                                        WhiteInvalidMoveMsg.setVisibility(View.INVISIBLE);
-                                        BlackInvalidMoveMsg.setVisibility(View.INVISIBLE);
-
-                                        // Check if a move has been made; if so, then update board positions
-                                        if (game.isValidStartTap()) {
-
-                                            // Highlight tile tapped
-                                            BoardPieceSlots[i][j].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.light_green));
-
-                                            // Set board positions so pieces can be on top of tiles
-                                            setBoard(game);
-                                        } else {
-
-                                            // If we are here, a move should have been made by GamePlay
-                                            if (game.isValidMoveMade()) {
-
-                                                // Refresh boat tiles
-                                                resetBoardTiles();
-
-                                                // Update board positions
-                                                setBoard(game);
-                                            }
-                                        }
-                                    }
+//                                    if (!game.validCoordinates()) {
+//
+//                                        // Display error message
+//                                        if (game.isWhiteTurn()) {
+//
+//                                            WhiteInvalidMoveMsg.setVisibility(View.VISIBLE);
+//                                        } else {
+//
+//                                            BlackInvalidMoveMsg.setVisibility(View.VISIBLE);
+//                                        }
+//
+//                                        // Refresh board tiles
+//                                        //resetBoardTiles();
+//                                    } else {
+//
+//                                        // Erase error messages that might have been there from previous taps
+//                                        WhiteInvalidMoveMsg.setVisibility(View.INVISIBLE);
+//                                        BlackInvalidMoveMsg.setVisibility(View.INVISIBLE);
+//
+//                                        // Check if a move has been made; if so, then update board positions
+//                                        if (game.isValidStartTap()) {
+//
+//                                            // Highlight tile tapped
+//                                            BoardPieceSlots[i][j].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.light_green));
+//
+//                                            // Set board positions so pieces can be on top of tiles
+//                                            setBoard(game);
+//                                        } else {
+//
+//                                            // If we are here, a move should have been made by GamePlay
+//                                            if (game.isValidMoveMade()) {
+//
+//                                                // Refresh boat tiles
+//                                                resetBoardTiles();
+//
+//                                                // Update board positions
+//                                                setBoard(game);
+//                                            }
+//                                        }
+//                                    }
                                 }
                             }
                         }

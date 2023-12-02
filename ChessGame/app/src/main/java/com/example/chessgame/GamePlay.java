@@ -179,8 +179,6 @@ public class GamePlay {
 
         // Update validMoveMade
         validMoveMade = true;
-
-        // Check whether king is in check, if game is over
     }
 
 
@@ -189,51 +187,54 @@ public class GamePlay {
 
         Piece selectedPiece = BoardPositions[col][row];
 
-        // Process entered coordinates from the user (is it a start coordinate, end coordinate?)
-        if (whiteTurn && selectedPiece.isWhite() && pieceCanMove(selectedPiece) && validTapCount % 4 == 0) {
-            // If it is white's turn and a white piece is tapped, then it is a valid start tap
-            validStartTap = true;
-            validTapCount++;
-            coordinatesValid = true;
+        if (selectedPiece != null) {
+            // Process entered coordinates from the user (is it a start coordinate, end coordinate?)
+            if (whiteTurn && selectedPiece.isWhite() /*&& pieceCanMove(selectedPiece)*/ && validTapCount % 4 == 0) {
+                // If it is white's turn and a white piece is tapped, then it is a valid start tap
+                validStartTap = true;
+                validTapCount++;
+                coordinatesValid = true;
 
-            StartCoordinates[0] = col;
-            StartCoordinates[1] = row;
-        }
-        else if(whiteTurn && isValidMove(selectedPiece, EndCoordinates[0], EndCoordinates[1]) && validTapCount % 4 == 1)
-        {
-            validStartTap = false;
-            validTapCount++;
-            coordinatesValid = true;
+                StartCoordinates[0] = col;
+                StartCoordinates[1] = row;
+            }  else if (!whiteTurn && !selectedPiece.isWhite() && pieceCanMove(selectedPiece) && validTapCount % 4 == 2) {
+                validStartTap = true;
+                validTapCount++;
+                coordinatesValid = true;
 
-            EndCoordinates[0] = col;
-            EndCoordinates[1] = row;
+                StartCoordinates[0] = col;
+                StartCoordinates[1] = row;
+            }  else {
+                validStartTap = false;
+                coordinatesValid = false;
+            }
+        } else {
 
-            makeMove();
-            whiteTurn = false;
-        }    
-        else if (!whiteTurn && !selectedPiece.isWhite() && pieceCanMove(selectedPiece) && validTapCount % 4 == 2) {
-            validStartTap = true;
-            validTapCount++;
-            coordinatesValid = true;
+            if (whiteTurn && isValidMove(selectedPiece, EndCoordinates[0], EndCoordinates[1]) && validTapCount % 4 == 1) {
+                validStartTap = false;
+                validTapCount++;
+                coordinatesValid = true;
 
-            StartCoordinates[0] = col;
-            StartCoordinates[1] = row;
-        }    
-        else if(!whiteTurn && isValidMove(selectedPiece, EndCoordinates[0],EndCoordinates[1]) && validTapCount % 4 == 3)
-        {
-            validStartTap = false;
-            validTapCount++;
-            coordinatesValid = true;
+                EndCoordinates[0] = col;
+                EndCoordinates[1] = row;
 
-            EndCoordinates[0] = col;
-            EndCoordinates[1] = row;
+                makeMove();
+                whiteTurn = false;
+            } else if (!whiteTurn && isValidMove(selectedPiece, EndCoordinates[0], EndCoordinates[1]) && validTapCount % 4 == 3) {
+                validStartTap = false;
+                validTapCount++;
+                coordinatesValid = true;
 
-            makeMove();
-            whiteTurn = true;
-        }   
-        else {
-            validStartTap = false;
-            coordinatesValid = false;
+                EndCoordinates[0] = col;
+                EndCoordinates[1] = row;
+
+                makeMove();
+                whiteTurn = true;
+            } else {
+
+                validStartTap = false;
+                coordinatesValid = false;
+            }
         }
 
         // Determine if the tap associated with those coordinates are valid
@@ -955,7 +956,7 @@ public class GamePlay {
                             return true;
                         }
                     }
-                    else if(isAttacking(piece))
+                    else if(PawnAttacking(piece))
                     {
                         if(xNewPos == xPos + 1 && yNewPos == yPos - 1)
                         {
@@ -996,7 +997,7 @@ public class GamePlay {
             if(piece.isWhite())
             {
                 //if pawn is white
-                if(boardPositions[position[0]][position[1] + 1] == null)
+                if(BoardPositions[position[0]][position[1] + 1] != null)
                 {
                     //if there is a piece in front of the pawn
                     return true;
@@ -1008,7 +1009,7 @@ public class GamePlay {
             }
             else
             {
-                if(boardPositions[position[0]][position[1] - 1] == null)
+                if(BoardPositions[position[0]][position[1] - 1] != null)
                 {
                     //if there is a piece in front of the pawn
                     return true;
@@ -1034,7 +1035,7 @@ public class GamePlay {
             if(piece.isWhite())
             {
                 //if pawn is white
-                if(boardPositions[position[0] + 1][position[1] + 1] != null || boardPositions[position[0] - 1][position[1] + 1] != null)
+                if(BoardPositions[position[0] + 1][position[1] + 1] != null || BoardPositions[position[0] - 1][position[1] + 1] != null)
                 {
                     //if there is a piece in front of the pawn
                     return true;
@@ -1046,7 +1047,7 @@ public class GamePlay {
             }
             else
             {
-                if(boardPositions[position[0] + 1][position[1] - 1] != null || boardPositions[position[0] - 1][position[1] - 1] != null)
+                if(BoardPositions[position[0] + 1][position[1] - 1] != null || BoardPositions[position[0] - 1][position[1] - 1] != null)
                 {
                     //if there is a piece in front of the pawn
                     return true;

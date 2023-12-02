@@ -59,17 +59,17 @@ public class Piece {
     {
         int position[] = {xPos, yPos};
         
-        for(int i = 0; i < 8; i++)
-        {
-            for(int j = 0; j < 8; i++)
-            {
-                if(Board.board[i][j] == this)
-                {
-                    position[0] = i;
-                    position[1] = j;
-                }
-            }
-        }
+//        for(int i = 0; i < 8; i++)
+//        {
+//            for(int j = 0; j < 8; i++)
+//            {
+//                if(Board.board[i][j] == this)
+//                {
+//                    position[0] = i;
+//                    position[1] = j;
+//                }
+//            }
+//        }
         
         return position;
     }
