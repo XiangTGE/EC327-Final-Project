@@ -310,82 +310,82 @@ public class GamePlay {
         boolean isKingInCheck = false;
         if(!color)
         {
-            if(wRook1.isAlive && wRook1.isValidMove(currentPiece.xpos,currentPiece.ypos))
+            if(wRook1.isAlive && wRook1.isValidMove(bKing.xpos,bKing.ypos))
             {
                 bKing.isChecked = true;
                 isKingInCheck = true;
             }
-            else if(wKnight1.isAlive && wKnight1.isValidMove(currentPiece.xpos,currentPiece.ypos))
+            else if(wKnight1.isAlive && wKnight1.isValidMove(bKing.xpos,bKing.ypos))
             {
                 bKing.isChecked = true;
                 isKingInCheck = true;
             }
-            else if(wBishop1.isAlive && wBishop1.isValidMove(currentPiece.xpos,currentPiece.ypos))
+            else if(wBishop1.isAlive && wBishop1.isValidMove(bKing.xpos,bKing.ypos))
             {
                 bKing.isChecked = true;
                 isKingInCheck = true;
             }
-            else if(wRook2.isAlive && wRook2.isValidMove(currentPiece.xpos,currentPiece.ypos))
+            else if(wRook2.isAlive && wRook2.isValidMove(bKing.xpos,bKing.ypos))
             {
                 bKing.isChecked = true;
                 isKingInCheck = true;
             }
-            else if(wKnight2.isAlive && wKnight2.isValidMove(currentPiece.xpos,currentPiece.ypos))
+            else if(wKnight2.isAlive && wKnight2.isValidMove(bKing.xpos,bKing.ypos))
             {
                 bKing.isChecked = true;
                 isKingInCheck = true;
             }
-            else if(wBishop2.isAlive && wBishop2.isValidMove(currentPiece.xpos,currentPiece.ypos))
+            else if(wBishop2.isAlive && wBishop2.isValidMove(bKing.xpos,bKing.ypos))
             {
                 bKing.isChecked = true;
                 isKingInCheck = true;
             }
-            else if(wQueen.isAlive && wQueen.isValidMove(currentPiece.xpos,currentPiece.ypos))
+            else if(wQueen.isAlive && wQueen.isValidMove(bKing.xpos,bKing.ypos))
             {
                 bKing.isChecked = true;
                 isKingInCheck = true;
             }
-            else if(wKing.isAlive && wKing.isValidMove(currentPiece.xpos,currentPiece.ypos))
+            else if(wKing.isAlive && wKing.isValidMove(bKing.xpos,bKing.ypos))
             {
                 bKing.isChecked = true;
                 isKingInCheck = true;
             }
-            else if(wPawn1.isAlive && wPawn1.isValidMove(currentPiece.xpos,currentPiece.ypos))
+            else if(wPawn1.isAlive && wPawn1.isValidMove(bKing.xpos,bKing.ypos))
             {
                 bKing.isChecked = true;
                 isKingInCheck = true;
             }
-            else if(wPawn2.isAlive && wPawn2.isValidMove(currentPiece.xpos,currentPiece.ypos))
+            else if(wPawn2.isAlive && wPawn2.isValidMove(bKing.xpos,bKing.ypos))
             {
                 bKing.isChecked = true;
                 isKingInCheck = true;
             }
-            else if(wPawn3.isAlive && wPawn3.isValidMove(currentPiece.xpos,currentPiece.ypos))
+            else if(wPawn3.isAlive && wPawn3.isValidMove(bKing.xpos,bKing.ypos))
             {
                 bKing.isChecked = true;
                 isKingInCheck = true;
             }
-            else if(wPawn4.isAlive && wPawn4.isValidMove(currentPiece.xpos,currentPiece.ypos))
+            else if(wPawn4.isAlive && wPawn4.isValidMove(bKing.xpos,bKing.ypos))
             {
                 bKing.isChecked = true;
                 isKingInCheck = true;
             }
-            else if(wPawn5.isAlive && wPawn5.isValidMove(currentPiece.xpos,currentPiece.ypos))
+            else if(wPawn5.isAlive && wPawn5.isValidMove(bKing.xpos,bKing.ypos))
             {
                 bKing.isChecked = true;
                 isKingInCheck = true;
             }
-            else if(wPawn6.isAlive && wPawn6.isValidMove(currentPiece.xpos,currentPiece.ypos))
+            else if(wPawn6.isAlive && wPawn6.isValidMove(bKing.xpos,bKing.ypos))
             {
                 bKing.isChecked = true;
                 isKingInCheck = true;
             }
-            else if(wPawn7.isAlive && wPawn7.isValidMove(currentPiece.xpos,currentPiece.ypos))
+            else if(wPawn7.isAlive && wPawn7.isValidMove(bKing.xpos,bKing.ypos))
             {
                 bKing.isChecked = true;
                 isKingInCheck = true;
             }
-            else if(wPawn8.isAlive && wPawn8.isValidMove(currentPiece.xpos,currentPiece.ypos))
+            else if(wPawn8.isAlive && wPawn8.isValidMove(bKing.xpos,bKing.ypos))
             {
                 bKing.isChecked = true;
                 isKingInCheck = true;
@@ -393,82 +393,82 @@ public class GamePlay {
         }
         else
         {
-            if(bRook1.isAlive && bRook1.isValidMove(currentPiece.xpos,currentPiece.ypos))
+            if(bRook1.isAlive && bRook1.isValidMove(wKing.xpos,wKing.ypos))
             {
                 wKing.isChecked = true;
                 isKingInCheck = true;
             }
-            else if(bKnight1.isAlive && bKnight1.isValidMove(currentPiece.xpos,currentPiece.ypos))
+            else if(bKnight1.isAlive && bKnight1.isValidMove(wKing.xpos,wKing.ypos))
             {
                 wKing.isChecked = true;
                 isKingInCheck = true;
             }
-            else if(bBishop1.isAlive && bBishop1.isValidMove(currentPiece.xpos,currentPiece.ypos))
+            else if(bBishop1.isAlive && bBishop1.isValidMove(wKing.xpos,wKing.ypos))
             {
                 wKing.isChecked = true;
                 isKingInCheck = true;
             }
-            else if(bRook2.isAlive && bRook2.isValidMove(currentPiece.xpos,currentPiece.ypos))
+            else if(bRook2.isAlive && bRook2.isValidMove(wKing.xpos,wKing.ypos))
             {
                 wKing.isChecked = true;
                 isKingInCheck = true;
             }
-            else if(bKnight2.isAlive && bKnight2.isValidMove(currentPiece.xpos,currentPiece.ypos))
+            else if(bKnight2.isAlive && bKnight2.isValidMove(wKing.xpos,wKing.ypos))
             {
                 wKing.isChecked = true;
                 isKingInCheck = true;
             }
-            else if(bBishop2.isAlive && bBishop2.isValidMove(currentPiece.xpos,currentPiece.ypos))
+            else if(bBishop2.isAlive && bBishop2.isValidMove(wKing.xpos,wKing.ypos))
             {
                 wKing.isChecked = true;
                 isKingInCheck = true;
             }
-            else if(bQueen.isAlive && bQueen.isValidMove(currentPiece.xpos,currentPiece.ypos))
+            else if(bQueen.isAlive && bQueen.isValidMove(wKing.xpos,wKing.ypos))
             {
                 wKing.isChecked = true;
                 isKingInCheck = true;
             }
-            else if(bKing.isAlive && bKing.isValidMove(currentPiece.xpos,currentPiece.ypos))
+            else if(bKing.isAlive && bKing.isValidMove(wKing.xpos,wKing.ypos))
             {
                 wKing.isChecked = true;
                 isKingInCheck = true;
             }
-            else if(bPawn1.isAlive && bPawn1.isValidMove(currentPiece.xpos,currentPiece.ypos))
+            else if(bPawn1.isAlive && bPawn1.isValidMove(wKing.xpos,wKing.ypos))
             {
                 wKing.isChecked = true;
                 isKingInCheck = true;
             }
-            else if(bPawn2.isAlive && bPawn2.isValidMove(currentPiece.xpos,currentPiece.ypos))
+            else if(bPawn2.isAlive && bPawn2.isValidMove(wKing.xpos,wKing.ypos))
             {
                 wKing.isChecked = true;
                 isKingInCheck = true;
             }
-            else if(bPawn3.isAlive && bPawn3.isValidMove(currentPiece.xpos,currentPiece.ypos))
+            else if(bPawn3.isAlive && bPawn3.isValidMove(wKing.xpos,wKing.ypos))
             {
                 wKing.isChecked = true;
                 isKingInCheck = true;
             }
-            else if(bPawn4.isAlive && bPawn4.isValidMove(currentPiece.xpos,currentPiece.ypos))
+            else if(bPawn4.isAlive && bPawn4.isValidMove(wKing.xpos,wKing.ypos))
             {
                 wKing.isChecked = true;
                 isKingInCheck = true;
             }
-            else if(bPawn5.isAlive && bPawn5.isValidMove(currentPiece.xpos,currentPiece.ypos))
+            else if(bPawn5.isAlive && bPawn5.isValidMove(cwKing.xpos,wKing.ypos))
             {
                 wKing.isChecked = true;
                 isKingInCheck = true;
             }
-            else if(bPawn6.isAlive && bPawn6.isValidMove(currentPiece.xpos,currentPiece.ypos))
+            else if(bPawn6.isAlive && bPawn6.isValidMove(wKing.xpos,wKing.ypos))
             {
                 wKing.isChecked = true;
                 isKingInCheck = true;
             }
-            else if(bPawn7.isAlive && bPawn7.isValidMove(currentPiece.xpos,currentPiece.ypos))
+            else if(bPawn7.isAlive && bPawn7.isValidMove(wKing.xpos,wKing.ypos))
             {
                 wKing.isChecked = true;
                 isKingInCheck = true;
             }
-            else if(bPawn8.isAlive && bPawn8.isValidMove(currentPiece.xpos,currentPiece.ypos))
+            else if(bPawn8.isAlive && bPawn8.isValidMove(wKing.xpos,wKing.ypos))
             {
                 wKing.isChecked = true;
                 isKingInCheck = true;
