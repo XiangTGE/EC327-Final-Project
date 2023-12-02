@@ -482,6 +482,21 @@ class King extends Piece
         type = "King";
     }
 
+
+    // Return whether king is in check
+    public void setKingIsChecked(boolean kingChecked) {
+
+        isChecked = kingChecked;
+    }
+
+
+    // Return whether king is checkmated
+    public boolean kingCheckmated () {
+
+        return isCheckmated;
+    }
+
+
     // @Override
     // public boolean isValidMove(int xNewPos, int yNewPos)
     // {
