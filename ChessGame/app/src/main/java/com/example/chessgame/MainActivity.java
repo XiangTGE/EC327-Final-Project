@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 // Draw board screen
                 Intent intent = new Intent (getApplicationContext(), BoardActivity.class);
+                startActivity(intent);
                 finish(); // Destroys MainActivity
             }
         });
