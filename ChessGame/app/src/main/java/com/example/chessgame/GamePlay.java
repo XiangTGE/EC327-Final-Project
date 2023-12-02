@@ -188,8 +188,10 @@ public class GamePlay {
     // Handle coordinate info (user input) from front-end
     public void handleCoordinates (int col, int row) {
 
+        Piece selectedPiece = BoardPositions[col][row];
+
         // Process entered coordinates from the user (is it a start coordinate, end coordinate?)
-        if (whiteTurn && BoardPositions[col][row].isWhite() && validTapCount % 4 == 0) {
+        if (whiteTurn && selectedPiece.isWhite() && pieceCanMove(selectedPiece) && validTapCount % 4 == 0) {
             // If it is white's turn and a white piece is tapped, then it is a valid start tap
             validStartTap = true;
             validTapCount++;
@@ -198,7 +200,7 @@ public class GamePlay {
             StartCoordinates[0] = col;
             StartCoordinates[1] = row;
         }
-        else if(whiteTurn && BoardPositions[StartCoordinates[0]][StartCoordinates[1]].isValidMove(EndCoordinates[0],EndCoordinates[1]) && validTapCount % 4 == 1)
+        else if(whiteTurn && isValidMove(selectedPiece, EndCoordinates[0], EndCoordinates[1]) && validTapCount % 4 == 1)
         {
             validStartTap = false;
             validTapCount++;
@@ -210,7 +212,7 @@ public class GamePlay {
             makeMove();
             whiteTurn = false;
         }    
-        else if (!whiteTurn && !BoardPositions[col][row].isWhite() && validTapCount % 4 == 2) {
+        else if (!whiteTurn && !selectedPiece.isWhite() && pieceCanMove(selectedPiece) && validTapCount % 4 == 2) {
             validStartTap = true;
             validTapCount++;
             coordinatesValid = true;
@@ -218,7 +220,7 @@ public class GamePlay {
             StartCoordinates[0] = col;
             StartCoordinates[1] = row;
         }    
-        else if(!whiteTurn && BoardPositions[StartCoordinates[0]][StartCoordinates[1]].isValidMove(EndCoordinates[0],EndCoordinates[1]) && validTapCount % 4 == 3)
+        else if(!whiteTurn && isValidMove(selectedPiece, EndCoordinates[0],EndCoordinates[1]) && validTapCount % 4 == 3)
         {
             validStartTap = false;
             validTapCount++;
