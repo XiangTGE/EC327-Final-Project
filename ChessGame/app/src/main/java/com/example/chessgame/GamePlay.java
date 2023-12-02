@@ -176,6 +176,7 @@ public class GamePlay {
         // Update BoardPositions using StartCoordinates and EndCoordinates
         BoardPositions[EndCoordinates[0]][EndCoordinates[1]] = BoardPositions[StartCoordinates[0]][StartCoordinates[1]];
         BoardPositions[StartCoordinates[0]][StartCoordinates[1]] = null;
+        BoardPositions[EndCoordinates[0]][EndCoordinates[1]].setPosition(EndCoordinates[0],EndCoordinates[1]);
 
         // Update validMoveMade
         validMoveMade = true;

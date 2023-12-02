@@ -22,8 +22,8 @@ public class Piece {
     boolean isAttacking;
     boolean isBlocked;
     String type;
-    // int xPos;
-    // int yPos;
+    int xPos;
+    int yPos;
 
     // Constructor of Piece class
     // true if color is white, false if color is black
@@ -72,6 +72,12 @@ public class Piece {
         }
         
         return position;
+    }
+
+    public void setPosition(int xNewPos, int yNewPos)
+    {
+        xPos = xNewPos;
+        yPos = yNewPos;
     }
 
 
