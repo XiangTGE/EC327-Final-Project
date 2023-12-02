@@ -910,7 +910,7 @@ public class GamePlay {
             {
                 if(piece.isWhite())
                 {
-                    if(!hasMoved && !piece.isBlocked())
+                    if(!hasMoved && !isBlocked(piece))
                     {
                         if(xNewPos == xPos && yNewPos == yPos + 1)
                         {
@@ -923,7 +923,7 @@ public class GamePlay {
                             return true;
                         }
                     }
-                    else if(piece.pawnAttacking())
+                    else if(PawnAttacking(piece))
                     {
                         if(xNewPos == xPos + 1 && yNewPos == yPos + 1)
                         {
@@ -981,6 +981,82 @@ public class GamePlay {
         else
         {
             return false;
+        }
+    }
+
+    public boolean isBlocked(Piece piece)
+    {
+        if(piece.type != "Pawn")
+        {
+            //Return false for all non-Pawn pieces
+            return false;
+        }
+        else
+        {
+            int[] position = piece.getPosition();
+            if(piece.isWhite())
+            {
+                //if pawn is white
+                if(boardPositions[position[0]][position[1] + 1] == null)
+                {
+                    //if there is a piece in front of the pawn
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                if(boardPositions[position[0]][position[1] - 1] == null)
+                {
+                    //if there is a piece in front of the pawn
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
+    }
+
+    public boolean PawnAttacking(Piece piece)
+    {
+        if(piece.type != "Pawn")
+        {
+            //Return false for all non-Pawn pieces
+            return false;
+        }
+        else
+        {
+            int[] position = piece.getPosition();
+            if(piece.isWhite())
+            {
+                //if pawn is white
+                if(boardPositions[position[0] + 1][position[1] + 1] != null || boardPositions[position[0] - 1][position[1] + 1] != null)
+                {
+                    //if there is a piece in front of the pawn
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                if(boardPositions[position[0] + 1][position[1] - 1] != null || boardPositions[position[0] - 1][position[1] - 1] != null)
+                {
+                    //if there is a piece in front of the pawn
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
         }
     }
 }
