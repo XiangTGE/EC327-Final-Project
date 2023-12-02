@@ -23,6 +23,7 @@
     <string name="info_line1">Thanks for playing Treasure Chess!
         This pirate-themed chess app by Binary Bishops (Memo Ortega, Alex Melnick, Steven Hopkins, and Xiang Jin)
         was conceived as a means to learn about Android app development and Java for a Software Engineering course at Boston University.</string>
+    <string name="info_reference">References: https://github.com/DipanshKhandelwal/Chess</string>
 
     <!-- Miscellaneous Strings -->
     <string name="back">Back</string>
