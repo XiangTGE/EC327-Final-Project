@@ -3,7 +3,12 @@ package com.example.chessgame;
 public class GamePlay {
 
     public Piece[][] BoardPositions = new Piece[8][8];                                              // Stores the positions of pieces
-    public boolean turn = 1; //Game starts with white
+    public boolean whiteTurn;                                                                       // Game starts with white
+    public boolean
+    public int[] StartCoordinates = new int[2];                                                     // Start coordinate (piece to move)
+    public int[] EndCoordinates = new int[2];                                                       // End coordinate (place to move to)
+    public boolean coordinatesValid;                                                                // Flags whether an entered coordinate was valid
+
 
     // Declare Piece objects
     Piece bKing;
@@ -39,6 +44,7 @@ public class GamePlay {
     Piece wPawn1;
     Piece wPawn2;
     Piece wPawn3;
+
     Piece wPawn4;
     Piece wPawn5;
     Piece wPawn6;
@@ -46,18 +52,12 @@ public class GamePlay {
     Piece wPawn8;
 
 
-    // Game parameters
-    int move;                                                                                       // Stores the move number (even is white's turn,
-                                                                                                    // odd is black's turn)
-
 
     // Set up board, start the game
     public GamePlay () {
 
-        move = 0;
-        initializeBoard();
-
-        
+        whiteTurn = true;                                                                                // Game starts with white
+        initializeBoard();                                                                          // Set up board
     }
 
 
@@ -156,6 +156,27 @@ public class GamePlay {
     public Piece[][] getBoardPositions () {
 
         return BoardPositions;
+    }
+
+
+    // Handle coordinate info (user input) from front-end
+    public void handleCoordinates (int col, int row) {
+
+
+        if (whiteTurn) {
+
+
+        } else {
+
+
+        }
+    }
+
+
+    // Return whether coordinates valid
+    public boolean validCoordinates () {
+
+        return coordinatesValid;
     }
 
 

@@ -7,6 +7,18 @@ import android.widget.TextView;
 import android.view.View;
 
 
+/*
+* UI Info:
+* The UI consists of 64 text boxes with their own ids ("Rxx") that can store the image of a piece
+*   - The first digit in "Rxx" is the row index, and it goes from 0-7 from the top to bottom
+*     of the board as seen from the view of the white player
+*   - The second digit is the column index, and it goes from 0-7 from left to right
+*
+* The tiles also have the same id naming convention (they color in the squares),
+* but they are in the form "Rxxx", and the first digit is always 0 to indicate that it is a tile,
+* and the rest is col and row indices in that order.
+* */
+
 public class BoardActivity extends AppCompatActivity {
 
     public TextView[][] BoardTiles = new TextView[8][8];                                            // Stores ids of board tiles
@@ -280,292 +292,285 @@ public class BoardActivity extends AppCompatActivity {
     @Override
     public void onClick(View v) {
 
-        int col;
-        int row;
+        int col;                                                                                    // Stores column index in board
+        int row;                                                                                    // Stores row index in board
+        int viewID = v.getId();                                                                     // Get the id of the clicked tile
 
 
-        switch (v.getId()) {
-            case R.id.R00:
-                col = 0;
-                row = 0;
-                break;
-            case R.id.R10:
-                col = 1;
-                row = 0;
-                break;
-            case R.id.R20:
-                col = 2;
-                row = 0;
-                break;
-            case R.id.R30:
-                col = 3;
-                row = 0;
-                break;
-            case R.id.R40:
-                col = 4;
-                row = 0;
-                break;
-            case R.id.R50:
-                col = 5;
-                row = 0;
-                break;
-            case R.id.R60:
-                col = 6;
-                row = 0;
-                break;
-            case R.id.R70:
-                col = 7;
-                row = 0;
-                break;
+        // Get coordinates corresponding to the clicked tile
+        if (viewID == R.id.R00) {
 
-            case R.id.R01:
-                col = 0;
-                row = 1;
-                break;
-            case R.id.R11:
-                col = 1;
-                row = 1;
-                break;
-            case R.id.R21:
-                col = 2;
-                row = 1;
-                break;
-            case R.id.R31:
-                col = 3;
-                row = 1;
-                break;
-            case R.id.R41:
-                col = 4;
-                row = 1;
-                break;
-            case R.id.R51:
-                col = 5;
-                row = 1;
-                break;
-            case R.id.R61:
-                col = 6;
-                row = 1;
-                break;
-            case R.id.R71:
-                col = 7;
-                row = 1;
-                break;
+            col = 0;
+            row = 0;
+        }
+        else if (viewID == R.id.R10) {
+            col = 1;
+            row = 0;
+        }
+        else if (viewID == R.id.R20) {
+            col = 2;
+            row = 0;
+        }
+        else if (viewID == R.id.R30) {
+            col = 3;
+            row = 0;
+        }
+        else if (viewID == R.id.R40) {
+            col = 4;
+            row = 0;
+        }
+        else if (viewID == R.id.R50) {
+            col = 5;
+            row = 0;
+        }
+        else if (viewID == R.id.R60) {
+            col = 6;
+            row = 0;
+        }
+        else if (viewID == R.id.R70) {
+            col = 7;
+            row = 0;
+        }
+        else if (viewID == R.id.R01) {
+            col = 0;
+            row = 1;
+        }
+        else if (viewID == R.id.R11) {
+            col = 1;
+            row = 1;
+        }
+        else if (viewID == R.id.R21) {
+            col = 2;
+            row = 1;
+        }
+        else if (viewID == R.id.R31) {
+            col = 3;
+            row = 1;
+        }
+        else if (viewID == R.id.R41) {
+            col = 4;
+            row = 1;
+        }
+        else if (viewID == R.id.R51) {
+            col = 5;
+            row = 1;
+        }
+        else if (viewID == R.id.R61) {
+            col = 6;
+            row = 1;
+        }
+        else if (viewID == R.id.R71) {
+            col = 7;
+            row = 1;
+        }
+        else if (viewID == R.id.R02) {
+            col = 0;
+            row = 2;
+        }
+        else if (viewID == R.id.R12) {
+            col = 1;
+            row = 2;
+        }
+        else if (viewID == R.id.R22) {
+            col = 2;
+            row = 2;
+        }
+        else if (viewID == R.id.R32) {
+            col = 3;
+            row = 2;
+        }
+        else if (viewID == R.id.R42) {
+            col = 4;
+            row = 2;
+        }
+        else if (viewID == R.id.R52) {
+            col = 5;
+            row = 2;
+        }
+        else if (viewID == R.id.R62) {
+            col = 6;
+            row = 2;
+        }
+        else if (viewID == R.id.R72) {
+            col = 7;
+            row = 2;
+        }
+        else if (viewID == R.id.R03) {
+            col = 0;
+            row = 3;
+        }
+        else if (viewID == R.id.R13) {
+            col = 1;
+            row = 3;
+        }
+        else if (viewID == R.id.R23) {
+            col = 2;
+            row = 3;
+        }
+        else if (viewID == R.id.R33) {
+            col = 3;
+            row = 3;
+        }
+        else if (viewID == R.id.R43) {
+            col = 4;
+            row = 3;
+        }
+        else if (viewID == R.id.R53) {
+            col = 5;
+            row = 3;
+        }
+        else if (viewID == R.id.R63) {
+            col = 6;
+            row = 3;
+        }
+        else if (viewID == R.id.R73) {
+            col = 7;
+            row = 3;
+        }
+        else if (viewID == R.id.R04) {
+            col = 0;
+            row = 4;
+        }
+        else if (viewID == R.id.R14) {
+            col = 1;
+            row = 4;
+        }
+        else if (viewID == R.id.R24) {
+            col = 2;
+            row = 4;
+        }
+        else if (viewID == R.id.R34) {
+            col = 3;
+            row = 4;
+        }
+        else if (viewID == R.id.R44) {
+            col = 4;
+            row = 4;
+        }
+        else if (viewID == R.id.R54) {
+            col = 5;
+            row = 4;
+        }
+        else if (viewID == R.id.R64) {
+            col = 6;
+            row = 4;
+        }
+        else if (viewID == R.id.R74) {
+            col = 7;
+            row = 4;
+        }
+        else if (viewID == R.id.R05) {
+            col = 0;
+            row = 5;
+        }
+        else if (viewID == R.id.R15) {
+            col = 1;
+            row = 5;
+        }
+        else if (viewID == R.id.R25) {
+            col = 2;
+            row = 5;
+        }
+        else if (viewID == R.id.R35) {
+            col = 3;
+            row = 5;
+        }
+        else if (viewID == R.id.R45) {
+            col = 4;
+            row = 5;
+        }
+        else if (viewID == R.id.R55) {
+            col = 5;
+            row = 5;
+        }
+        else if (viewID == R.id.R65) {
+            col = 6;
+            row = 5;
+        }
+        else if (viewID == R.id.R75) {
+            col = 7;
+            row = 5;
+        }
+        else if (viewID == R.id.R06) {
+            col = 0;
+            row = 6;
+        }
+        else if (viewID == R.id.R16) {
+            col = 1;
+            row = 6;
+        }
+        else if (viewID == R.id.R26) {
+            col = 2;
+            row = 6;
+        }
+        else if (viewID == R.id.R36) {
+            col = 3;
+            row = 6;
+        }
+        else if (viewID == R.id.R46) {
+            col = 4;
+            row = 6;
+        }
+        else if (viewID == R.id.R56) {
+            col = 5;
+            row = 6;
+        }
+        else if (viewID == R.id.R66) {
+            col = 6;
+            row = 6;
+        }
+        else if (viewID == R.id.R76) {
+            col = 7;
+            row = 6;
+        }
 
-            case R.id.R02:
-                col = 0;
-                row = 2;
-                break;
-            case R.id.R12:
-                col = 1;
-                row = 2;
-                break;
-            case R.id.R22:
-                col = 2;
-                row = 2;
-                break;
-            case R.id.R32:
-                col = 3;
-                row = 2;
-                break;
-            case R.id.R42:
-                col = 4;
-                row = 2;
-                break;
-            case R.id.R52:
-                col = 5;
-                row = 2;
-                break;
-            case R.id.R62:
-                col = 6;
-                row = 2;
-                break;
-            case R.id.R72:
-                col = 7;
-                row = 2;
-                break;
-
-            case R.id.R03:
-                col = 0;
-                row = 3;
-                break;
-            case R.id.R13:
-                col = 1;
-                row = 3;
-                break;
-            case R.id.R23:
-                col = 2;
-                row = 3;
-                break;
-            case R.id.R33:
-                col = 3;
-                row = 3;
-                break;
-            case R.id.R43:
-                col = 4;
-                row = 3;
-                break;
-            case R.id.R53:
-                col = 5;
-                row = 3;
-                break;
-            case R.id.R63:
-                col = 6;
-                row = 3;
-                break;
-            case R.id.R73:
-                col = 7;
-                row = 3;
-                break;
-
-            case R.id.R04:
-                col = 0;
-                row = 4;
-                break;
-            case R.id.R14:
-                col = 1;
-                row = 4;
-                break;
-            case R.id.R24:
-                col = 2;
-                row = 4;
-                break;
-            case R.id.R34:
-                col = 3;
-                row = 4;
-                break;
-            case R.id.R44:
-                col = 4;
-                row = 4;
-                break;
-            case R.id.R54:
-                col = 5;
-                row = 4;
-                break;
-            case R.id.R64:
-                col = 6;
-                row = 4;
-                break;
-            case R.id.R74:
-                col = 7;
-                row = 4;
-                break;
-
-            case R.id.R05:
-                col = 0;
-                row = 5;
-                break;
-            case R.id.R15:
-                col = 1;
-                row = 5;
-                break;
-            case R.id.R25:
-                col = 2;
-                row = 5;
-                break;
-            case R.id.R35:
-                col = 3;
-                row = 5;
-                break;
-            case R.id.R45:
-                col = 4;
-                row = 5;
-                break;
-            case R.id.R55:
-                col = 5;
-                row = 5;
-                break;
-            case R.id.R65:
-                col = 6;
-                row = 5;
-                break;
-            case R.id.R75:
-                col = 7;
-                row = 5;
-                break;
-
-            case R.id.R06:
-                col = 0;
-                row = 6;
-                break;
-            case R.id.R16:
-                col = 1;
-                row = 6;
-                break;
-            case R.id.R26:
-                col = 2;
-                row = 6;
-                break;
-            case R.id.R36:
-                col = 3;
-                row = 6;
-                break;
-            case R.id.R46:
-                col = 4;
-                row = 6;
-                break;
-            case R.id.R56:
-                col = 5;
-                row = 6;
-                break;
-            case R.id.R66:
-                col = 6;
-                row = 6;
-                break;
-            case R.id.R76:
-                col = 7;
-                row = 6;
-                break;
-
-            case R.id.R07:
-                col = 0;
-                row = 7;
-                break;
-            case R.id.R17:
-                col = 1;
-                row = 7;
-                break;
-            case R.id.R27:
-                col = 2;
-                row = 7;
-                break;
-            case R.id.R37:
-                col = 3;
-                row = 7;
-                break;
-            case R.id.R47:
-                col = 4;
-                row = 7;
-                break;
-            case R.id.R57:
-                col = 5;
-                row = 7;
-                break;
-            case R.id.R67:
-                col = 6;
-                row = 7;
-                break;
-            case R.id.R77:
-                col = 7;
-                row = 7;
-                break;
+        else if (viewID == R.id.R07) {
+            col = 0;
+            row = 7;
+        }
+        else if (viewID == R.id.R17) {
+            col = 1;
+            row = 7;
+        }
+        else if (viewID == R.id.R27) {
+            col = 2;
+            row = 7;
+        }
+        else if (viewID == R.id.R37) {
+            col = 3;
+            row = 7;
+        }
+        else if (viewID == R.id.R47) {
+            col = 4;
+            row = 7;
+        }
+        else if (viewID == R.id.R57) {
+            col = 5;
+            row = 7;
+        }
+        else if (viewID == R.id.R67) {
+            col = 6;
+            row = 7;
+        }
+        else if (viewID == R.id.R77) {
+            col = 7;
+            row = 7;
         }
 
 
-        // Determine whether tap refers to StartCoordinate or EndCoordinate
-        if (tapNumber % 2 != 0) {
+        // Feed coordinate to the back-end (GamePlay class)
+        game.handleCoordinates(col, row);
 
-            StartCoordinate[0] = row;
-            StartCoordinate[1] = col;
-            //BoardPieceSlots[row][col];
-        } else {
 
-            EndCoordinate[0] = row;
-            EndCoordinate[1] = col;
+        // Check if the latest tap was valid, handle error message if not valid tap
+        boolean validTap = game.validCoordinates();
+
+        if (!validTap) {
+
+            // Display error message
         }
 
-
-        // Update tap number
-        tapNumber++;
+            // Check if the tap is a valid one
     }
 
 
@@ -632,6 +637,9 @@ public class BoardActivity extends AppCompatActivity {
             // Refresh board - set up board pieces
             setBoard(game.getBoardPositions());
         }
+
+        // End game message
+
     }
 
     public boolean isKinginCheck(boolean color)
@@ -822,6 +830,6 @@ public class BoardActivity extends AppCompatActivity {
         runGame();
 
 
-        // Determine if user wants to play again? (lower priority issue)
+        // Determine if user wants to play again? (lower priority issue, focus after working game is completed)
     }
 }
