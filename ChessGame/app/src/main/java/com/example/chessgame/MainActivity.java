@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
                 // Draw board screen
                 Intent intent = new Intent (getApplicationContext(), BoardActivity.class);
                 startActivity(intent);
-                finish(); // Destroys MainActivity
+                finish();
             }
         });
 
@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
                 // Draw info screen
                 Intent intent = new Intent (getApplicationContext(), InfoActivity.class);
                 startActivity(intent);
-                finish(); // Destroys MainActivity
+                finish();
             }
         });
     }

@@ -16,45 +16,45 @@ public class GamePlay {
                                                                                                     // (used to determine whether a full move has been made)
 
     // Declare Piece objects
-    Piece bKing;
-    Piece wKing;
+    public static Piece bKing;
+    public static Piece wKing;
 
-    Piece bQueen;
-    Piece wQueen;
+    public static Piece bQueen;
+    public static Piece wQueen;
 
-    Piece bKnight1;
-    Piece bKnight2;
-    Piece wKnight1;
-    Piece wKnight2;
+    public static Piece bKnight1;
+    public static Piece bKnight2;
+    public static Piece wKnight1;
+    public static Piece wKnight2;
 
-    Piece bRook1;
-    Piece bRook2;
-    Piece wRook1;
-    Piece wRook2;
+    public static Piece bRook1;
+    public static Piece bRook2;
+    public static Piece wRook1;
+    public static Piece wRook2;
 
-    Piece bBishop1;
-    Piece bBishop2;
-    Piece wBishop1;
-    Piece wBishop2;
+    public static Piece bBishop1;
+    public static Piece bBishop2;
+    public static Piece wBishop1;
+    public static Piece wBishop2;
 
-    Piece bPawn1;
-    Piece bPawn2;
-    Piece bPawn3;
-    Piece bPawn4;
-    Piece bPawn5;
-    Piece bPawn6;
-    Piece bPawn7;
-    Piece bPawn8;
+    public static Piece bPawn1;
+    public static Piece bPawn2;
+    public static Piece bPawn3;
+    public static Piece bPawn4;
+    public static Piece bPawn5;
+    public static Piece bPawn6;
+    public static Piece bPawn7;
+    public static Piece bPawn8;
 
-    Piece wPawn1;
-    Piece wPawn2;
-    Piece wPawn3;
+    public static Piece wPawn1;
+    public static Piece wPawn2;
+    public static Piece wPawn3;
 
-    Piece wPawn4;
-    Piece wPawn5;
-    Piece wPawn6;
-    Piece wPawn7;
-    Piece wPawn8;
+    public static Piece wPawn4;
+    public static Piece wPawn5;
+    public static Piece wPawn6;
+    public static Piece wPawn7;
+    public static Piece wPawn8;
 
 
 
@@ -188,8 +188,10 @@ public class GamePlay {
     // Handle coordinate info (user input) from front-end
     public void handleCoordinates (int col, int row) {
 
+        Piece selectedPiece = BoardPositions[col][row];
+
         // Process entered coordinates from the user (is it a start coordinate, end coordinate?)
-        if (whiteTurn && BoardPositions[col][row].isWhite() && validTapCount % 4 == 0) {
+        if (whiteTurn && selectedPiece.isWhite() && pieceCanMove(selectedPiece) && validTapCount % 4 == 0) {
             // If it is white's turn and a white piece is tapped, then it is a valid start tap
             validStartTap = true;
             validTapCount++;
@@ -198,7 +200,7 @@ public class GamePlay {
             StartCoordinates[0] = col;
             StartCoordinates[1] = row;
         }
-        else if(whiteTurn && BoardPositions[StartCoordinates[0]][StartCoordinates[1]].isValidMove(EndCoordinates[0],EndCoordinates[1]) && validTapCount % 4 == 1)
+        else if(whiteTurn && isValidMove(selectedPiece, EndCoordinates[0], EndCoordinates[1]) && validTapCount % 4 == 1)
         {
             validStartTap = false;
             validTapCount++;
@@ -210,7 +212,7 @@ public class GamePlay {
             makeMove();
             whiteTurn = false;
         }    
-        else if (!whiteTurn && !BoardPositions[col][row].isWhite() && validTapCount % 4 == 2) {
+        else if (!whiteTurn && !selectedPiece.isWhite() && pieceCanMove(selectedPiece) && validTapCount % 4 == 2) {
             validStartTap = true;
             validTapCount++;
             coordinatesValid = true;
@@ -218,7 +220,7 @@ public class GamePlay {
             StartCoordinates[0] = col;
             StartCoordinates[1] = row;
         }    
-        else if(!whiteTurn && BoardPositions[StartCoordinates[0]][StartCoordinates[1]].isValidMove(EndCoordinates[0],EndCoordinates[1]) && validTapCount % 4 == 3)
+        else if(!whiteTurn && isValidMove(selectedPiece, EndCoordinates[0],EndCoordinates[1]) && validTapCount % 4 == 3)
         {
             validStartTap = false;
             validTapCount++;
@@ -302,6 +304,23 @@ public class GamePlay {
 
         // Determine if game is over, true if yes, false if no
         //Default return for now (CHANGE THIS LATER!!!!)
+        return false;
+    }
+
+
+    // Check whether piece can move
+    private boolean pieceCanMove (Piece piece) {
+
+        // Go through each tile and see if those are valid moves
+        for (int i = 0; i < 8; i++) {
+
+            for (int j = 0; j < 8; j++) {
+
+                if (isValidMove(piece, i, j))
+                    return true;
+            }
+        }
+
         return false;
     }
 

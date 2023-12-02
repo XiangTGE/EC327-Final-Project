@@ -218,7 +218,7 @@ public class BoardActivity extends AppCompatActivity {
                                         }
 
                                         // Refresh board tiles
-                                        refreshBoardTiles();
+                                        //resetBoardTiles();
                                     } else {
 
                                         // Erase error messages that might have been there from previous taps
@@ -230,16 +230,19 @@ public class BoardActivity extends AppCompatActivity {
 
                                             // Highlight tile tapped
                                             BoardPieceSlots[i][j].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.light_green));
+
+                                            // Set board positions so pieces can be on top of tiles
+                                            setBoard(game);
                                         } else {
 
                                             // If we are here, a move should have been made by GamePlay
                                             if (game.isValidMoveMade()) {
 
+                                                // Refresh boat tiles
+                                                resetBoardTiles();
+
                                                 // Update board positions
                                                 setBoard(game);
-
-                                                // Refresh board tiles
-                                                refreshBoardTiles();
                                             }
                                         }
                                     }
@@ -332,8 +335,8 @@ public class BoardActivity extends AppCompatActivity {
     }
 
 
-    // Refresh board tile colors
-    private void refreshBoardTiles () {
+    // Reset board tile colors to original
+    private void resetBoardTiles() {
 
         BoardTiles[0][0].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardDark));
 
@@ -473,7 +476,7 @@ public class BoardActivity extends AppCompatActivity {
 
 
         // Get the game going!
-        while (!game.gameOver()) {
+        //while (!game.gameOver()) {
 
 //            // Get user input
 //            if(clickedPiece.isWhite() == turn) {
@@ -527,7 +530,7 @@ public class BoardActivity extends AppCompatActivity {
 
             // Refresh board - set up board pieces
             //setBoard(game);
-        }
+        //}
 
         // End game message (determine who won)
 
@@ -724,6 +727,9 @@ public class BoardActivity extends AppCompatActivity {
         // Set up board in background
         game = new GamePlay();
 
+
+        // Refresh board tiles (debug)
+        //refreshBoardTiles();
 
         // Run the game
         runGame();
