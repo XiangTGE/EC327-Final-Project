@@ -4,7 +4,7 @@ public class GamePlay {
 
     public Piece[][] BoardPositions = new Piece[8][8];                                              // Stores the positions of pieces
     public boolean whiteTurn;                                                                       // Game starts with white
-    public boolean
+    //public boolean
     public int[] StartCoordinates = new int[2];                                                     // Start coordinate (piece to move)
     public int[] EndCoordinates = new int[2];                                                       // End coordinate (place to move to)
     public boolean coordinatesValid;                                                                // Flags whether an entered coordinate was valid
@@ -56,7 +56,7 @@ public class GamePlay {
     // Set up board, start the game
     public GamePlay () {
 
-        whiteTurn = true;                                                                                // Game starts with white
+        whiteTurn = true;                                                                           // Game starts with white
         initializeBoard();                                                                          // Set up board
     }
 
@@ -162,7 +162,7 @@ public class GamePlay {
     // Handle coordinate info (user input) from front-end
     public void handleCoordinates (int col, int row) {
 
-
+        // Process entered coordinates from the user (is it a start coordinate, end coordinate?)
         if (whiteTurn) {
 
 

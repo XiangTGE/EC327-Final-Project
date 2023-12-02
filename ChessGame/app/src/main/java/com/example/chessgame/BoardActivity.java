@@ -186,7 +186,7 @@ public class BoardActivity extends AppCompatActivity {
         setBoard(game.getBoardPositions());
 
 
-
+    /*
         // Set up listeners for each tile
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
@@ -205,7 +205,7 @@ public class BoardActivity extends AppCompatActivity {
                     }
                 });
             }
-        }
+        }*/
     }
 
 
@@ -558,6 +558,10 @@ public class BoardActivity extends AppCompatActivity {
         }
 
 
+        // Highlight tiles
+        BoardPieceSlots[row][col].setBackgroundColor(getResources().getColor(R.color.brown));
+
+
         // Feed coordinate to the back-end (GamePlay class)
         game.handleCoordinates(col, row);
 
@@ -574,6 +578,7 @@ public class BoardActivity extends AppCompatActivity {
     }
 
 
+    /*
     // Run the game, melds back-end and front-end
     void runGame () {
 
@@ -640,9 +645,9 @@ public class BoardActivity extends AppCompatActivity {
 
         // End game message
 
-    }
+    }*/
 
-    public boolean isKinginCheck(boolean color)
+    /*public boolean isKinginCheck(boolean color)
     {
         boolean isKingInCheck = false;
         if(!color)
@@ -812,7 +817,7 @@ public class BoardActivity extends AppCompatActivity {
             }
         }
         return isKingInCheck;
-    }
+    }*/
 
     @Override
     protected void onCreate (Bundle savedInstanceState) {

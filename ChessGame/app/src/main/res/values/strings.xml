@@ -16,6 +16,7 @@
     <string name="chess_board_description">Chess Board</string>
     <string name="player1">Player 1</string>
     <string name="player2">Player 2</string>
+    <string name="invalid_move_msg">Invalid Move</string>
 
     <!-- Info Fragment Strings -->
     <string name="info_line1">Thanks for playing Treasure Chess!
