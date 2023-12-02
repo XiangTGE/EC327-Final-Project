@@ -157,9 +157,9 @@ public class GamePlay {
 
 
     // Get reference to a Piece object
-    public Piece getPiece (int row, int col) {
+    public Piece getPiece (int col, int row) {
 
-        return BoardPositions[row][col];
+        return BoardPositions[col][row];
     }
 
     // Give access to BoardPositions
