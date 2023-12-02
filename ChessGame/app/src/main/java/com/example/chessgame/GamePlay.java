@@ -3,6 +3,7 @@ package com.example.chessgame;
 public class GamePlay {
 
     public Piece[][] BoardPositions = new Piece[8][8];                                              // Stores the positions of pieces
+    public Piece pieceToMove;                                                                       // Reference to piece that player selected to move
     public boolean whiteTurn;                                                                       // Game starts with white
     public int[] StartCoordinates = new int[2];                                                     // Start coordinate (piece to move)
     public int[] EndCoordinates = new int[2];                                                       // End coordinate (place to move to)
@@ -210,26 +211,30 @@ public class GamePlay {
             }
         } else {
 
-            if (whiteTurn && isValidMove(selectedPiece, EndCoordinates[0], EndCoordinates[1]) && validTapCount % 4 == 1) {
-                validStartTap = false;
-                validTapCount++;
-                coordinatesValid = true;
+            // Check if there was a previously selected piece to move
+            if (pieceToMove != null) {
 
-                EndCoordinates[0] = col;
-                EndCoordinates[1] = row;
+                if (whiteTurn && isValidMove(selectedPiece, EndCoordinates[0], EndCoordinates[1]) && validTapCount % 4 == 1) {
+                    validStartTap = false;
+                    validTapCount++;
+                    coordinatesValid = true;
 
-                makeMove();
-                whiteTurn = false;
-            } else if (!whiteTurn && isValidMove(selectedPiece, EndCoordinates[0], EndCoordinates[1]) && validTapCount % 4 == 3) {
-                validStartTap = false;
-                validTapCount++;
-                coordinatesValid = true;
+                    EndCoordinates[0] = col;
+                    EndCoordinates[1] = row;
 
-                EndCoordinates[0] = col;
-                EndCoordinates[1] = row;
+                    makeMove();
+                    whiteTurn = false;
+                } else if (!whiteTurn && isValidMove(selectedPiece, EndCoordinates[0], EndCoordinates[1]) && validTapCount % 4 == 3) {
+                    validStartTap = false;
+                    validTapCount++;
+                    coordinatesValid = true;
 
-                makeMove();
-                whiteTurn = true;
+                    EndCoordinates[0] = col;
+                    EndCoordinates[1] = row;
+
+                    makeMove();
+                    whiteTurn = true;
+                }
             } else {
 
                 validStartTap = false;
