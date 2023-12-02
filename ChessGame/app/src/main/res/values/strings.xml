@@ -18,6 +18,7 @@
     <string name="player2">Player 2</string>
     <string name="invalid_move_msg">Invalid Move</string>
 
+
     <!-- Info Fragment Strings -->
     <string name="info_line1">Thanks for playing Treasure Chess!
         This pirate-themed chess app by Binary Bishops (Memo Ortega, Alex Melnick, Steven Hopkins, and Xiang Jin)

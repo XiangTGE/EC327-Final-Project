@@ -1,6 +1,7 @@
 package com.example.chessgame;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import android.os.Bundle;
 import android.widget.TextView;
@@ -23,6 +24,8 @@ public class BoardActivity extends AppCompatActivity {
 
     public TextView[][] BoardTiles = new TextView[8][8];                                            // Stores ids of board tiles
     public TextView[][] BoardPieceSlots = new TextView[8][8];                                       // Stores where proper piece images should be placed
+    public TextView WhiteInvalidMoveMsg;                                                            // Move invalid message for white
+    public TextView BlackInvalidMoveMsg;                                                            // Move invalid message for black
     public int[] StartCoordinate = new int[2];                                                      // Stores coordinates where piece may be
     public int[] EndCoordinate = new int[2];                                                        // Stores coordinates where piece may go
     public int tapNumber;                                                                           // Stores what "number" tap the users have done, odd number
@@ -183,7 +186,7 @@ public class BoardActivity extends AppCompatActivity {
 
         // Place piece images on the board, assuming that the proper piece
         // positions are already recorded in BoardPositions
-        setBoard(game.getBoardPositions());
+        setBoard(game);
 
 
     /*
@@ -210,15 +213,15 @@ public class BoardActivity extends AppCompatActivity {
 
 
     // Refreshes the board positions based on what is in BoardPositions
-    private void setBoard(Piece[][] BoardPositions) {
+    private void setBoard(GamePlay game) {
 
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
 
-                Piece p = BoardPositions[i][j];
+                Piece p = game.getPiece(i, j);
                 int x;
 
-                if (BoardPositions[i][j] != null) {
+                if (p != null) {
                     if (p instanceof King) x = 0;
                     else if (p instanceof Queen) x = 1;
                     else if (p instanceof Rook) x = 2;
@@ -288,8 +291,141 @@ public class BoardActivity extends AppCompatActivity {
     }
 
 
+    // Refresh board tile colors
+    private void refreshBoardTiles () {
+
+        BoardTiles[0][0].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardDark));
+
+        BoardTiles[1][0].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardLight));
+
+        BoardTiles[2][0].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardDark));
+
+        BoardTiles[3][0].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardLight));
+
+        BoardTiles[4][0].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardDark));
+
+        BoardTiles[5][0].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardLight));
+
+        BoardTiles[6][0].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardDark));
+
+        BoardTiles[7][0].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardLight));
+
+        BoardTiles[0][1].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardLight));
+
+        BoardTiles[2][1].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardDark));
+
+        BoardTiles[1][1].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardLight));
+
+        BoardTiles[3][1].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardDark));
+
+        BoardTiles[4][1].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardLight));
+
+        BoardTiles[5][1].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardDark));
+
+        BoardTiles[6][1].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardLight));
+
+        BoardTiles[7][1].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardDark));
+
+        BoardTiles[0][2].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardDark));
+
+        BoardTiles[1][2].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardLight));
+
+        BoardTiles[2][2].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardDark));
+
+        BoardTiles[3][2].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardLight));
+
+        BoardTiles[4][2].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardDark));
+
+        BoardTiles[5][2].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardLight));
+
+        BoardTiles[6][2].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardDark));
+
+        BoardTiles[7][2].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardLight));
+
+        BoardTiles[0][3].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardLight));
+
+        BoardTiles[1][3].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardDark));
+
+        BoardTiles[2][3].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardLight));
+
+        BoardTiles[3][3].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardDark));
+
+        BoardTiles[4][3].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardLight));
+
+        BoardTiles[5][3].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardDark));
+
+        BoardTiles[6][3].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardLight));
+
+        BoardTiles[7][3].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardDark));
+
+        BoardTiles[0][4].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardDark));
+
+        BoardTiles[1][4].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardLight));
+
+        BoardTiles[2][4].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardDark));
+
+        BoardTiles[3][4].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardLight));
+
+        BoardTiles[4][4].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardDark));
+
+        BoardTiles[5][4].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardLight));
+
+        BoardTiles[6][4].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardDark));
+
+        BoardTiles[7][4].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardLight));
+
+        BoardTiles[0][5].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardLight));
+
+        BoardTiles[1][5].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardDark));
+
+        BoardTiles[2][5].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardLight));
+
+        BoardTiles[3][5].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardDark));
+
+        BoardTiles[4][5].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardLight));
+
+        BoardTiles[5][5].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardDark));
+
+        BoardTiles[6][5].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardLight));
+
+        BoardTiles[7][5].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardDark));
+
+        BoardTiles[0][6].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardDark));
+
+        BoardTiles[1][6].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardLight));
+
+        BoardTiles[2][6].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardDark));
+
+        BoardTiles[3][6].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardLight));
+
+        BoardTiles[4][6].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardDark));
+
+        BoardTiles[5][6].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardLight));
+
+        BoardTiles[6][6].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardDark));
+
+        BoardTiles[7][6].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardLight));
+
+        BoardTiles[0][7].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardLight));
+
+        BoardTiles[1][7].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardDark));
+
+        BoardTiles[2][7].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardLight));
+
+        BoardTiles[3][7].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardDark));
+
+        BoardTiles[4][7].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardLight));
+
+        BoardTiles[5][7].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardDark));
+
+        BoardTiles[6][7].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardLight));
+
+        BoardTiles[7][7].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardDark));
+    }
+
+
     // Get user input from tapping a tile and tapping another tile
-    @Override
+    /*@Override
     public void onClick(View v) {
 
         int col;                                                                                    // Stores column index in board
@@ -575,10 +711,10 @@ public class BoardActivity extends AppCompatActivity {
         }
 
             // Check if the tap is a valid one
-    }
+    }*/
 
 
-    /*
+
     // Run the game, melds back-end and front-end
     void runGame () {
 
@@ -589,63 +725,63 @@ public class BoardActivity extends AppCompatActivity {
         // Get the game going!
         while (!game.gameOver()) {
 
-            // Get user input
-            if(clickedPiece.isWhite() == turn) {
-                // Do something with clickedPiece
-                Piece selectedPiece = clickedPiece;
-                if(clickedPiece == null)
-                {
-                    boolean isValidMove = clickedPiece.isValidMove(StartCoordinate, EndCoordinate);
-                    if(isValidMove)
-                    {
-                        game.movePiece(StartCoordinate, EndCoordinate);
-                        turn = !turn;
-                    }
-                }
-                //Add code to check if king is in check
-                else if(clickedPiece.type == "King")
-                {
-                    boolean isValidMove = clickedPiece.isValidMove(StartCoordinate, EndCoordinate);
-                    if(isValidMove)
-                    {
-                        boolean check = isKinginCheck(clickedPiece.isWhite());
-                        if(!check)
-                        {
-                            game.movePiece(StartCoordinate, EndCoordinate);
-                            turn = !turn;
-                        }
-                        else
-                        {
-                            error("King is in check!");
-                        }
-                    }
-                }
-                else if(clickedPiece.isWhite() != selectedPiece.isWhite())
-                {
-                    boolean isValidMove = clickedPiece.isValidMove(StartCoordinate, EndCoordinate);
-                    if(isValidMove)
-                    {
-                        game.movePiece(StartCoordinate, EndCoordinate);
-                        clickedPiece.kill();
-                        turn = !turn;
-                    }
-                }
-            }
-            else
-            {
-                error("Not your turn!");
-            }
+//            // Get user input
+//            if(clickedPiece.isWhite() == turn) {
+//                // Do something with clickedPiece
+//                Piece selectedPiece = clickedPiece;
+//                if(clickedPiece == null)
+//                {
+//                    boolean isValidMove = clickedPiece.isValidMove(StartCoordinate, EndCoordinate);
+//                    if(isValidMove)
+//                    {
+//                        game.movePiece(StartCoordinate, EndCoordinate);
+//                        turn = !turn;
+//                    }
+//                }
+//                //Add code to check if king is in check
+//                else if(clickedPiece.type == "King")
+//                {
+//                    boolean isValidMove = clickedPiece.isValidMove(StartCoordinate, EndCoordinate);
+//                    if(isValidMove)
+//                    {
+//                        boolean check = isKinginCheck(clickedPiece.isWhite());
+//                        if(!check)
+//                        {
+//                            game.movePiece(StartCoordinate, EndCoordinate);
+//                            turn = !turn;
+//                        }
+//                        else
+//                        {
+//                            error("King is in check!");
+//                        }
+//                    }
+//                }
+//                else if(clickedPiece.isWhite() != selectedPiece.isWhite())
+//                {
+//                    boolean isValidMove = clickedPiece.isValidMove(StartCoordinate, EndCoordinate);
+//                    if(isValidMove)
+//                    {
+//                        game.movePiece(StartCoordinate, EndCoordinate);
+//                        clickedPiece.kill();
+//                        turn = !turn;
+//                    }
+//                }
+//            }
+//            else
+//            {
+//                error("Not your turn!");
+//            }
 
             // 
 
 
             // Refresh board - set up board pieces
-            setBoard(game.getBoardPositions());
+            //setBoard(game);
         }
 
         // End game message
 
-    }*/
+    }
 
     /*public boolean isKinginCheck(boolean color)
     {
@@ -825,6 +961,13 @@ public class BoardActivity extends AppCompatActivity {
         // Set up chess board screen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.board);
+
+
+        // Make player move error messages, set to invisible for now
+        WhiteInvalidMoveMsg = (TextView) findViewById(R.id.whiteErrorMsg);
+        BlackInvalidMoveMsg = (TextView) findViewById(R.id.blackErrorMsg);
+        WhiteInvalidMoveMsg.setVisibility(View.INVISIBLE);
+        BlackInvalidMoveMsg.setVisibility(View.INVISIBLE);
 
 
         // Set up board in background
