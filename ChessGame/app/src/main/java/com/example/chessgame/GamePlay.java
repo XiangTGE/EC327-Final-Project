@@ -172,6 +172,7 @@ public class GamePlay {
     private void makeMove () {
 
         // Update BoardPositions using StartCoordinates and EndCoordinates
+        // Update validMoveMade
     }
 
 
@@ -201,7 +202,7 @@ public class GamePlay {
         // Determine if a full move (Start Tap and End Tap) are made, if so then make the move
         // Update validMoveMade flag
 
-        
+
     }
 
 
