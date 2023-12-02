@@ -16,45 +16,44 @@ public class GamePlay {
                                                                                                     // (used to determine whether a full move has been made)
 
     // Declare Piece objects
-    public static Piece bKing;
-    public static Piece wKing;
+    public static King bKing;
+    public static King wKing;
 
-    public static Piece bQueen;
-    public static Piece wQueen;
+    public static Queen bQueen;
+    public static Queen wQueen;
 
-    public static Piece bKnight1;
-    public static Piece bKnight2;
-    public static Piece wKnight1;
-    public static Piece wKnight2;
+    public static Knight bKnight1;
+    public static Knight bKnight2;
+    public static Knight wKnight1;
+    public static Knight wKnight2;
 
-    public static Piece bRook1;
-    public static Piece bRook2;
-    public static Piece wRook1;
-    public static Piece wRook2;
+    public static Rook bRook1;
+    public static Rook bRook2;
+    public static Rook wRook1;
+    public static Rook wRook2;
+    public static Bishop bBishop1;
+    public static Bishop bBishop2;
+    public static Bishop wBishop1;
+    public static Bishop wBishop2;
 
-    public static Piece bBishop1;
-    public static Piece bBishop2;
-    public static Piece wBishop1;
-    public static Piece wBishop2;
+    public static Pawn bPawn1;
+    public static Pawn bPawn2;
+    public static Pawn bPawn3;
+    public static Pawn bPawn4;
+    public static Pawn bPawn5;
+    public static Pawn bPawn6;
+    public static Pawn bPawn7;
+    public static Pawn bPawn8;
 
-    public static Piece bPawn1;
-    public static Piece bPawn2;
-    public static Piece bPawn3;
-    public static Piece bPawn4;
-    public static Piece bPawn5;
-    public static Piece bPawn6;
-    public static Piece bPawn7;
-    public static Piece bPawn8;
+    public static Pawn wPawn1;
+    public static Pawn wPawn2;
+    public static Pawn wPawn3;
 
-    public static Piece wPawn1;
-    public static Piece wPawn2;
-    public static Piece wPawn3;
-
-    public static Piece wPawn4;
-    public static Piece wPawn5;
-    public static Piece wPawn6;
-    public static Piece wPawn7;
-    public static Piece wPawn8;
+    public static Pawn wPawn4;
+    public static Pawn wPawn5;
+    public static Pawn wPawn6;
+    public static Pawn wPawn7;
+    public static Pawn wPawn8;
 
 
 
@@ -329,167 +328,167 @@ public class GamePlay {
         boolean isKingInCheck = false;
         if(!color)
         {
-            if(wRook1.isAlive && wRook1.isValidMove(bKing.xpos,bKing.ypos))
+            if(wRook1.isAlive && isValidMove(wRook1, bKing.xPos, bKing.yPos))
             {
-                bKing.isChecked = true;
+                bKing.setKingIsChecked(true);
                 isKingInCheck = true;
             }
-            else if(wKnight1.isAlive && wKnight1.isValidMove(bKing.xpos,bKing.ypos))
+            else if(wKnight1.isAlive && isValidMove(wKnight1, bKing.xPos, bKing.yPos))
             {
-                bKing.isChecked = true;
+                bKing.setKingIsChecked(true);
                 isKingInCheck = true;
             }
-            else if(wBishop1.isAlive && wBishop1.isValidMove(bKing.xpos,bKing.ypos))
+            else if(wBishop1.isAlive && isValidMove(wBishop1, bKing.xPos, bKing.yPos))
             {
-                bKing.isChecked = true;
+                bKing.setKingIsChecked(true);
                 isKingInCheck = true;
             }
-            else if(wRook2.isAlive && wRook2.isValidMove(bKing.xpos,bKing.ypos))
+            else if(wRook2.isAlive && isValidMove(wRook2, bKing.xPos, bKing.yPos))
             {
-                bKing.isChecked = true;
+                bKing.setKingIsChecked(true);
                 isKingInCheck = true;
             }
-            else if(wKnight2.isAlive && wKnight2.isValidMove(bKing.xpos,bKing.ypos))
+            else if(wKnight2.isAlive && isValidMove(wKnight2, bKing.xPos, bKing.yPos))
             {
-                bKing.isChecked = true;
+                bKing.setKingIsChecked(true);
                 isKingInCheck = true;
             }
-            else if(wBishop2.isAlive && wBishop2.isValidMove(bKing.xpos,bKing.ypos))
+            else if(wBishop2.isAlive && isValidMove(wBishop2, bKing.xPos, bKing.yPos))
             {
-                bKing.isChecked = true;
+                bKing.setKingIsChecked(true);
                 isKingInCheck = true;
             }
-            else if(wQueen.isAlive && wQueen.isValidMove(bKing.xpos,bKing.ypos))
+            else if(wQueen.isAlive && isValidMove(wQueen, bKing.xPos, bKing.yPos))
             {
-                bKing.isChecked = true;
+                bKing.setKingIsChecked(true);
                 isKingInCheck = true;
             }
-            else if(wKing.isAlive && wKing.isValidMove(bKing.xpos,bKing.ypos))
+            else if(wKing.isAlive && isValidMove(wKing, bKing.xPos, bKing.yPos))
             {
-                bKing.isChecked = true;
+                bKing.setKingIsChecked(true);
                 isKingInCheck = true;
             }
-            else if(wPawn1.isAlive && wPawn1.isValidMove(bKing.xpos,bKing.ypos))
+            else if(wPawn1.isAlive && isValidMove(wPawn1, bKing.xPos, bKing.yPos))
             {
-                bKing.isChecked = true;
+                bKing.setKingIsChecked(true);
                 isKingInCheck = true;
             }
-            else if(wPawn2.isAlive && wPawn2.isValidMove(bKing.xpos,bKing.ypos))
+            else if(wPawn2.isAlive && isValidMove(wPawn2, bKing.xPos, bKing.yPos))
             {
-                bKing.isChecked = true;
+                bKing.setKingIsChecked(true);
                 isKingInCheck = true;
             }
-            else if(wPawn3.isAlive && wPawn3.isValidMove(bKing.xpos,bKing.ypos))
+            else if(wPawn3.isAlive && isValidMove(wPawn3, bKing.xPos, bKing.yPos))
             {
-                bKing.isChecked = true;
+                bKing.setKingIsChecked(true);
                 isKingInCheck = true;
             }
-            else if(wPawn4.isAlive && wPawn4.isValidMove(bKing.xpos,bKing.ypos))
+            else if(wPawn4.isAlive && isValidMove(wPawn4, bKing.xPos, bKing.yPos))
             {
-                bKing.isChecked = true;
+                bKing.setKingIsChecked(true);
                 isKingInCheck = true;
             }
-            else if(wPawn5.isAlive && wPawn5.isValidMove(bKing.xpos,bKing.ypos))
+            else if(wPawn5.isAlive && isValidMove(wPawn5, bKing.xPos, bKing.yPos))
             {
-                bKing.isChecked = true;
+                bKing.setKingIsChecked(true);
                 isKingInCheck = true;
             }
-            else if(wPawn6.isAlive && wPawn6.isValidMove(bKing.xpos,bKing.ypos))
+            else if(wPawn6.isAlive && isValidMove(wPawn6, bKing.xPos, bKing.yPos))
             {
-                bKing.isChecked = true;
+                bKing.setKingIsChecked(true);
                 isKingInCheck = true;
             }
-            else if(wPawn7.isAlive && wPawn7.isValidMove(bKing.xpos,bKing.ypos))
+            else if(wPawn7.isAlive && isValidMove(wPawn7, bKing.xPos, bKing.yPos))
             {
-                bKing.isChecked = true;
+                bKing.setKingIsChecked(true);
                 isKingInCheck = true;
             }
-            else if(wPawn8.isAlive && wPawn8.isValidMove(bKing.xpos,bKing.ypos))
+            else if(wPawn8.isAlive && isValidMove(wPawn8, bKing.xPos, bKing.yPos))
             {
-                bKing.isChecked = true;
+                bKing.setKingIsChecked(true);
                 isKingInCheck = true;
             }
         }
         else
         {
-            if(bRook1.isAlive && bRook1.isValidMove(wKing.xpos,wKing.ypos))
+            if(bRook1.isAlive && isValidMove(bRook1, wKing.xPos, wKing.yPos))
             {
-                wKing.isChecked = true;
+                wKing.setKingIsChecked(true);
                 isKingInCheck = true;
             }
-            else if(bKnight1.isAlive && bKnight1.isValidMove(wKing.xpos,wKing.ypos))
+            else if(bKnight1.isAlive && isValidMove(bKnight1, wKing.xPos, wKing.yPos))
             {
-                wKing.isChecked = true;
+                wKing.setKingIsChecked(true);
                 isKingInCheck = true;
             }
-            else if(bBishop1.isAlive && bBishop1.isValidMove(wKing.xpos,wKing.ypos))
+            else if(bBishop1.isAlive && isValidMove(bBishop1, wKing.xPos, wKing.yPos))
             {
-                wKing.isChecked = true;
+                wKing.setKingIsChecked(true);
                 isKingInCheck = true;
             }
-            else if(bRook2.isAlive && bRook2.isValidMove(wKing.xpos,wKing.ypos))
+            else if(bRook2.isAlive && isValidMove(bRook2, wKing.xPos, wKing.yPos))
             {
-                wKing.isChecked = true;
+                wKing.setKingIsChecked(true);
                 isKingInCheck = true;
             }
-            else if(bKnight2.isAlive && bKnight2.isValidMove(wKing.xpos,wKing.ypos))
+            else if(bKnight2.isAlive && isValidMove(bKnight2, wKing.xPos, wKing.yPos))
             {
-                wKing.isChecked = true;
+                wKing.setKingIsChecked(true);
                 isKingInCheck = true;
             }
-            else if(bBishop2.isAlive && bBishop2.isValidMove(wKing.xpos,wKing.ypos))
+            else if(bBishop2.isAlive && isValidMove(bBishop2, wKing.xPos, wKing.yPos))
             {
-                wKing.isChecked = true;
+                wKing.setKingIsChecked(true);
                 isKingInCheck = true;
             }
-            else if(bQueen.isAlive && bQueen.isValidMove(wKing.xpos,wKing.ypos))
+            else if(bQueen.isAlive && isValidMove(bQueen, wKing.xPos, wKing.yPos))
             {
-                wKing.isChecked = true;
+                wKing.setKingIsChecked(true);
                 isKingInCheck = true;
             }
-            else if(bKing.isAlive && bKing.isValidMove(wKing.xpos,wKing.ypos))
+            else if(bKing.isAlive && isValidMove(bKing, wKing.xPos, wKing.yPos))
             {
-                wKing.isChecked = true;
+                wKing.setKingIsChecked(true);
                 isKingInCheck = true;
             }
-            else if(bPawn1.isAlive && bPawn1.isValidMove(wKing.xpos,wKing.ypos))
+            else if(bPawn1.isAlive && isValidMove(bPawn1, wKing.xPos, wKing.yPos))
             {
-                wKing.isChecked = true;
+                wKing.setKingIsChecked(true);
                 isKingInCheck = true;
             }
-            else if(bPawn2.isAlive && bPawn2.isValidMove(wKing.xpos,wKing.ypos))
+            else if(bPawn2.isAlive && isValidMove(bPawn2, wKing.xPos, wKing.yPos))
             {
-                wKing.isChecked = true;
+                wKing.setKingIsChecked(true);
                 isKingInCheck = true;
             }
-            else if(bPawn3.isAlive && bPawn3.isValidMove(wKing.xpos,wKing.ypos))
+            else if(bPawn3.isAlive && isValidMove(bPawn3, wKing.xPos, wKing.yPos))
             {
-                wKing.isChecked = true;
+                wKing.setKingIsChecked(true);
                 isKingInCheck = true;
             }
-            else if(bPawn4.isAlive && bPawn4.isValidMove(wKing.xpos,wKing.ypos))
+            else if(bPawn4.isAlive && isValidMove(bPawn4, wKing.xPos, wKing.yPos))
             {
-                wKing.isChecked = true;
+                wKing.setKingIsChecked(true);
                 isKingInCheck = true;
             }
-            else if(bPawn5.isAlive && bPawn5.isValidMove(cwKing.xpos,wKing.ypos))
+            else if(bPawn5.isAlive && isValidMove(bPawn5, wKing.xPos, wKing.yPos))
             {
-                wKing.isChecked = true;
+                wKing.setKingIsChecked(true);
                 isKingInCheck = true;
             }
-            else if(bPawn6.isAlive && bPawn6.isValidMove(wKing.xpos,wKing.ypos))
+            else if(bPawn6.isAlive && isValidMove(bPawn6, wKing.xPos, wKing.yPos))
             {
-                wKing.isChecked = true;
+                wKing.setKingIsChecked(true);
                 isKingInCheck = true;
             }
-            else if(bPawn7.isAlive && bPawn7.isValidMove(wKing.xpos,wKing.ypos))
+            else if(bPawn7.isAlive && isValidMove(bPawn7, wKing.xPos, wKing.yPos))
             {
-                wKing.isChecked = true;
+                wKing.setKingIsChecked(true);
                 isKingInCheck = true;
             }
-            else if(bPawn8.isAlive && bPawn8.isValidMove(wKing.xpos,wKing.ypos))
+            else if(bPawn8.isAlive && isValidMove(bPawn8, wKing.xPos, wKing.yPos))
             {
-                wKing.isChecked = true;
+                wKing.setKingIsChecked(true);
                 isKingInCheck = true;
             }
         }
@@ -506,7 +505,7 @@ public class GamePlay {
             
             if(piece.type == "King")
             {
-                if(piece.isWhite)
+                if(piece.isWhite())
                 {
                     if(!isKinginCheck(true))
                     {
@@ -551,26 +550,26 @@ public class GamePlay {
                     }
                     else
                     {
-                        if(color)
+                        if(piece.isWhite())
                         {
                             //check if any black pieces can attack the king at the new pos
                             boolean[] bAttack = new boolean[16];
-                            bAttack[0] = bRook1.isValidMove(xNewPos,yNewPos);
-                            bAttack[1] = bKnight1.isValidMove(xNewPos,yNewPos);
-                            bAttack[2] = bBishop1.isValidMove(xNewPos,yNewPos);
-                            bAttack[3] = bQueen.isValidMove(xNewPos,yNewPos);
-                            bAttack[4] = bKing.isValidMove(xNewPos,yNewPos);
-                            bAttack[5] = bBishop2.isValidMove(xNewPos,yNewPos);
-                            bAttack[6] = bKnight2.isValidMove(xNewPos,yNewPos);
-                            bAttack[7] = bRook2.isValidMove(xNewPos,yNewPos);
-                            bAttack[8] = bPawn1.isValidMove(xNewPos,yNewPos);
-                            bAttack[9] = bPawn2.isValidMove(xNewPos,yNewPos);
-                            bAttack[10] = bPawn3.isValidMove(xNewPos,yNewPos);
-                            bAttack[11] = bPawn4.isValidMove(xNewPos,yNewPos);
-                            bAttack[12] = bPawn5.isValidMove(xNewPos,yNewPos);
-                            bAttack[13] = bPawn6.isValidMove(xNewPos,yNewPos);
-                            bAttack[14] = bPawn7.isValidMove(xNewPos,yNewPos);
-                            bAttack[15] = bPawn8.isValidMove(xNewPos,yNewPos);
+                            bAttack[0] = isValidMove(bRook1, xNewPos,yNewPos);
+                            bAttack[1] = isValidMove(bKnight1, xNewPos,yNewPos);
+                            bAttack[2] = isValidMove(bBishop1, xNewPos,yNewPos);
+                            bAttack[3] = isValidMove(bQueen, xNewPos,yNewPos);
+                            bAttack[4] = isValidMove(bKing, xNewPos,yNewPos);
+                            bAttack[5] = isValidMove(bBishop2, xNewPos,yNewPos);
+                            bAttack[6] = isValidMove(bKnight2, xNewPos,yNewPos);
+                            bAttack[7] = isValidMove(bRook2, xNewPos,yNewPos);
+                            bAttack[8] = isValidMove(bPawn1, xNewPos,yNewPos);
+                            bAttack[9] = isValidMove(bPawn2, xNewPos,yNewPos);
+                            bAttack[10] = isValidMove(bPawn3, xNewPos,yNewPos);
+                            bAttack[11] = isValidMove(bPawn4, xNewPos,yNewPos);
+                            bAttack[12] = isValidMove(bPawn5, xNewPos,yNewPos);
+                            bAttack[13] = isValidMove(bPawn6, xNewPos,yNewPos);
+                            bAttack[14] = isValidMove(bPawn7, xNewPos,yNewPos);
+                            bAttack[15] = isValidMove(bPawn8, xNewPos,yNewPos);
 
                             for(int i = 0; i < 16; i++)
                             {
@@ -585,22 +584,22 @@ public class GamePlay {
                         else
                         {
                             boolean[] wAttack = new boolean[16];
-                            wAttack[0] = wRook1.isValidMove(xNewPos,yNewPos);
-                            wAttack[1] = wKnight1.isValidMove(xNewPos,yNewPos);
-                            wAttack[2] = wBishop1.isValidMove(xNewPos,yNewPos);
-                            wAttack[3] = wQueen.isValidMove(xNewPos,yNewPos);
-                            wAttack[4] = wKing.isValidMove(xNewPos,yNewPos);
-                            wAttack[5] = wBishop2.isValidMove(xNewPos,yNewPos);
-                            wAttack[6] = wKnight2.isValidMove(xNewPos,yNewPos);
-                            wAttack[7] = wRook2.isValidMove(xNewPos,yNewPos);
-                            wAttack[8] = wPawn1.isValidMove(xNewPos,yNewPos);
-                            wAttack[9] = wPawn2.isValidMove(xNewPos,yNewPos);
-                            wAttack[10] = wPawn3.isValidMove(xNewPos,yNewPos);
-                            wAttack[11] = wPawn4.isValidMove(xNewPos,yNewPos);
-                            wAttack[12] = wPawn5.isValidMove(xNewPos,yNewPos);
-                            wAttack[13] = wPawn6.isValidMove(xNewPos,yNewPos);
-                            wAttack[14] = wPawn7.isValidMove(xNewPos,yNewPos);
-                            wAttack[15] = wPawn8.isValidMove(xNewPos,yNewPos);
+                            wAttack[0] = isValidMove(wRook1, xNewPos,yNewPos);
+                            wAttack[1] = isValidMove(wKnight1, xNewPos,yNewPos);
+                            wAttack[2] = isValidMove(wBishop1, xNewPos,yNewPos);
+                            wAttack[3] = isValidMove(wQueen, xNewPos,yNewPos);
+                            wAttack[4] = isValidMove(wKing, xNewPos,yNewPos);
+                            wAttack[5] = isValidMove(wBishop2, xNewPos,yNewPos);
+                            wAttack[6] = isValidMove(wKnight2, xNewPos,yNewPos);
+                            wAttack[7] = isValidMove(wRook2, xNewPos,yNewPos);
+                            wAttack[8] = isValidMove(wPawn1, xNewPos,yNewPos);
+                            wAttack[9] = isValidMove(wPawn2, xNewPos,yNewPos);
+                            wAttack[10] = isValidMove(wPawn3, xNewPos,yNewPos);
+                            wAttack[11] = isValidMove(wPawn4, xNewPos,yNewPos);
+                            wAttack[12] = isValidMove(wPawn5, xNewPos,yNewPos);
+                            wAttack[13] = isValidMove(wPawn6, xNewPos,yNewPos);
+                            wAttack[14] = isValidMove(wPawn7, xNewPos,yNewPos);
+                            wAttack[15] = isValidMove(wPawn8, xNewPos,yNewPos);
 
                             for(int i = 0; i < 16; i++)
                             {
@@ -617,7 +616,7 @@ public class GamePlay {
             }
             else if(piece.type == "Queen")
             {
-                if(xor(xNewPos == xPos,yNewPos == yPos))
+                if(xNewPos == xPos ^ yNewPos == yPos)
                 {
                     return true;
                 }
@@ -740,7 +739,7 @@ public class GamePlay {
             }
             else if(piece.type == "Rook")
             {
-                if(xor(xNewPos == xPos,yNewPos == yPos)) // Also have to consider rook moving to the same location. Can't allow that to happen
+                if(xNewPos == xPos ^ yNewPos == yPos) // Also have to consider rook moving to the same location. Can't allow that to happen
                 {
                     return true;
                 }
@@ -910,7 +909,7 @@ public class GamePlay {
             {
                 if(piece.isWhite())
                 {
-                    if(!hasMoved && !piece.isBlocked())
+                    if(!piece.hasMoved && !piece.isBlocked())
                     {
                         if(xNewPos == xPos && yNewPos == yPos + 1)
                         {
@@ -923,7 +922,7 @@ public class GamePlay {
                             return true;
                         }
                     }
-                    else if(piece.pawnAttacking())
+                    else if(pawnAttacking(piece))
                     {
                         if(xNewPos == xPos + 1 && yNewPos == yPos + 1)
                         {
@@ -943,7 +942,7 @@ public class GamePlay {
                 }
                 else
                 {
-                    if(!hasMoved && !isBlocked)
+                    if(!piece.hasMoved && !isBlocked(piece))
                     {
                         if(xNewPos == xPos && yNewPos == yPos - 1)
                         {
@@ -956,7 +955,7 @@ public class GamePlay {
                             return true;
                         }
                     }
-                    else if(isAttacking)
+                    else if(isAttacking(piece))
                     {
                         if(xNewPos == xPos + 1 && yNewPos == yPos - 1)
                         {
