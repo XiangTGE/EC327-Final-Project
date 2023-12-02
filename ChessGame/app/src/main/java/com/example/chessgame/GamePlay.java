@@ -172,7 +172,13 @@ public class GamePlay {
     private void makeMove () {
 
         // Update BoardPositions using StartCoordinates and EndCoordinates
+        BoardPositions[EndCoordinates[0]][EndCoordinates[1]] = BoardPositions[StartCoordinates[0]][StartCoordinates[1]];
+        BoardPositions[StartCoordinates[0]][StartCoordinates[1]] = null;
+
         // Update validMoveMade
+        validMoveMade = true;
+
+        // Check whether king is in check, if game is over
     }
 
 
