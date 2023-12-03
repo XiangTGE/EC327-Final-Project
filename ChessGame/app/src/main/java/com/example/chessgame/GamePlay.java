@@ -15,14 +15,22 @@ public class GamePlay {
     public int gameEndState;                                                                        // 1 if white won, -1 if black won, 0 if draw
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     public int tapCount;                                                                            // Keeps track of how many valid taps have been made
                                                                                                     // (used to determine whether a full move has been made)
 =======
+=======
+
+>>>>>>> 44e75614214fe1a7fa218cd8eef8a3d211e4e2a2
     public int tapCount;                                                                       // Keeps track of how many valid taps have been made
                                                                                                         // (used to determine whether a full move has been made)
 
     public boolean gameOver = false;
+<<<<<<< HEAD
 >>>>>>> 0c8006b2cb8ac6eb0d184288d3e39c6506fd0bfe
+=======
+
+>>>>>>> 44e75614214fe1a7fa218cd8eef8a3d211e4e2a2
 
     // Declare Piece objects
     public static King bKing;
@@ -198,9 +206,10 @@ public class GamePlay {
     public void handleCoordinates (int col, int row) {
 
         Piece selectedPiece = BoardPositions[col][row];
+
         switch (tapCount) {
             case 0: //0 count is 1st move for WHITE
-                if (!selectedPiece.isWhite()) {
+                if (selectedPiece == null || !selectedPiece.isWhite()) {
                     coordinatesValid = false;
                     pieceToMove = null;
                 } //do nothing or print error message
@@ -213,6 +222,7 @@ public class GamePlay {
                     StartCoordinates[1] = row;
                     pieceToMove = selectedPiece;
                 }
+                break;
             case 1:
                 //Get selected coordinates for checking
                 EndCoordinates[0] = col;
@@ -227,7 +237,6 @@ public class GamePlay {
                         tapCount = 0;
                     }
                 }
-
                 else if (!selectedPiece.isWhite()) { //attack mode
                     if (isValidMove(pieceToMove, EndCoordinates[0], EndCoordinates[1])) {
                         tapCount++;
@@ -242,8 +251,9 @@ public class GamePlay {
                     coordinatesValid = false;
                     tapCount = 0;
                     }
+                break;
             case 2: //2 count is 1st move for BLACK
-                if (selectedPiece.isWhite() || selectedPiece == null){
+                if (selectedPiece == null || selectedPiece.isWhite()){
                     coordinatesValid = false;
                     pieceToMove = null;
                 } //do nothing or print error message
@@ -256,6 +266,7 @@ public class GamePlay {
                     StartCoordinates[1] = row;
                     pieceToMove = selectedPiece;
                 }
+                break;
             case 3: //Black's 2nd move
                 //Get selected coordinates for checking
                 EndCoordinates[0] = col ;
@@ -271,7 +282,6 @@ public class GamePlay {
                         tapCount = 2; //Black goes back to 1st tap
                     }
                 }
-
                 else if (selectedPiece.isWhite()) { //attack mode
                     if (isValidMove(pieceToMove, EndCoordinates[0], EndCoordinates[1])) {
                         coordinatesValid = true;
@@ -286,6 +296,7 @@ public class GamePlay {
                     coordinatesValid = false;
                     tapCount = 2;
                 }
+                break;
         }
 
 
@@ -551,7 +562,9 @@ public class GamePlay {
 
     public boolean isValidMove(Piece piece, int xNewPos, int yNewPos)
     {
-        if(piece.isAlive)
+
+        return true; // Debug
+        /*if (piece.isAlive)
         {
             int[] position = piece.getPosition();
             int xPos = position[0];
@@ -1293,7 +1306,7 @@ public class GamePlay {
         else
         {
             return false;
-        }
+        }*/
     }
 
     public boolean PawnAttacking(Piece piece)
