@@ -18,6 +18,7 @@ public class GamePlay {
                                                                                                     // (used to determine whether a full move has been made)
     public boolean gameOver = false;                                                                // Keep track of whether game is over
 
+
     // Declare Piece objects
     public static King bKing;
     public static King wKing;

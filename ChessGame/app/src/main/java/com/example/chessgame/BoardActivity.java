@@ -227,7 +227,7 @@ public class BoardActivity extends AppCompatActivity {
                                         BlackInvalidMoveMsg.setVisibility(View.INVISIBLE);
 
                                         // Check if a move has been made; if so, then update board positions
-                                        if (game.validStartTap) {
+                                        if (game.isValidStartTap()) {
 
                                             // Highlight tile tapped
                                             BoardTiles[i][j].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.light_green));
