@@ -15,10 +15,9 @@ public class GamePlay {
     public int gameEndState;                                                                        // 1 if white won, -1 if black won, 0 if draw
 
 
-    public int tapCount;                                                                       // Keeps track of how many valid taps have been made
-                                                                                                        // (used to determine whether a full move has been made)
-
-    public boolean gameOver = false;
+    public int tapCount;                                                                            // Keeps track of how many valid taps have been made
+                                                                                                    // (used to determine whether a full move has been made)
+    public boolean gameOver = false;                                                                // Track whether game is over
 
 
     // Declare Piece objects
