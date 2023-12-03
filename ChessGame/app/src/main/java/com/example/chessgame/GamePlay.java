@@ -4,7 +4,8 @@ public class GamePlay {
 
     public Piece[][] BoardPositions = new Piece[8][8];                                              // Stores the positions of pieces
     public Piece pieceToMove;                                                                       // Reference to piece that player selected to move
-    public boolean whiteTurn;                                                                       // Game starts with white
+
+    //public boolean whiteTurn;      //NO longer needed                                             // Game starts with white
     public int[] StartCoordinates = new int[2];                                                     // Start coordinate (piece to move)
     public int[] EndCoordinates = new int[2];                                                       // End coordinate (place to move to)
     public boolean coordinatesValid;                                                                // Flags whether an entered coordinate was valid
@@ -13,7 +14,7 @@ public class GamePlay {
                                                                                                     // BoardPositions updated accordingly
     public int gameEndState;                                                                        // 1 if white won, -1 if black won, 0 if draw
 
-    public int validTapCount;                                                                       // Keeps track of how many valid taps have been made
+    public int tapCount;                                                                       // Keeps track of how many valid taps have been made
                                                                                                     // (used to determine whether a full move has been made)
 
     // Declare Piece objects
@@ -61,8 +62,9 @@ public class GamePlay {
     // Set up board, start the game
     public GamePlay () {
 
-        whiteTurn = true;                                                                           // Game starts with white
-        initializeBoard();                                                                          // Set up board
+        //whiteTurn = true;                                                                           // Game starts with white --> Boolean variable outdated
+        initializeBoard();
+        tapCount = 0;// Set up board
     }
 
 
@@ -187,60 +189,94 @@ public class GamePlay {
     public void handleCoordinates (int col, int row) {
 
         Piece selectedPiece = BoardPositions[col][row];
-
-        if (selectedPiece != null) {
-            // Process entered coordinates from the user (is it a start coordinate, end coordinate?)
-            if (whiteTurn && selectedPiece.isWhite() /*&& pieceCanMove(selectedPiece)*/ && validTapCount % 4 == 0) {
-                // If it is white's turn and a white piece is tapped, then it is a valid start tap
-                validStartTap = true;
-                validTapCount++;
-                coordinatesValid = true;
-
-                StartCoordinates[0] = col;
-                StartCoordinates[1] = row;
-            }  else if (!whiteTurn && !selectedPiece.isWhite() && pieceCanMove(selectedPiece) && validTapCount % 4 == 2) {
-                validStartTap = true;
-                validTapCount++;
-                coordinatesValid = true;
-
-                StartCoordinates[0] = col;
-                StartCoordinates[1] = row;
-            }  else {
-                validStartTap = false;
-                coordinatesValid = false;
-            }
-        } else {
-
-            // Check if there was a previously selected piece to move
-            if (pieceToMove != null) {
-
-                if (whiteTurn && isValidMove(selectedPiece, EndCoordinates[0], EndCoordinates[1]) && validTapCount % 4 == 1) {
-                    validStartTap = false;
-                    validTapCount++;
+        switch (tapCount) {
+            case 0: //0 count is 1st move for WHITE
+                if (!selectedPiece.isWhite()) {
+                    coordinatesValid = false;
+                    pieceToMove = null;
+                } //do nothing or print error message
+                else {
+                    // If it is white's turn and a white piece is tapped, then it is a valid  tap
+                    tapCount++;
                     coordinatesValid = true;
-
-                    EndCoordinates[0] = col;
-                    EndCoordinates[1] = row;
-
-                    makeMove();
-                    whiteTurn = false;
-                } else if (!whiteTurn && isValidMove(selectedPiece, EndCoordinates[0], EndCoordinates[1]) && validTapCount % 4 == 3) {
-                    validStartTap = false;
-                    validTapCount++;
-                    coordinatesValid = true;
-
-                    EndCoordinates[0] = col;
-                    EndCoordinates[1] = row;
-
-                    makeMove();
-                    whiteTurn = true;
+                    StartCoordinates[0] = col;
+                    StartCoordinates[1] = row;
+                    pieceToMove = selectedPiece;
                 }
-            } else {
+            case 1:
+                //Get selected coordinates for checking
+                EndCoordinates[0] = col;
+                EndCoordinates[1] = row;
+                if (selectedPiece == null) {
+                    if (isValidMove(pieceToMove, EndCoordinates[0], EndCoordinates[1])) {
+                        tapCount++;
+                        coordinatesValid = true;
+                        makeMove();
+                    } else {
+                        coordinatesValid = false;
+                        tapCount = 0;
+                    }
+                }
 
-                validStartTap = false;
-                coordinatesValid = false;
-            }
+                else if (!selectedPiece.isWhite()) { //attack mode
+                    if (isValidMove(pieceToMove, EndCoordinates[0], EndCoordinates[1])) {
+                        tapCount++;
+                        coordinatesValid = true;
+                        makeMove(); // Should be an attack
+                    } else {
+                        coordinatesValid = false;
+                        tapCount = 0;
+                    }
+                }
+                else {
+                    coordinatesValid = false;
+                    tapCount = 0;
+                    }
+            case 2: //2 count is 1st move for BLACK
+                if (selectedPiece.isWhite() || selectedPiece == null){
+                    coordinatesValid = false;
+                    pieceToMove = null;
+                } //do nothing or print error message
+                else {
+                    // If it is black's turn and a black piece is tapped, then it is a valid  tap
+                    tapCount++;
+                    coordinatesValid = true;
+                    StartCoordinates[0] = col;
+                    StartCoordinates[1] = row;
+                    pieceToMove = selectedPiece;
+                }
+            case 3: //Black's 2nd move
+                //Get selected coordinates for checking
+                EndCoordinates[0] = col ;
+                EndCoordinates[1] = row ;
+
+                if (selectedPiece == null) {
+                    if (isValidMove(pieceToMove, EndCoordinates[0], EndCoordinates[1])) {
+                        tapCount++;
+                        coordinatesValid = true;
+                        makeMove();
+                    } else {
+                        coordinatesValid = false;
+                        tapCount = 2; //Black goes back to 1st tap
+                    }
+                }
+
+                else if (selectedPiece.isWhite()) { //attack mode
+                    if (isValidMove(pieceToMove, EndCoordinates[0], EndCoordinates[1])) {
+                        tapCount++;
+                        coordinatesValid = true;
+                        makeMove(); // Should be an attack
+                    } else {
+                        coordinatesValid = false;
+                        tapCount = 2; //Black back to 1st tap
+                    }
+                }
+                else {
+                    coordinatesValid = false;
+                    tapCount = 2;
+                }
         }
+
 
         // Determine if the tap associated with those coordinates are valid
         // Update coordinatesValid flag
@@ -259,12 +295,13 @@ public class GamePlay {
 
     }
 
-
+    /*
     // Return boolean indicating whether it is white's turn (true if yes, false otherwise)
     public boolean isWhiteTurn () {
 
         return whiteTurn;
     }
+
 
 
     // Returns whether a "Start Tap" has been made, reset flag to false once it is called
@@ -279,7 +316,7 @@ public class GamePlay {
             return false;
         }
     }
-
+*/
 
     // Returns whether a move has recently been made (let's UI know to update board positions)
     // Resets validMoveMade flag to false when called
