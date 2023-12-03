@@ -28,8 +28,8 @@ import android.view.View;
 public class BoardActivity extends AppCompatActivity {
 
     // UI Components
-    MediaPlayer mediaPlayer;                                                                        // To play pirate shanty
-    Button backButton;                                                                              // Button that returns user to menu
+    public MediaPlayer mediaPlayer;                                                                        // To play pirate shanty
+    public Button backButton;                                                                              // Button that returns user to menu
     public TextView WhiteInvalidMoveMsg;                                                            // Move invalid message for white
     public TextView BlackInvalidMoveMsg;                                                            // Move invalid message for black
     public LinearLayout GameOverMsg;                                                                      // Displays the game over message box
@@ -406,6 +406,12 @@ public class BoardActivity extends AppCompatActivity {
         GameOverMsg = (LinearLayout) findViewById(R.id.game_over_msg_box);
         GameOverMsg.setVisibility(View.INVISIBLE);
 
+
+        // Set up music!
+        mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.music_file);
+        mediaPlayer.start();
+
+
         // Set up board in background
         game = new GamePlay();
 
@@ -428,5 +434,19 @@ public class BoardActivity extends AppCompatActivity {
 
 
         // Determine if user wants to play again? (lower priority issue, focus after working game is completed)
+    }
+
+
+    @Override
+    public void onDestroy () {
+
+        // Normal destroy process
+        super.onDestroy();
+
+        // Release music
+        if (mediaPlayer != null) {
+
+            mediaPlayer.release();
+        }
     }
 }

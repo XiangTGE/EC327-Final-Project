@@ -11,7 +11,7 @@ import androidx.navigation.ui.AppBarConfiguration;
 
 public class MainActivity extends AppCompatActivity {
 
-    MediaPlayer mediaPlayer;                                                                        // To play pirate shanty
+    public MediaPlayer mediaPlayer;                                                                 // To play pirate shanty
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
