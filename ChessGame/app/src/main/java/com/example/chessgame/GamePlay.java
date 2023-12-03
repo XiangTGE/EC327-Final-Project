@@ -970,7 +970,7 @@ public class GamePlay {
                 }
                 else
                 {
-                    if(!piece.hasMoved && !isBlocked(piece))
+                    if(!piece.hasMoved && !isBlocked(piece, xNewPos, yNewPos))
                     {
                         if(xNewPos == xPos && yNewPos == yPos - 1)
                         {
@@ -1077,7 +1077,7 @@ public class GamePlay {
                     
                     for(int i = position[1] + 1; i < yNewPos; i++)
                     {
-                        if(BoardPositions[position[0][i]] != null)
+                        if(BoardPositions[position[0]][i] != null)
                         {
                             return true;
                         }
