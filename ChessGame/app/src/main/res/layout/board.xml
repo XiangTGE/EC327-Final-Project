@@ -79,13 +79,13 @@
             android:background="@color/colorBoardLight" />
 
         <TextView
-            android:id="@+id/R021"
+            android:id="@+id/R011"
             android:layout_width="43dp"
             android:layout_height="43dp"
             android:background="@color/colorBoardDark" />
 
         <TextView
-            android:id="@+id/R011"
+            android:id="@+id/R021"
             android:layout_width="43dp"
             android:layout_height="43dp"
             android:background="@color/colorBoardLight" />

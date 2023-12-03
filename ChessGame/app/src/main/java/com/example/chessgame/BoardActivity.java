@@ -338,133 +338,16 @@ public class BoardActivity extends AppCompatActivity {
     // Reset board tile colors to original
     private void resetBoardTiles() {
 
-        BoardTiles[0][0].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardDark));
+        for (int i = 0; i < 8; i++) {
 
-        BoardTiles[1][0].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardLight));
+            for (int j = 0; j < 8; j++) {
 
-        BoardTiles[2][0].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardDark));
-
-        BoardTiles[3][0].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardLight));
-
-        BoardTiles[4][0].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardDark));
-
-        BoardTiles[5][0].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardLight));
-
-        BoardTiles[6][0].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardDark));
-
-        BoardTiles[7][0].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardLight));
-
-        BoardTiles[0][1].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardLight));
-
-        BoardTiles[2][1].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardDark));
-
-        BoardTiles[1][1].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardLight));
-
-        BoardTiles[3][1].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardDark));
-
-        BoardTiles[4][1].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardLight));
-
-        BoardTiles[5][1].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardDark));
-
-        BoardTiles[6][1].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardLight));
-
-        BoardTiles[7][1].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardDark));
-
-        BoardTiles[0][2].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardDark));
-
-        BoardTiles[1][2].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardLight));
-
-        BoardTiles[2][2].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardDark));
-
-        BoardTiles[3][2].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardLight));
-
-        BoardTiles[4][2].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardDark));
-
-        BoardTiles[5][2].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardLight));
-
-        BoardTiles[6][2].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardDark));
-
-        BoardTiles[7][2].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardLight));
-
-        BoardTiles[0][3].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardLight));
-
-        BoardTiles[1][3].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardDark));
-
-        BoardTiles[2][3].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardLight));
-
-        BoardTiles[3][3].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardDark));
-
-        BoardTiles[4][3].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardLight));
-
-        BoardTiles[5][3].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardDark));
-
-        BoardTiles[6][3].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardLight));
-
-        BoardTiles[7][3].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardDark));
-
-        BoardTiles[0][4].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardDark));
-
-        BoardTiles[1][4].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardLight));
-
-        BoardTiles[2][4].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardDark));
-
-        BoardTiles[3][4].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardLight));
-
-        BoardTiles[4][4].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardDark));
-
-        BoardTiles[5][4].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardLight));
-
-        BoardTiles[6][4].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardDark));
-
-        BoardTiles[7][4].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardLight));
-
-        BoardTiles[0][5].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardLight));
-
-        BoardTiles[1][5].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardDark));
-
-        BoardTiles[2][5].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardLight));
-
-        BoardTiles[3][5].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardDark));
-
-        BoardTiles[4][5].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardLight));
-
-        BoardTiles[5][5].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardDark));
-
-        BoardTiles[6][5].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardLight));
-
-        BoardTiles[7][5].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardDark));
-
-        BoardTiles[0][6].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardDark));
-
-        BoardTiles[1][6].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardLight));
-
-        BoardTiles[2][6].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardDark));
-
-        BoardTiles[3][6].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardLight));
-
-        BoardTiles[4][6].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardDark));
-
-        BoardTiles[5][6].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardLight));
-
-        BoardTiles[6][6].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardDark));
-
-        BoardTiles[7][6].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardLight));
-
-        BoardTiles[0][7].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardLight));
-
-        BoardTiles[1][7].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardDark));
-
-        BoardTiles[2][7].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardLight));
-
-        BoardTiles[3][7].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardDark));
-
-        BoardTiles[4][7].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardLight));
-
-        BoardTiles[5][7].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardDark));
-
-        BoardTiles[6][7].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardLight));
-
-        BoardTiles[7][7].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardDark));
+                if ((i+j) % 2 == 0)
+                    BoardTiles[i][j].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardDark));
+                else
+                    BoardTiles[i][j].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardLight));
+            }
+        }
     }
 
 
