@@ -505,9 +505,9 @@ public class GamePlay {
     {
         if(piece.isAlive)
         {
-            int[] possition = piece.getPosition();
-            int xPos = possition[0];
-            int yPos = possition[1];
+            int[] position = piece.getPosition();
+            int xPos = position[0];
+            int yPos = position[1];
             
             if(piece.type == "King")
             {
@@ -913,7 +913,7 @@ public class GamePlay {
             }
             else if(piece.type == "Pawn")
             {
-                if(piece.isWhite())
+                if(!piece.isWhite())    // Edit to condition here to see if this corrects origin at bottom left issue (UI has it top left)
                 {
                     if(!piece.hasMoved && !isBlocked(piece))
                     {
