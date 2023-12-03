@@ -15,7 +15,9 @@ public class GamePlay {
     public int gameEndState;                                                                        // 1 if white won, -1 if black won, 0 if draw
 
     public int tapCount;                                                                       // Keeps track of how many valid taps have been made
-                                                                                                    // (used to determine whether a full move has been made)
+                                                                                                        // (used to determine whether a full move has been made)
+
+    public boolean gameOver = false;
 
     // Declare Piece objects
     public static King bKing;
@@ -174,6 +176,8 @@ public class GamePlay {
 
     // Make a move (only called when a valid move entry has been made with Start and End tap)
     private void makeMove () {
+        //Check if game is still running
+        gameOver = isInCheckmate();
 
         // Update BoardPositions using StartCoordinates and EndCoordinates
         BoardPositions[EndCoordinates[0]][EndCoordinates[1]] = BoardPositions[StartCoordinates[0]][StartCoordinates[1]];
@@ -348,7 +352,7 @@ public class GamePlay {
 
         // Determine if game is over, true if yes, false if no
         //Default return for now (CHANGE THIS LATER!!!!)
-        return false;
+        return gameOver;
     }
 
 
@@ -1365,5 +1369,110 @@ public class GamePlay {
                 }
             }
         }
+    }
+
+    public boolean isKingInCheck(boolean color, int x, int y)
+    {
+        if(color)
+        {
+            boolean[] bChecks = new boolean[16];
+            bChecks[0] = isValidMove(bPawn1,x,y);
+            bChecks[1] = isValidMove(bPawn2,x,y);
+            bChecks[2] = isValidMove(bPawn3,x,y);
+            bChecks[3] = isValidMove(bPawn4,x,y);
+            bChecks[4] = isValidMove(bPawn5,x,y);
+            bChecks[5] = isValidMove(bPawn6,x,y);
+            bChecks[6] = isValidMove(bPawn7,x,y);
+            bChecks[7] = isValidMove(bPawn8,x,y);
+            bChecks[8] = isValidMove(bKing,x,y);
+            bChecks[9] = isValidMove(bQueen,x,y);
+            bChecks[10] = isValidMove(bRook1,x,y);
+            bChecks[11] = isValidMove(bRook2,x,y);
+            bChecks[12] = isValidMove(bBishop1,x,y);
+            bChecks[13] = isValidMove(bBishop2,x,y);
+            bChecks[14] = isValidMove(bKnight1,x,y);
+            bChecks[15] = isValidMove(bKnight2,x,y);
+
+            for(int i = 0; i < 16; i++)
+            {
+                if (bChecks[i])
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+        else
+        {
+            boolean[] wChecks = new boolean[16];
+            wChecks[0] = isValidMove(wPawn1,x,y);
+            wChecks[1] = isValidMove(wPawn2,x,y);
+            wChecks[2] = isValidMove(wPawn3,x,y);
+            wChecks[3] = isValidMove(wPawn4,x,y);
+            wChecks[4] = isValidMove(wPawn5,x,y);
+            wChecks[5] = isValidMove(wPawn6,x,y);
+            wChecks[6] = isValidMove(wPawn7,x,y);
+            wChecks[7] = isValidMove(wPawn8,x,y);
+            wChecks[8] = isValidMove(wKing,x,y);
+            wChecks[9] = isValidMove(wQueen,x,y);
+            wChecks[10] = isValidMove(wRook1,x,y);
+            wChecks[11] = isValidMove(wRook2,x,y);
+            wChecks[12] = isValidMove(wBishop1,x,y);
+            wChecks[13] = isValidMove(wBishop2,x,y);
+            wChecks[14] = isValidMove(wKnight1,x,y);
+            wChecks[15] = isValidMove(wKnight2,x,y);
+
+            for(int i = 0; i < 16; i++)
+            {
+                if (wChecks[i])
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+    }
+
+    public boolean isInCheckmate()
+    {
+        //Check white king
+        int[] wPosition = wKing.getPosition();
+
+        // if white king is in check
+        if(isKinginCheck(true))
+        {
+            for(int i = 0; i < 8; i++)
+            {
+                for(int j = 0; j < 8; j++)
+                {
+                    if(isKingInCheck(true,i,j))
+                    {
+                        return false;
+                    }
+                }
+            }
+        }
+
+        //Check black king
+        int[] bPosition = wKing.getPosition();
+
+        // if black king is in check
+        if(isKinginCheck(false))
+        {
+            for(int i = 0; i < 8; i++)
+            {
+                for(int j = 0; j < 8; j++)
+                {
+                    if(isKingInCheck(false,i,j))
+                    {
+                        return false;
+                    }
+                }
+            }
+        }
+
+        return true;
     }
 }
