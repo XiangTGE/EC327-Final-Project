@@ -198,6 +198,7 @@ public class GamePlay {
                 else {
                     // If it is white's turn and a white piece is tapped, then it is a valid  tap
                     tapCount++;
+                    validStartTap = true;
                     coordinatesValid = true;
                     StartCoordinates[0] = col;
                     StartCoordinates[1] = row;
@@ -240,6 +241,7 @@ public class GamePlay {
                 else {
                     // If it is black's turn and a black piece is tapped, then it is a valid  tap
                     tapCount++;
+                    validStartTap = true;
                     coordinatesValid = true;
                     StartCoordinates[0] = col;
                     StartCoordinates[1] = row;
@@ -252,9 +254,9 @@ public class GamePlay {
 
                 if (selectedPiece == null) {
                     if (isValidMove(pieceToMove, EndCoordinates[0], EndCoordinates[1])) {
-                        tapCount++;
                         coordinatesValid = true;
                         makeMove();
+                        tapCount = 0;
                     } else {
                         coordinatesValid = false;
                         tapCount = 2; //Black goes back to 1st tap
