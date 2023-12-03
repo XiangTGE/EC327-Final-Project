@@ -210,6 +210,7 @@ public class BoardActivity extends AppCompatActivity {
                                     if (!game.validCoordinates()) {
 
                                         // Display error message
+<<<<<<< HEAD
                                         if (game.tapCount == 0) {             // Check if it is white's turn
 
                                             WhiteInvalidMoveMsg.setVisibility(View.VISIBLE);
@@ -217,6 +218,15 @@ public class BoardActivity extends AppCompatActivity {
 
                                             BlackInvalidMoveMsg.setVisibility(View.VISIBLE);
                                         }
+=======
+//                                        if (game.isWhiteTurn()) {
+//
+//                                            WhiteInvalidMoveMsg.setVisibility(View.VISIBLE);
+//                                        } else {
+//
+//                                            BlackInvalidMoveMsg.setVisibility(View.VISIBLE);
+//                                        }
+>>>>>>> aa504220e31abb66141710b7d943e5b362eac7c4
 
                                         // Refresh board tiles
                                         resetBoardTiles();
@@ -227,7 +237,7 @@ public class BoardActivity extends AppCompatActivity {
                                         BlackInvalidMoveMsg.setVisibility(View.INVISIBLE);
 
                                         // Check if a move has been made; if so, then update board positions
-                                        if (game.isValidStartTap()) {
+                                        if (game.validStartTap) {
 
                                             // Highlight tile tapped
                                             BoardPieceSlots[i][j].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.light_green));
