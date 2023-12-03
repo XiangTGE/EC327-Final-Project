@@ -17,6 +17,7 @@
     <string name="player1">Player 1</string>
     <string name="player2">Player 2</string>
     <string name="invalid_move_msg">Invalid Move</string>
+    <string name="game_over_msg">Game Over!</string>
 
 
     <!-- Info Fragment Strings -->
