@@ -209,11 +209,7 @@ public class BoardActivity extends AppCompatActivity {
                                     if (!game.validCoordinates()) {
 
                                         // Display error message
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 
->>>>>>> 44e75614214fe1a7fa218cd8eef8a3d211e4e2a2
                                         if (game.tapCount == 0) {             // Check if it is white's turn
 
                                             WhiteInvalidMoveMsg.setVisibility(View.VISIBLE);
@@ -221,18 +217,6 @@ public class BoardActivity extends AppCompatActivity {
 
                                             BlackInvalidMoveMsg.setVisibility(View.VISIBLE);
                                         }
-<<<<<<< HEAD
-=======
-//                                        if (game.isWhiteTurn()) {
-//
-//                                            WhiteInvalidMoveMsg.setVisibility(View.VISIBLE);
-//                                        } else {
-//
-//                                            BlackInvalidMoveMsg.setVisibility(View.VISIBLE);
-//                                        }
->>>>>>> aa504220e31abb66141710b7d943e5b362eac7c4
-=======
->>>>>>> 44e75614214fe1a7fa218cd8eef8a3d211e4e2a2
 
                                         // Refresh board tiles
                                         resetBoardTiles();
