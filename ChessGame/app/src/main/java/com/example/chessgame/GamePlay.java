@@ -352,7 +352,7 @@ public class GamePlay {
 
         // Determine if game is over, true if yes, false if no
         //Default return for now (CHANGE THIS LATER!!!!)
-        return false;
+        return gameOver;
     }
 
 
@@ -1371,7 +1371,7 @@ public class GamePlay {
         }
     }
 
-    public boolean isCheckPosition(boolean color, int x, int y)
+    public boolean isKingInCheck(boolean color, int x, int y)
     {
         if(color)
         {
@@ -1447,7 +1447,7 @@ public class GamePlay {
             {
                 for(int j = 0; j < 8; j++)
                 {
-                    if(isCheckPosition(true,i,j))
+                    if(isKingInCheck(true,i,j))
                     {
                         return false;
                     }
@@ -1465,7 +1465,7 @@ public class GamePlay {
             {
                 for(int j = 0; j < 8; j++)
                 {
-                    if(isCheckPosition(false,i,j))
+                    if(isKingInCheck(false,i,j))
                     {
                         return false;
                     }
