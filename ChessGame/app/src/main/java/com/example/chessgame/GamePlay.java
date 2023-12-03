@@ -14,7 +14,7 @@ public class GamePlay {
                                                                                                     // BoardPositions updated accordingly
     public int gameEndState;                                                                        // 1 if white won, -1 if black won, 0 if draw
 
-    public int tapCount;                                                                       // Keeps track of how many valid taps have been made
+    public int tapCount;                                                                            // Keeps track of how many valid taps have been made
                                                                                                     // (used to determine whether a full move has been made)
 
     // Declare Piece objects
@@ -265,9 +265,9 @@ public class GamePlay {
 
                 else if (selectedPiece.isWhite()) { //attack mode
                     if (isValidMove(pieceToMove, EndCoordinates[0], EndCoordinates[1])) {
-                        tapCount++;
                         coordinatesValid = true;
                         makeMove(); // Should be an attack
+                        tapCount = 0;
                     } else {
                         coordinatesValid = false;
                         tapCount = 2; //Black back to 1st tap
