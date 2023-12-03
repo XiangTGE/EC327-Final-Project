@@ -3,8 +3,12 @@ package com.example.chessgame;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.text.Layout;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Button;
 import android.view.View;
 
 
@@ -22,10 +26,16 @@ import android.view.View;
 
 public class BoardActivity extends AppCompatActivity {
 
-    public TextView[][] BoardTiles = new TextView[8][8];                                            // Stores ids of board tiles
-    public TextView[][] BoardPieceSlots = new TextView[8][8];                                       // Stores where proper piece images should be placed
+    // UI Components
+    Button backButton;                                                                              // Button that returns user to menu
     public TextView WhiteInvalidMoveMsg;                                                            // Move invalid message for white
     public TextView BlackInvalidMoveMsg;                                                            // Move invalid message for black
+    public LinearLayout GameOverMsg;                                                                      // Displays the game over message box
+    public TextView[][] BoardTiles = new TextView[8][8];                                            // Stores ids of board tiles
+    public TextView[][] BoardPieceSlots = new TextView[8][8];                                       // Stores where proper piece images should be placed
+
+
+    // Data fields to interface with back-end
     public int[] StartCoordinate = new int[2];                                                      // Stores coordinates where piece may be
     public int[] EndCoordinate = new int[2];                                                        // Stores coordinates where piece may go
     public int tapNumber;                                                                           // Stores what "number" tap the users have done, odd number
@@ -390,11 +400,28 @@ public class BoardActivity extends AppCompatActivity {
         BlackInvalidMoveMsg.setVisibility(View.INVISIBLE);
 
 
+        // Make game over message invisible until needed
+        GameOverMsg = (LinearLayout) findViewById(R.id.game_over_msg_box);
+        GameOverMsg.setVisibility(View.INVISIBLE);
+
         // Set up board in background
         game = new GamePlay();
 
 
-        // Run the game
+        // Set up back button
+        backButton = (Button) findViewById(R.id.board_back_button);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Draw info screen
+                Intent intent = new Intent (getApplicationContext(), MainActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+
+        // Run the game (set up board in UI, set up squares to listen for taps)
         runGame();
 
 
