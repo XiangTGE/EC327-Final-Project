@@ -258,7 +258,7 @@ public class BoardActivity extends AppCompatActivity {
                                                 // Check whether game is over, display Game Over message if so
                                                 if (game.gameOver()) {
 
-
+                                                    GameOverMsg.setVisibility(View.VISIBLE);
                                                 }
                                             }
                                         }
