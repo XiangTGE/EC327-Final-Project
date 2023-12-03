@@ -15,7 +15,9 @@ public class GamePlay {
     public int gameEndState;                                                                        // 1 if white won, -1 if black won, 0 if draw
 
     public int tapCount;                                                                       // Keeps track of how many valid taps have been made
-                                                                                                    // (used to determine whether a full move has been made)
+                                                                                                        // (used to determine whether a full move has been made)
+
+    public boolean gameOver = false;
 
     // Declare Piece objects
     public static King bKing;
@@ -174,6 +176,8 @@ public class GamePlay {
 
     // Make a move (only called when a valid move entry has been made with Start and End tap)
     private void makeMove () {
+        //Check if game is still running
+        gameOver = isInCheckmate();
 
         // Update BoardPositions using StartCoordinates and EndCoordinates
         BoardPositions[EndCoordinates[0]][EndCoordinates[1]] = BoardPositions[StartCoordinates[0]][StartCoordinates[1]];
