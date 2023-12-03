@@ -301,7 +301,7 @@ public class GamePlay {
 
         return whiteTurn;
     }
-
+*/
 
 
     // Returns whether a "Start Tap" has been made, reset flag to false once it is called
@@ -316,7 +316,7 @@ public class GamePlay {
             return false;
         }
     }
-*/
+
 
     // Returns whether a move has recently been made (let's UI know to update board positions)
     // Resets validMoveMade flag to false when called
