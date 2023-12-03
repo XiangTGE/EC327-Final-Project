@@ -14,23 +14,9 @@ public class GamePlay {
                                                                                                     // BoardPositions updated accordingly
     public int gameEndState;                                                                        // 1 if white won, -1 if black won, 0 if draw
 
-<<<<<<< HEAD
-<<<<<<< HEAD
     public int tapCount;                                                                            // Keeps track of how many valid taps have been made
                                                                                                     // (used to determine whether a full move has been made)
-=======
-=======
-
->>>>>>> 44e75614214fe1a7fa218cd8eef8a3d211e4e2a2
-    public int tapCount;                                                                       // Keeps track of how many valid taps have been made
-                                                                                                        // (used to determine whether a full move has been made)
-
-    public boolean gameOver = false;
-<<<<<<< HEAD
->>>>>>> 0c8006b2cb8ac6eb0d184288d3e39c6506fd0bfe
-=======
-
->>>>>>> 44e75614214fe1a7fa218cd8eef8a3d211e4e2a2
+    public boolean gameOver = false;                                                                // Keep track of whether game is over
 
     // Declare Piece objects
     public static King bKing;
