@@ -1198,7 +1198,7 @@ public class GamePlay {
                         
                         for(int i = position[1] + 1; i < yNewPos; i++)
                         {
-                            if(BoardPositions[position[0][i]] != null)
+                            if(BoardPositions[position[0]][i] != null)
                             {
                                 return true;
                             }
@@ -1236,7 +1236,7 @@ public class GamePlay {
                         }
                         return false;
                     }
-                    else //if the queen is moveing down
+                    else //if the queen is moving down
                     {
                         for(int i = 0; i < xNewPos - position[0]; i++)
                         {
