@@ -5,12 +5,13 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.media.MediaPlayer;
 
 import androidx.navigation.ui.AppBarConfiguration;
 
 public class MainActivity extends AppCompatActivity {
 
-    private AppBarConfiguration appBarConfiguration;
+    MediaPlayer mediaPlayer;                                                                        // To play pirate shanty
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,6 +19,12 @@ public class MainActivity extends AppCompatActivity {
         // Set up menu screen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menu);
+
+
+        // Set up music!
+        mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.music_file);
+        mediaPlayer.start();
+
 
         // Play button, will bring user to board upon tapping
         Button playButton = (Button) findViewById(R.id.play_button);
@@ -42,5 +49,18 @@ public class MainActivity extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    @Override
+    public void onDestroy () {
+
+        // Normal destroy process
+        super.onDestroy();
+
+        // Release music
+        if (mediaPlayer != null) {
+
+            mediaPlayer.release();
+        }
     }
 }

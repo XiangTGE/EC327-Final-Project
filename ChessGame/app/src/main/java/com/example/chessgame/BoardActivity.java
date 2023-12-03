@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.text.Layout;
 import android.widget.LinearLayout;
@@ -27,6 +28,7 @@ import android.view.View;
 public class BoardActivity extends AppCompatActivity {
 
     // UI Components
+    MediaPlayer mediaPlayer;                                                                        // To play pirate shanty
     Button backButton;                                                                              // Button that returns user to menu
     public TextView WhiteInvalidMoveMsg;                                                            // Move invalid message for white
     public TextView BlackInvalidMoveMsg;                                                            // Move invalid message for black
