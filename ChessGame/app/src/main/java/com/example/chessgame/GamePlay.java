@@ -1198,7 +1198,7 @@ public class GamePlay {
                         
                         for(int i = position[1] + 1; i < yNewPos; i++)
                         {
-                            if(BoardPositions[position[0][i]] != null)
+                            if(BoardPositions[position[0]][i] != null)
                             {
                                 return true;
                             }
