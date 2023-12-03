@@ -11,12 +11,12 @@ import android.view.View;
 /*
 * UI Info:
 * The UI consists of 64 text boxes with their own ids ("Rxx") that can store the image of a piece
-*   - The first digit in "Rxx" is the row index, and it goes from 0-7 from the top to bottom
+*   - The first digit in "Rxx" is the col index, and it goes from 0-7 from L to R
 *     of the board as seen from the view of the white player
-*   - The second digit is the column index, and it goes from 0-7 from left to right
+*   - The second digit is the row index, and it goes from 0-7 from top to bottom
 *
 * The tiles also have the same id naming convention (they color in the squares),
-* but they are in the form "Rxxx", and the first digit is always 0 to indicate that it is a tile,
+* but they are in the form "R0xx", where the first digit is always 0 to indicate that it is a tile,
 * and the rest is col and row indices in that order.
 * */
 

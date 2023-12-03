@@ -189,7 +189,15 @@ public class GamePlay {
     }
 
 
-    // Handle coordinate info (user input) from front-end
+
+    /*
+    * handleCoordinates gets the piece object from selected square, or a null piece if square is empty.
+    * The function contains logic that dictates the gameplay based on tapCount.
+    * When tapCount is 0, it is white's turn and a white piece must be selected.
+    * TapCount is incremented to 1 only if a white piece is selected, and the coordinates of that piece are stored.
+    * The second tap gets destination coordinates, and if the selected destination is valid, move() is called.
+    * coordinatesValid is set to false if the destination is invalid, and tapCount is reset to 0.
+    */
     public void handleCoordinates (int col, int row) {
 
         Piece selectedPiece = BoardPositions[col][row];
@@ -239,11 +247,11 @@ public class GamePlay {
                     tapCount = 0;
                     }
                 break;
-            case 2: //2 count is 1st move for BLACK
+            case 2: //1st move for BLACK
                 if (selectedPiece == null || selectedPiece.isWhite()){
                     coordinatesValid = false;
                     pieceToMove = null;
-                } //do nothing or print error message
+                }
                 else {
                     // If it is black's turn and a black piece is tapped, then it is a valid  tap
                     tapCount++;
@@ -290,13 +298,10 @@ public class GamePlay {
         // Determine if the tap associated with those coordinates are valid
         // Update coordinatesValid flag
 
-
         // Check if a valid Start Tap had been made previously, if so then check if this is a
         // valid End Tap using Piece class method isValidMove
 
-
         // Update whether that was a valid tap that was also a "Start Tap" (update validStartTap)
-
 
         // Determine if a full move (Start Tap and End Tap) are made, if so then make the move
         // Update validMoveMade flag
