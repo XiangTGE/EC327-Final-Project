@@ -204,7 +204,6 @@ public class BoardActivity extends AppCompatActivity {
                                     // Feed coordinate to back-end
                                     game.handleCoordinates(i, j);
 
-                                    BoardPieceSlots[i][j].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.light_green));
 
                                     // Check if this is a valid tap, display proper messages if not
                                     if (!game.validCoordinates()) {
@@ -230,16 +229,16 @@ public class BoardActivity extends AppCompatActivity {
                                         if (game.isValidStartTap()) {
 
                                             // Highlight tile tapped
-                                            BoardPieceSlots[i][j].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.light_green));
+                                            BoardTiles[i][j].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.light_green));
 
                                             // Set board positions so pieces can be on top of tiles
-                                            setBoard(game);
+                                            //setBoard(game);
                                         } else {
 
                                             // If we are here, a move should have been made by GamePlay
                                             if (game.isValidMoveMade()) {
 
-                                                // Refresh boat tiles
+                                                // Refresh board tiles
                                                 resetBoardTiles();
 
                                                 // Update board positions
@@ -477,238 +476,14 @@ public class BoardActivity extends AppCompatActivity {
 
 
         // Get the game going!
-        //while (!game.gameOver()) {
-
-//            // Get user input
-//            if(clickedPiece.isWhite() == turn) {
-//                // Do something with clickedPiece
-//                Piece selectedPiece = clickedPiece;
-//                if(clickedPiece == null)
-//                {
-//                    boolean isValidMove = clickedPiece.isValidMove(StartCoordinate, EndCoordinate);
-//                    if(isValidMove)
-//                    {
-//                        game.movePiece(StartCoordinate, EndCoordinate);
-//                        turn = !turn;
-//                    }
-//                }
-//                //Add code to check if king is in check
-//                else if(clickedPiece.type == "King")
-//                {
-//                    boolean isValidMove = clickedPiece.isValidMove(StartCoordinate, EndCoordinate);
-//                    if(isValidMove)
-//                    {
-//                        boolean check = isKinginCheck(clickedPiece.isWhite());
-//                        if(!check)
-//                        {
-//                            game.movePiece(StartCoordinate, EndCoordinate);
-//                            turn = !turn;
-//                        }
-//                        else
-//                        {
-//                            error("King is in check!");
-//                        }
-//                    }
-//                }
-//                else if(clickedPiece.isWhite() != selectedPiece.isWhite())
-//                {
-//                    boolean isValidMove = clickedPiece.isValidMove(StartCoordinate, EndCoordinate);
-//                    if(isValidMove)
-//                    {
-//                        game.movePiece(StartCoordinate, EndCoordinate);
-//                        clickedPiece.kill();
-//                        turn = !turn;
-//                    }
-//                }
-//            }
-//            else
-//            {
-//                error("Not your turn!");
-//            }
-
-            // 
+        //while (!game.gameOver()) {}
 
 
-            // Refresh board - set up board pieces
-            //setBoard(game);
-        //}
-
-        // End game message (determine who won)
+        // End game message
 
 
     }
 
-    /*public boolean isKinginCheck(boolean color)
-    {
-        boolean isKingInCheck = false;
-        if(!color)
-        {
-            if(wRook1.isAlive && wRook1.isValidMove(currentPiece.xpos,currentPiece.ypos))
-            {
-                bKing.isChecked = true;
-                isKingInCheck = true;
-            }
-            else if(wKnight1.isAlive && wKnight1.isValidMove(currentPiece.xpos,currentPiece.ypos))
-            {
-                bKing.isChecked = true;
-                isKingInCheck = true;
-            }
-            else if(wBishop1.isAlive && wBishop1.isValidMove(currentPiece.xpos,currentPiece.ypos))
-            {
-                bKing.isChecked = true;
-                isKingInCheck = true;
-            }
-            else if(wRook2.isAlive && wRook2.isValidMove(currentPiece.xpos,currentPiece.ypos))
-            {
-                bKing.isChecked = true;
-                isKingInCheck = true;
-            }
-            else if(wKnight2.isAlive && wKnight2.isValidMove(currentPiece.xpos,currentPiece.ypos))
-            {
-                bKing.isChecked = true;
-                isKingInCheck = true;
-            }
-            else if(wBishop2.isAlive && wBishop2.isValidMove(currentPiece.xpos,currentPiece.ypos))
-            {
-                bKing.isChecked = true;
-                isKingInCheck = true;
-            }
-            else if(wQueen.isAlive && wQueen.isValidMove(currentPiece.xpos,currentPiece.ypos))
-            {
-                bKing.isChecked = true;
-                isKingInCheck = true;
-            }
-            else if(wKing.isAlive && wKing.isValidMove(currentPiece.xpos,currentPiece.ypos))
-            {
-                bKing.isChecked = true;
-                isKingInCheck = true;
-            }
-            else if(wPawn1.isAlive && wPawn1.isValidMove(currentPiece.xpos,currentPiece.ypos))
-            {
-                bKing.isChecked = true;
-                isKingInCheck = true;
-            }
-            else if(wPawn2.isAlive && wPawn2.isValidMove(currentPiece.xpos,currentPiece.ypos))
-            {
-                bKing.isChecked = true;
-                isKingInCheck = true;
-            }
-            else if(wPawn3.isAlive && wPawn3.isValidMove(currentPiece.xpos,currentPiece.ypos))
-            {
-                bKing.isChecked = true;
-                isKingInCheck = true;
-            }
-            else if(wPawn4.isAlive && wPawn4.isValidMove(currentPiece.xpos,currentPiece.ypos))
-            {
-                bKing.isChecked = true;
-                isKingInCheck = true;
-            }
-            else if(wPawn5.isAlive && wPawn5.isValidMove(currentPiece.xpos,currentPiece.ypos))
-            {
-                bKing.isChecked = true;
-                isKingInCheck = true;
-            }
-            else if(wPawn6.isAlive && wPawn6.isValidMove(currentPiece.xpos,currentPiece.ypos))
-            {
-                bKing.isChecked = true;
-                isKingInCheck = true;
-            }
-            else if(wPawn7.isAlive && wPawn7.isValidMove(currentPiece.xpos,currentPiece.ypos))
-            {
-                bKing.isChecked = true;
-                isKingInCheck = true;
-            }
-            else if(wPawn8.isAlive && wPawn8.isValidMove(currentPiece.xpos,currentPiece.ypos))
-            {
-                bKing.isChecked = true;
-                isKingInCheck = true;
-            }
-        }
-        else
-        {
-            if(bRook1.isAlive && bRook1.isValidMove(currentPiece.xpos,currentPiece.ypos))
-            {
-                wKing.isChecked = true;
-                isKingInCheck = true;
-            }
-            else if(bKnight1.isAlive && bKnight1.isValidMove(currentPiece.xpos,currentPiece.ypos))
-            {
-                wKing.isChecked = true;
-                isKingInCheck = true;
-            }
-            else if(bBishop1.isAlive && bBishop1.isValidMove(currentPiece.xpos,currentPiece.ypos))
-            {
-                wKing.isChecked = true;
-                isKingInCheck = true;
-            }
-            else if(bRook2.isAlive && bRook2.isValidMove(currentPiece.xpos,currentPiece.ypos))
-            {
-                wKing.isChecked = true;
-                isKingInCheck = true;
-            }
-            else if(bKnight2.isAlive && bKnight2.isValidMove(currentPiece.xpos,currentPiece.ypos))
-            {
-                wKing.isChecked = true;
-                isKingInCheck = true;
-            }
-            else if(bBishop2.isAlive && bBishop2.isValidMove(currentPiece.xpos,currentPiece.ypos))
-            {
-                wKing.isChecked = true;
-                isKingInCheck = true;
-            }
-            else if(bQueen.isAlive && bQueen.isValidMove(currentPiece.xpos,currentPiece.ypos))
-            {
-                wKing.isChecked = true;
-                isKingInCheck = true;
-            }
-            else if(bKing.isAlive && bKing.isValidMove(currentPiece.xpos,currentPiece.ypos))
-            {
-                wKing.isChecked = true;
-                isKingInCheck = true;
-            }
-            else if(bPawn1.isAlive && bPawn1.isValidMove(currentPiece.xpos,currentPiece.ypos))
-            {
-                wKing.isChecked = true;
-                isKingInCheck = true;
-            }
-            else if(bPawn2.isAlive && bPawn2.isValidMove(currentPiece.xpos,currentPiece.ypos))
-            {
-                wKing.isChecked = true;
-                isKingInCheck = true;
-            }
-            else if(bPawn3.isAlive && bPawn3.isValidMove(currentPiece.xpos,currentPiece.ypos))
-            {
-                wKing.isChecked = true;
-                isKingInCheck = true;
-            }
-            else if(bPawn4.isAlive && bPawn4.isValidMove(currentPiece.xpos,currentPiece.ypos))
-            {
-                wKing.isChecked = true;
-                isKingInCheck = true;
-            }
-            else if(bPawn5.isAlive && bPawn5.isValidMove(currentPiece.xpos,currentPiece.ypos))
-            {
-                wKing.isChecked = true;
-                isKingInCheck = true;
-            }
-            else if(bPawn6.isAlive && bPawn6.isValidMove(currentPiece.xpos,currentPiece.ypos))
-            {
-                wKing.isChecked = true;
-                isKingInCheck = true;
-            }
-            else if(bPawn7.isAlive && bPawn7.isValidMove(currentPiece.xpos,currentPiece.ypos))
-            {
-                wKing.isChecked = true;
-                isKingInCheck = true;
-            }
-            else if(bPawn8.isAlive && bPawn8.isValidMove(currentPiece.xpos,currentPiece.ypos))
-            {
-                wKing.isChecked = true;
-                isKingInCheck = true;
-            }
-        }
-        return isKingInCheck;
-    }*/
 
     @Override
     protected void onCreate (Bundle savedInstanceState) {
@@ -728,9 +503,6 @@ public class BoardActivity extends AppCompatActivity {
         // Set up board in background
         game = new GamePlay();
 
-
-        // Refresh board tiles (debug)
-        //refreshBoardTiles();
 
         // Run the game
         runGame();
