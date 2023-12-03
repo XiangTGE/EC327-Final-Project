@@ -937,7 +937,7 @@ public class GamePlay {
             {
                 if(!piece.isWhite())    // Edit to condition here to see if this corrects origin at bottom left issue (UI has it top left)
                 {
-                    if(!piece.hasMoved && !isBlocked(piece))
+                    if(!piece.hasMoved && !isBlocked(piece, xNewPos, yNewPos))
                     {
                         if(xNewPos == xPos && yNewPos == yPos + 1)
                         {
