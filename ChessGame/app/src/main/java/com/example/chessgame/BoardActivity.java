@@ -45,7 +45,7 @@ public class BoardActivity extends AppCompatActivity {
     public int[] EndCoordinate = new int[2];                                                        // Stores coordinates where piece may go
     public int tapNumber;                                                                           // Stores what "number" tap the users have done, odd number
                                                                                                     // means it is a start coordinate, even means it is an end coordinate
-    public int[] checkedKingPos;                                                                    // Stores the position of checked king
+    //public int[] checkedKingPos;                                                                    // Stores the position of checked king
     GamePlay game;                                                                                  // GamePlay object to keep track of game operations
                                                                                                     // in the background
 
@@ -204,10 +204,16 @@ public class BoardActivity extends AppCompatActivity {
         // positions are already recorded in BoardPositions
         setBoard(game);
 
+
         // Allow square tiles to register taps
         allowSquareTaps = true;
 
-    
+        // Initialize checkedKingPos to origin
+//        checkedKingPos = new int[2];
+//        checkedKingPos[0] = 0;
+//        checkedKingPos[1] = 0;
+
+
         // Set up listeners for each tile
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
@@ -238,7 +244,7 @@ public class BoardActivity extends AppCompatActivity {
                                         }
 
                                         // Refresh board tiles
-                                        resetBoardTiles(false);
+                                        resetBoardTiles();
                                     } else if (allowSquareTaps){
 
                                         // Erase error messages that might have been there from previous taps
@@ -259,7 +265,7 @@ public class BoardActivity extends AppCompatActivity {
                                             if (game.isValidMoveMade()) {
 
                                                 // Refresh board tiles
-                                                resetBoardTiles(true);
+                                                resetBoardTiles();
 
                                                 // Update board positions
                                                 setBoard(game);
@@ -267,19 +273,19 @@ public class BoardActivity extends AppCompatActivity {
 
                                                 // Check whether a king is in check
                                                 // NOTE: Check to see if isKingChecked flag needs to be reset
-                                                /*if (game.isKingChecked()) {
-
-                                                    // Highlight checked king
-                                                    checkedKingPos = game.getCheckedKingPos();
-                                                    BoardTiles[checkedKingPos[0]][checkedKingPos[1]].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.));
-                                                }*/
-
+//                                                if (game.isKingChecked()) {
+//
+//                                                    // Highlight checked king
+//                                                    checkedKingPos = game.getCheckedKingPos();
+//                                                    BoardTiles[checkedKingPos[0]][checkedKingPos[1]].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.light_red));
+//                                                }
+//
                                                 // Check whether game is over, display Game Over message if so
-                                                /*if (game.gameOver()) {
+                                                if (game.gameOver()) {
 
                                                     GameOverMsg.setVisibility(View.VISIBLE);
                                                     allowSquareTaps = false;
-                                                }*/
+                                                }
                                             }
                                         }
                                     }
@@ -374,19 +380,18 @@ public class BoardActivity extends AppCompatActivity {
 
     // Reset board tile colors to original
     // Parameter will let function know whether to reset tile for checked king
-    private void resetBoardTiles(boolean resetCheckedKingTile) {
+    private void resetBoardTiles() {
 
         for (int i = 0; i < 8; i++) {
 
             for (int j = 0; j < 8; j++) {
 
-                if (checkedKingPos[0] == i && checkedKingPos[1] == j && !resetCheckedKingTile) {}
-                else {
+                if ((i + j) % 2 == 0) {
 
-                    if ((i + j) % 2 == 0)
-                        BoardTiles[i][j].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardDark));
-                    else
-                        BoardTiles[i][j].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardLight));
+                    BoardTiles[i][j].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardDark));
+                } else {
+
+                    BoardTiles[i][j].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorBoardLight));
                 }
             }
         }

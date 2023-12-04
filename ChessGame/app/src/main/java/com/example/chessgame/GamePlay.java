@@ -11,18 +11,11 @@ public class GamePlay {
     public boolean validMoveMade;                                                                   // Flags whether a valid move has been made by a player,
                                                                                                     // BoardPositions updated accordingly
     public int gameEndState;                                                                        // 1 if white won, -1 if black won, 0 if draw
-
-<<<<<<< HEAD
     public int tapCount;                                                                            // Keeps track of how many valid taps have been made
                                                                                                     // (used to determine whether a full move has been made)
     public boolean gameOver;                                                                        // Keep track of whether game is over
     public boolean kingChecked;                                                                     // Flags whether king is in check
     public int[] checkedKingPos;                                                                    // Position of checked king
-=======
-    public int tapCount;                                                                          // Initialize tap count to 0. Increment in handleCoordinates after each valid tap.
-                                                                                                    // 0 = 1st move white ; 1 = 2nd move white ; 2 = 1st move black ; 3 = 2nd move black
-    public boolean gameOver = false;                                                                // Keep track of whether game is over
->>>>>>> ee6d466c393352c7a44b7b7fd71343d8350856ff
 
 
     // Declare Piece objects

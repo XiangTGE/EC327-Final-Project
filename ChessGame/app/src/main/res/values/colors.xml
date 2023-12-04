@@ -6,6 +6,7 @@
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="light_green">#B366E5E3</color> <!-- To highlight tiles -->
+    <color name="light_red">#B3EC5A39</color> <!-- To highlight tile of checked king -->
     <color name="black">#FF000000</color>
     <color name="brown">#FF86788E</color>
     <color name="white">#FFFFFFFF</color>
