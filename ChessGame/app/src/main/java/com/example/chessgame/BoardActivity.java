@@ -3,8 +3,13 @@ package com.example.chessgame;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.text.Layout;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Button;
 import android.view.View;
 
 
@@ -22,10 +27,18 @@ import android.view.View;
 
 public class BoardActivity extends AppCompatActivity {
 
-    public TextView[][] BoardTiles = new TextView[8][8];                                            // Stores ids of board tiles
-    public TextView[][] BoardPieceSlots = new TextView[8][8];                                       // Stores where proper piece images should be placed
+    // UI Components
+    public MediaPlayer mediaPlayer;                                                                 // To play pirate shanty
+    public Button backButton;                                                                       // Button that returns user to menu
     public TextView WhiteInvalidMoveMsg;                                                            // Move invalid message for white
     public TextView BlackInvalidMoveMsg;                                                            // Move invalid message for black
+    public LinearLayout GameOverMsg;                                                                // Displays the game over message box
+    public boolean allowSquareTaps;                                                                 // Flags whether players are allowed to tap square tiles
+    public TextView[][] BoardTiles = new TextView[8][8];                                            // Stores ids of board tiles
+    public TextView[][] BoardPieceSlots = new TextView[8][8];                                       // Stores where proper piece images should be placed
+
+
+    // Data fields to interface with back-end
     public int[] StartCoordinate = new int[2];                                                      // Stores coordinates where piece may be
     public int[] EndCoordinate = new int[2];                                                        // Stores coordinates where piece may go
     public int tapNumber;                                                                           // Stores what "number" tap the users have done, odd number
@@ -188,6 +201,8 @@ public class BoardActivity extends AppCompatActivity {
         // positions are already recorded in BoardPositions
         setBoard(game);
 
+        // Allow square tiles to register taps
+        allowSquareTaps = true;
 
     
         // Set up listeners for each tile
@@ -206,7 +221,7 @@ public class BoardActivity extends AppCompatActivity {
 
 
                                     // Check if this is a valid tap, display proper messages if not
-                                    if (!game.validCoordinates()) {
+                                    if (!game.validCoordinates() && allowSquareTaps) {
 
                                         // Display error message
 
@@ -220,7 +235,7 @@ public class BoardActivity extends AppCompatActivity {
 
                                         // Refresh board tiles
                                         resetBoardTiles();
-                                    } else {
+                                    } else if (allowSquareTaps){
 
                                         // Erase error messages that might have been there from previous taps
                                         WhiteInvalidMoveMsg.setVisibility(View.INVISIBLE);
@@ -244,6 +259,13 @@ public class BoardActivity extends AppCompatActivity {
 
                                                 // Update board positions
                                                 setBoard(game);
+
+                                                // Check whether game is over, display Game Over message if so
+                                                if (game.gameOver()) {
+
+                                                    GameOverMsg.setVisibility(View.VISIBLE);
+                                                    allowSquareTaps = false;
+                                                }
                                             }
                                         }
                                     }
@@ -384,14 +406,51 @@ public class BoardActivity extends AppCompatActivity {
         BlackInvalidMoveMsg.setVisibility(View.INVISIBLE);
 
 
+        // Make game over message invisible until needed
+        GameOverMsg = (LinearLayout) findViewById(R.id.game_over_msg_box);
+        GameOverMsg.setVisibility(View.INVISIBLE);
+
+
+        // Set up music!
+        mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.home_music);
+        mediaPlayer.start();
+
+
         // Set up board in background
         game = new GamePlay();
 
 
-        // Run the game
+        // Set up back button
+        backButton = (Button) findViewById(R.id.board_back_button);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Draw info screen
+                Intent intent = new Intent (getApplicationContext(), MainActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+
+        // Run the game (set up board in UI, set up squares to listen for taps)
         runGame();
 
 
         // Determine if user wants to play again? (lower priority issue, focus after working game is completed)
+    }
+
+
+    @Override
+    public void onDestroy () {
+
+        // Normal destroy process
+        super.onDestroy();
+
+        // Release music
+        if (mediaPlayer != null) {
+
+            mediaPlayer.release();
+        }
     }
 }
