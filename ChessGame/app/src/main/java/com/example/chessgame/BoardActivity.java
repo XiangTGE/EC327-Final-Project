@@ -234,7 +234,6 @@ public class BoardActivity extends AppCompatActivity {
                                     if (!game.validCoordinates() && allowSquareTaps) {
 
                                         // Display error message
-
                                         if (game.tapCount == 0) {             // Check if it is white's turn
 
                                             WhiteInvalidMoveMsg.setVisibility(View.VISIBLE);
@@ -245,6 +244,16 @@ public class BoardActivity extends AppCompatActivity {
 
                                         // Refresh board tiles
                                         resetBoardTiles();
+
+                                        /* NOTE: Code for implementing tile color change when king is checked
+                                        * if (game.isKingChecked()) {
+                                        *
+                                        *   resetBoardTiles(false);
+                                        * } else {
+                                        *
+                                        *   resetBoardTiles(true);
+                                        * }
+                                        * */
                                     } else if (allowSquareTaps){
 
                                         // Erase error messages that might have been there from previous taps
@@ -273,13 +282,14 @@ public class BoardActivity extends AppCompatActivity {
 
                                                 // Check whether a king is in check
                                                 // NOTE: Check to see if isKingChecked flag needs to be reset
+                                                // WARNING: Don't uncomment as this functionality is not implemented
 //                                                if (game.isKingChecked()) {
 //
 //                                                    // Highlight checked king
 //                                                    checkedKingPos = game.getCheckedKingPos();
 //                                                    BoardTiles[checkedKingPos[0]][checkedKingPos[1]].setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.light_red));
 //                                                }
-//
+
                                                 // Check whether game is over, display Game Over message if so
                                                 if (game.gameOver()) {
 
