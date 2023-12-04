@@ -1285,42 +1285,35 @@ public class GamePlay {
 
     public boolean isInCheckmate()
     {
-        //Check white king
-        int[] wPosition = wKing.getPosition();
+        return false;
+        /*int wPosition[] = wKing.getPosition();
+        int bPosition[] = bKing.getPosition();
 
         // if white king is in check
-        if(isKingInCheck(true,wPosition[0],wPosition[1]))
+        if(isKingInCheck(true,wPosition[0],wPosition[1]) && pieceCanMove(wKing))
         {
-            for(int i = 0; i < 8; i++)
-            {
-                for(int j = 0; j < 8; j++)
-                {
-                    if(isKingInCheck(true,i,j))
-                    {
-                        return false;
-                    }
-                }
-            }
+            gameOver = false;
+            return false;
         }
-
-        //Check black king
-        int[] bPosition = wKing.getPosition();
-
-        // if black king is in check
-        if(isKingInCheck(false,bPosition[0],bPosition[1]))
+        else if(isKingInCheck(true,wPosition[0],wPosition[1]) && !pieceCanMove(wKing))
         {
-            for(int i = 0; i < 8; i++)
-            {
-                for(int j = 0; j < 8; j++)
-                {
-                    if(isKingInCheck(false,i,j))
-                    {
-                        return false;
-                    }
-                }
-            }
+            gameOver = true;
+            return true;
         }
-
-        return true;
+        else if(isKingInCheck(false,wPosition[0],wPosition[1]) && pieceCanMove(bKing))
+        {
+            gameOver = false;
+            return false;
+        }
+        else if(isKingInCheck(false,wPosition[0],wPosition[1]) && !pieceCanMove(bKing))
+        {
+            gameOver = true;
+            return true;
+        }
+        else
+        {
+            gameOver = false;
+            return false;
+        }*/
     }
 }
