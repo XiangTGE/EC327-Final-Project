@@ -31,6 +31,7 @@ public class BoardActivity extends AppCompatActivity {
     // UI Components
     public MediaPlayer mediaPlayer;                                                                 // Plays the background music
     public Button backButton;                                                                       // Button that returns user to menu
+    //public Button pauseMusicButton;                                                                 // Button that pauses music
     public TextView WhiteInvalidMoveMsg;                                                            // Move invalid message for white
     public TextView BlackInvalidMoveMsg;                                                            // Move invalid message for black
     public LinearLayout GameOverMsg;                                                                // Displays the game over message box

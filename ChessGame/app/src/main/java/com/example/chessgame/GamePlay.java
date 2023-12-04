@@ -4,8 +4,6 @@ public class GamePlay {
 
     public Piece[][] BoardPositions = new Piece[8][8];                                              // Stores the positions of pieces
     public Piece pieceToMove;                                                                       // Reference to piece that player selected to move
-
-    //public boolean whiteTurn;      //NO longer needed                                             // Game starts with white
     public int[] StartCoordinates = new int[2];                                                     // Start coordinate (piece to move)
     public int[] EndCoordinates = new int[2];                                                       // End coordinate (place to move to)
     public boolean coordinatesValid;                                                                // Flags whether an entered coordinate was valid
@@ -14,11 +12,17 @@ public class GamePlay {
                                                                                                     // BoardPositions updated accordingly
     public int gameEndState;                                                                        // 1 if white won, -1 if black won, 0 if draw
 
+<<<<<<< HEAD
     public int tapCount;                                                                            // Keeps track of how many valid taps have been made
                                                                                                     // (used to determine whether a full move has been made)
     public boolean gameOver;                                                                        // Keep track of whether game is over
     public boolean kingChecked;                                                                     // Flags whether king is in check
     public int[] checkedKingPos;                                                                    // Position of checked king
+=======
+    public int tapCount;                                                                          // Initialize tap count to 0. Increment in handleCoordinates after each valid tap.
+                                                                                                    // 0 = 1st move white ; 1 = 2nd move white ; 2 = 1st move black ; 3 = 2nd move black
+    public boolean gameOver = false;                                                                // Keep track of whether game is over
+>>>>>>> ee6d466c393352c7a44b7b7fd71343d8350856ff
 
 
     // Declare Piece objects
@@ -65,8 +69,6 @@ public class GamePlay {
 
     // Set up board, start the game
     public GamePlay () {
-
-        //whiteTurn = true;                                                                           // Game starts with white --> Boolean variable outdated
         initializeBoard();
         tapCount = 0;// Set up board
         gameOver = false;
@@ -170,7 +172,7 @@ public class GamePlay {
             {
                 if(BoardPositions[i][j] != null)
                 {
-                    BoardPositions[i][j].setPosition(i,j);
+                    BoardPositions[i][j].setPosition(i,j); // Set position of each piece
                 }
             }
         }
@@ -190,7 +192,7 @@ public class GamePlay {
     }
 
 
-    // Make a move (only called when a valid move entry has been made with Start and End tap)
+    // Make a move (only called in handleCoordinates when a valid move entry has been made with Start and End tap)
     private void makeMove () {
         //Check if game is still running
         gameOver = isInCheckmate();
@@ -301,34 +303,7 @@ public class GamePlay {
                 }
                 break;
         }
-
-
-        // Determine if the tap associated with those coordinates are valid
-        // Update coordinatesValid flag
-
-
-        // Check if a valid Start Tap had been made previously, if so then check if this is a
-        // valid End Tap using Piece class method isValidMove
-
-
-        // Update whether that was a valid tap that was also a "Start Tap" (update validStartTap)
-
-
-        // Determine if a full move (Start Tap and End Tap) are made, if so then make the move
-        // Update validMoveMade flag
-
-
     }
-
-    /*
-    // Return boolean indicating whether it is white's turn (true if yes, false otherwise)
-    public boolean isWhiteTurn () {
-
-        return whiteTurn;
-    }
-*/
-
-
     // Returns whether a "Start Tap" has been made, reset flag to false once it is called
     public boolean isValidStartTap () {
 
@@ -412,9 +387,6 @@ public class GamePlay {
         -Pawns taking pieces
         -Queen
         -Knight
-
-
-        KNOWN NOT WORKING
         -Rook
         -Bishop
 
