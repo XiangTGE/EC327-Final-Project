@@ -18,7 +18,7 @@ public class InfoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_info);
 
         // Set up music!
-        mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.home_music);
+        mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.chess_bg);
         mediaPlayer.start();
 
 
