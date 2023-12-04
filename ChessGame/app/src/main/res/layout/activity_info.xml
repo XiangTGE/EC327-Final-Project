@@ -30,6 +30,18 @@
         android:text="@string/info_reference"
         android:textAlignment="center" />
 
+    <ImageView
+        android:id="@+id/menu_pic"
+        android:layout_width="225dp"
+        android:layout_height="225dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/ai_pirate_image_3" />
+
     <Button
         android:id="@+id/info_activity_back_button"
         android:layout_width="wrap_content"
