@@ -17,8 +17,8 @@ Board refresh function.
  */
 public class Piece {
     boolean color;
-    boolean hasMoved;
-    boolean isAlive;
+    boolean hasMoved = false;
+    boolean isAlive = true;
     boolean isAttacking;
     boolean isBlocked;
     String type;
@@ -87,6 +87,10 @@ public class Piece {
         return color;
     }
 
+    public String getType()
+    {
+        return this.type;
+    }
 
 }
 

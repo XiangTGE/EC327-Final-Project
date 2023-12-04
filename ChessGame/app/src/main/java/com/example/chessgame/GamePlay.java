@@ -158,6 +158,17 @@ public class GamePlay {
         BoardPositions[5][1] = bPawn6;
         BoardPositions[6][1] = bPawn7;
         BoardPositions[7][1] = bPawn8;
+
+        for(int i = 0; i < 8; i++)
+        {
+            for(int j = 0; j < 8; j++)
+            {
+                if(BoardPositions[i][j] != null)
+                {
+                    BoardPositions[i][j].setPosition(i,j);
+                }
+            }
+        }
     }
 
 
@@ -375,237 +386,73 @@ public class GamePlay {
         return false;
     }
 
-    public boolean isKinginCheck(boolean color)
-    {
-        boolean isKingInCheck = false;
-        if(!color)
-        {
-            if(wRook1.isAlive && isValidMove(wRook1, bKing.xPos, bKing.yPos))
-            {
-                bKing.setKingIsChecked(true);
-                isKingInCheck = true;
-            }
-            else if(wKnight1.isAlive && isValidMove(wKnight1, bKing.xPos, bKing.yPos))
-            {
-                bKing.setKingIsChecked(true);
-                isKingInCheck = true;
-            }
-            else if(wBishop1.isAlive && isValidMove(wBishop1, bKing.xPos, bKing.yPos))
-            {
-                bKing.setKingIsChecked(true);
-                isKingInCheck = true;
-            }
-            else if(wRook2.isAlive && isValidMove(wRook2, bKing.xPos, bKing.yPos))
-            {
-                bKing.setKingIsChecked(true);
-                isKingInCheck = true;
-            }
-            else if(wKnight2.isAlive && isValidMove(wKnight2, bKing.xPos, bKing.yPos))
-            {
-                bKing.setKingIsChecked(true);
-                isKingInCheck = true;
-            }
-            else if(wBishop2.isAlive && isValidMove(wBishop2, bKing.xPos, bKing.yPos))
-            {
-                bKing.setKingIsChecked(true);
-                isKingInCheck = true;
-            }
-            else if(wQueen.isAlive && isValidMove(wQueen, bKing.xPos, bKing.yPos))
-            {
-                bKing.setKingIsChecked(true);
-                isKingInCheck = true;
-            }
-            else if(wKing.isAlive && isValidMove(wKing, bKing.xPos, bKing.yPos))
-            {
-                bKing.setKingIsChecked(true);
-                isKingInCheck = true;
-            }
-            else if(wPawn1.isAlive && isValidMove(wPawn1, bKing.xPos, bKing.yPos))
-            {
-                bKing.setKingIsChecked(true);
-                isKingInCheck = true;
-            }
-            else if(wPawn2.isAlive && isValidMove(wPawn2, bKing.xPos, bKing.yPos))
-            {
-                bKing.setKingIsChecked(true);
-                isKingInCheck = true;
-            }
-            else if(wPawn3.isAlive && isValidMove(wPawn3, bKing.xPos, bKing.yPos))
-            {
-                bKing.setKingIsChecked(true);
-                isKingInCheck = true;
-            }
-            else if(wPawn4.isAlive && isValidMove(wPawn4, bKing.xPos, bKing.yPos))
-            {
-                bKing.setKingIsChecked(true);
-                isKingInCheck = true;
-            }
-            else if(wPawn5.isAlive && isValidMove(wPawn5, bKing.xPos, bKing.yPos))
-            {
-                bKing.setKingIsChecked(true);
-                isKingInCheck = true;
-            }
-            else if(wPawn6.isAlive && isValidMove(wPawn6, bKing.xPos, bKing.yPos))
-            {
-                bKing.setKingIsChecked(true);
-                isKingInCheck = true;
-            }
-            else if(wPawn7.isAlive && isValidMove(wPawn7, bKing.xPos, bKing.yPos))
-            {
-                bKing.setKingIsChecked(true);
-                isKingInCheck = true;
-            }
-            else if(wPawn8.isAlive && isValidMove(wPawn8, bKing.xPos, bKing.yPos))
-            {
-                bKing.setKingIsChecked(true);
-                isKingInCheck = true;
-            }
-        }
-        else
-        {
-            if(bRook1.isAlive && isValidMove(bRook1, wKing.xPos, wKing.yPos))
-            {
-                wKing.setKingIsChecked(true);
-                isKingInCheck = true;
-            }
-            else if(bKnight1.isAlive && isValidMove(bKnight1, wKing.xPos, wKing.yPos))
-            {
-                wKing.setKingIsChecked(true);
-                isKingInCheck = true;
-            }
-            else if(bBishop1.isAlive && isValidMove(bBishop1, wKing.xPos, wKing.yPos))
-            {
-                wKing.setKingIsChecked(true);
-                isKingInCheck = true;
-            }
-            else if(bRook2.isAlive && isValidMove(bRook2, wKing.xPos, wKing.yPos))
-            {
-                wKing.setKingIsChecked(true);
-                isKingInCheck = true;
-            }
-            else if(bKnight2.isAlive && isValidMove(bKnight2, wKing.xPos, wKing.yPos))
-            {
-                wKing.setKingIsChecked(true);
-                isKingInCheck = true;
-            }
-            else if(bBishop2.isAlive && isValidMove(bBishop2, wKing.xPos, wKing.yPos))
-            {
-                wKing.setKingIsChecked(true);
-                isKingInCheck = true;
-            }
-            else if(bQueen.isAlive && isValidMove(bQueen, wKing.xPos, wKing.yPos))
-            {
-                wKing.setKingIsChecked(true);
-                isKingInCheck = true;
-            }
-            else if(bKing.isAlive && isValidMove(bKing, wKing.xPos, wKing.yPos))
-            {
-                wKing.setKingIsChecked(true);
-                isKingInCheck = true;
-            }
-            else if(bPawn1.isAlive && isValidMove(bPawn1, wKing.xPos, wKing.yPos))
-            {
-                wKing.setKingIsChecked(true);
-                isKingInCheck = true;
-            }
-            else if(bPawn2.isAlive && isValidMove(bPawn2, wKing.xPos, wKing.yPos))
-            {
-                wKing.setKingIsChecked(true);
-                isKingInCheck = true;
-            }
-            else if(bPawn3.isAlive && isValidMove(bPawn3, wKing.xPos, wKing.yPos))
-            {
-                wKing.setKingIsChecked(true);
-                isKingInCheck = true;
-            }
-            else if(bPawn4.isAlive && isValidMove(bPawn4, wKing.xPos, wKing.yPos))
-            {
-                wKing.setKingIsChecked(true);
-                isKingInCheck = true;
-            }
-            else if(bPawn5.isAlive && isValidMove(bPawn5, wKing.xPos, wKing.yPos))
-            {
-                wKing.setKingIsChecked(true);
-                isKingInCheck = true;
-            }
-            else if(bPawn6.isAlive && isValidMove(bPawn6, wKing.xPos, wKing.yPos))
-            {
-                wKing.setKingIsChecked(true);
-                isKingInCheck = true;
-            }
-            else if(bPawn7.isAlive && isValidMove(bPawn7, wKing.xPos, wKing.yPos))
-            {
-                wKing.setKingIsChecked(true);
-                isKingInCheck = true;
-            }
-            else if(bPawn8.isAlive && isValidMove(bPawn8, wKing.xPos, wKing.yPos))
-            {
-                wKing.setKingIsChecked(true);
-                isKingInCheck = true;
-            }
-        }
-        return isKingInCheck;
-    }
-
     public boolean isValidMove(Piece piece, int xNewPos, int yNewPos)
     {
+        /* KNOWN WORKING
+        -Pawns moving one or two spaces
+        -Pawns taking pieces
+        -Queen
+        -Knight
 
-        return true; // Debug
-        /*if (piece.isAlive)
+
+        KNOWN NOT WORKING
+        -Rook
+        -Bishop
+
+        KNOWN UNKNOWN WORKING
+        -isKingInCheck()
+         */
+
+
+        //return true; // Debug
+        if (piece.isAlive) //working correctly
         {
-            int[] position = piece.getPosition();
+            int[] position = piece.getPosition(); //works
             int xPos = position[0];
             int yPos = position[1];
-            
-            if(piece.type == "King")
+
+            if(piece.type.equals("King"))
             {
-                if((piece.isWhite() && !isKinginCheck(true)) || (!piece.isWhite() && isKinginCheck(false)))
+                if(xNewPos == xPos + 1 && yNewPos == yPos + 1)
                 {
-                    if(xNewPos == xPos + 1 && yNewPos == yPos + 1)
-                    {
-                        return true;
-                    }
-                    else if(xNewPos == xPos + 1 && yNewPos == yPos - 1)
-                    {
-                        return true;
-                    }
-                    else if(xNewPos == xPos - 1 && yNewPos == yPos + 1)
-                    {
-                        return true;
-                    }
-                    else if(xNewPos == xPos - 1 && yNewPos == yPos - 1)
-                    {
-                        return true;
-                    }
-                    else if(xNewPos == xPos && yNewPos == yPos + 1)
-                    {
-                        return true;
-                    }
-                    else if(xNewPos == xPos && yNewPos == yPos - 1)
-                    {
-                        return true;
-                    }
-                    else if(xNewPos == xPos + 1 && yNewPos == yPos)
-                    {
-                        return true;
-                    }
-                    else if(xNewPos == xPos - 1 && yNewPos == yPos)
-                    {
-                        return true;
-                    }
-                    else
-                    {
-                        return false;
-                    }
+                    return true;
+                }
+                else if(xNewPos == xPos + 1 && yNewPos == yPos - 1)
+                {
+                    return true;
+                }
+                else if(xNewPos == xPos - 1 && yNewPos == yPos + 1)
+                {
+                    return true;
+                }
+                else if(xNewPos == xPos - 1 && yNewPos == yPos - 1)
+                {
+                    return true;
+                }
+                else if(xNewPos == xPos && yNewPos == yPos + 1)
+                {
+                    return true;
+                }
+                else if(xNewPos == xPos && yNewPos == yPos - 1)
+                {
+                    return true;
+                }
+                else if(xNewPos == xPos + 1 && yNewPos == yPos)
+                {
+                    return true;
+                }
+                else if(xNewPos == xPos - 1 && yNewPos == yPos)
+                {
+                    return true;
                 }
                 else
                 {
-                    return isKingInCheck(piece.isWhite(),xNewPos,yNewPos);
+                    return false;
                 }
             }
-            else if(piece.type == "Queen")
+            else if(piece.type.equals("Queen"))
             {
-                if(isBlocked(piece, xNewPos, yNewPos))
+                if(!isBlocked(piece, xNewPos, yNewPos))
                 {
                     if(xNewPos == xPos ^ yNewPos == yPos)
                     {
@@ -731,11 +578,11 @@ public class GamePlay {
                 else
                 {
                     return false;
-                } 
+                }
             }
-            else if(piece.type == "Rook")
+            else if(piece.type.equals("Rook"))
             {
-                if(isBlocked(piece, xNewPos, yNewPos))
+                if(!isBlocked(piece, xNewPos, yNewPos))
                 {
                         if(xNewPos == xPos ^ yNewPos == yPos) // Also have to consider rook moving to the same location. Can't allow that to happen
                     {
@@ -750,11 +597,24 @@ public class GamePlay {
                     return false;
                 }
             }
-            else if(piece.type == "Bishop")
+            else if(piece.type.equals("Bishop"))
             {
-                if(isBlocked(piece, xNewPos, yNewPos))
+                if(!isBlocked(piece, xNewPos, yNewPos))
                 {
-                    if(xNewPos == xPos + 1 && yNewPos == yPos + 1)
+                    boolean valid = false;
+                    for(int i = 1; i < 8; i++)
+                    {
+                        if((xNewPos == xPos + i && yNewPos == yPos + i)
+                            || (xNewPos == xPos + i && yNewPos == yPos - i)
+                            || (xNewPos == xPos - i && yNewPos == yPos + i)
+                            || (xNewPos == xPos - i && yNewPos == yPos - i))
+                        {
+                            valid = true;
+                        }
+                    }
+                    return valid;
+
+                    /*if(xNewPos == xPos + 1 && yNewPos == yPos + 1)
                     {
                         return true;
                     }
@@ -869,7 +729,7 @@ public class GamePlay {
                     else
                     {
                         return false;
-                    }
+                    }*/
                 }
                 else
                 {
@@ -877,7 +737,7 @@ public class GamePlay {
                 }
                 
             }
-            else if(piece.type == "Knight")
+            else if(piece.type.equals("Knight"))
             {
                 if(xNewPos == xPos + 2 && yNewPos == yPos + 1)
                 {
@@ -916,9 +776,46 @@ public class GamePlay {
                     return false;
                 }
             }
-            else if(piece.type == "Pawn")
+            else if(piece.type.equals("Pawn"))
             {
-                if(!piece.isWhite())    // Edit to condition here to see if this corrects origin at bottom left issue (UI has it top left)
+                if(piece.isWhite())    // Edit to condition here to see if this corrects origin at bottom left issue (UI has it top left)
+                {
+                    if(!isBlocked(piece, xNewPos, yNewPos))
+                    {
+                        if(xNewPos == xPos && yNewPos == yPos - 1)
+                        {
+                            piece.hasMoved = true;
+                            return true;
+                        }
+                        else if(xNewPos == xPos && yNewPos == yPos - 2 && !piece.hasMoved)
+                        {
+                            piece.hasMoved = true;
+                            return true;
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                    }
+                    else if(PawnAttacking(piece))
+                    {
+                        if(xNewPos == xPos + 1 && yNewPos == yPos - 1)
+                        {
+                            piece.hasMoved = true;
+                            return true;
+                        }
+                        else if(xNewPos == xPos - 1 && yNewPos == yPos - 1)
+                        {
+                            piece.hasMoved = true;
+                            return true;
+                        }
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+                else
                 {
                     if(!piece.hasMoved && !isBlocked(piece, xNewPos, yNewPos))
                     {
@@ -951,54 +848,26 @@ public class GamePlay {
                         return false;
                     }
                 }
-                else
-                {
-                    if(!piece.hasMoved && !isBlocked(piece, xNewPos, yNewPos))
-                    {
-                        if(xNewPos == xPos && yNewPos == yPos - 1)
-                        {
-                            piece.hasMoved = true;
-                            return true;
-                        }
-                        else if(xNewPos == xPos && yNewPos == yPos - 2)
-                        {
-                            piece.hasMoved = true;
-                            return true;
-                        }
-                    }
-                    else if(PawnAttacking(piece))
-                    {
-                        if(xNewPos == xPos + 1 && yNewPos == yPos - 1)
-                        {
-                            piece.hasMoved = true;
-                            return true;
-                        }
-                        else if(xNewPos == xPos - 1 && yNewPos == yPos - 1)
-                        {
-                            piece.hasMoved = true;
-                            return true;
-                        }
-                    }
-                    else
-                    {
-                        return false;
-                    }
-                }
             }
-            
-            return false;
+            else
+            {
+                return false;
+            }
+
         }
         else
         {
             return false;
         }
+
+        return false;
     }
 
     public boolean isBlocked(Piece piece, int xNewPos, int yNewPos)
     {
         int[] position = piece.getPosition();
         
-        if(piece.type == "Pawn")
+        if(piece.type.equals("Pawn"))
         {
             if(piece.isWhite())
             {
@@ -1038,7 +907,7 @@ public class GamePlay {
                 }
             }
         }
-        else if(piece.type == "Rook")
+        else if(piece.type.equals("Rook"))
         {
             if(yNewPos == position[1])  //if the rook is moving horizontally
             {
@@ -1092,72 +961,70 @@ public class GamePlay {
                 }
             }
         }
-        else if(piece.type == "Bishop")
+        else if(piece.type.equals("Bishop"))
         {
-            if(xNewPos > position[0])   //if the bishop is moving right
+            int spaces = Math.abs(position[0] - xNewPos);
+            boolean movingRight = false;
+            boolean movingUp = false;
+
+            if(xNewPos > position[0])
             {
-                if(yNewPos > position[1])   //if the bishop is moving up
+                movingRight = true;
+            }
+            if(yNewPos < position[1])
+            {
+                movingUp = true;
+            }
+
+            if(movingRight)   //if the bishop is moving right
+            {
+                if(movingUp)   //if the bishop is moving up and to the left
                 {
-                    for(int i = 0; i < xNewPos - position[0]; i++)
+                    for (int i = 1; i < spaces; i++)
                     {
-                        for(int j = 0; j < yNewPos - position[1]; j++)
-                        {
-                            if(i == j && BoardPositions[position[0] + i][position[1] + j] != null)
-                            {
-                                return true;
-                            }
-                        }   
+                        if(BoardPositions[position[0] + i][position[1] - i] != null) {
+                            return true;
+                        }
                     }
                     return false;
                 }
-                else //if the bishop is moveing down
+                else //if the bishop is moving down and to the right
                 {
-                    for(int i = 0; i < xNewPos - position[0]; i++)
+                    for (int i = 1; i < spaces; i++)
                     {
-                        for(int j = yNewPos; yNewPos - position[1] >= 0; j--)
-                        {
-                            if(i == j && BoardPositions[position[0] + i][position[1] + j] != null)
-                            {
-                                return true;
-                            }
-                        }   
+                        if(BoardPositions[position[0] + i][position[1] + i] != null) {
+                            return true;
+                        }
                     }
                     return false;
                 }
             }
             else // if the bishop is moving left
             {
-                if(yNewPos > position[1])   //if the bishop is moving up
+                if(movingUp)   //if the bishop is moving up and to the left
                 {
-                    for(int i = xNewPos; xNewPos - position[0] >= 0; i--)
+                    for (int i = 1; i < spaces; i++)
                     {
-                        for(int j = 0; j < yNewPos - position[1]; j++)
-                        {
-                            if(i == j && BoardPositions[position[0] + i][position[1] + j] != null)
-                            {
-                                return true;
-                            }
-                        }   
+                        if(BoardPositions[position[0] - i][position[1] - i] != null) {
+                            return true;
+                        }
                     }
                     return false;
                 }
-                else //if the bishop is moveing down
+                else //if the bishop is moving down and to the left
                 {
-                    for(int i = xNewPos; xNewPos - position[0] >= 0; i--)
+                    for (int i = 1; i < spaces; i++)
                     {
-                        for(int j = yNewPos; yNewPos - position[1] >= 0; j--)
-                        {
-                            if(i == j && BoardPositions[position[0] + i][position[1] + j] != null)
-                            {
-                                return true;
-                            }
-                        }   
+                        if(BoardPositions[position[0] - i][position[1] + i] != null) {
+                            return true;
+                        }
                     }
                     return false;
                 }
             }
+
         }
-        else if(piece.type == "Queen")
+        else if(piece.type.equals("Queen"))
         {
             if(xNewPos == position[0] ^ yNewPos == position[1]) //if the queen is moving horizontally or vertically
             {
@@ -1188,7 +1055,7 @@ public class GamePlay {
                 }
                 else    //if the queen is moving vertically
                 {
-                    if(yNewPos > position[1]) //if the queen is moving up
+                    if(yNewPos > position[1]) //if the queen is moving down
                     {
                         
                         for(int i = position[1] + 1; i < yNewPos; i++)
@@ -1200,11 +1067,11 @@ public class GamePlay {
                         }
                         return false;
                     }
-                    else     //if the queen is moving down
+                    else     //if the queen is moving up
                     {
-                        for(int i = position[1] + 1; i > xNewPos; i--)
+                        for(int i = position[1] - 1; i > yNewPos; i--)
                         {
-                            if(BoardPositions[position[1]][i] != null)
+                            if(BoardPositions[position[0]][i] != null)
                             {
                                 return true;
                             }
@@ -1215,71 +1082,69 @@ public class GamePlay {
             }
             else    //if the queen is moving diagonally
             {
-                if(xNewPos > position[0])   //if the queen is moving right
+                int spaces = Math.abs(position[0] - xNewPos);
+                boolean movingRight = false;
+                boolean movingUp = false;
+
+                if(xNewPos > position[0])
                 {
-                    if(yNewPos > position[1])   //if the queen is moving up
+                    movingRight = true;
+                }
+                if(yNewPos < position[1])
+                {
+                    movingUp = true;
+                }
+
+                if(movingRight)   //if the queen is moving right
+                {
+                    if(movingUp)   //if the queen is moving up and to the right
                     {
-                        for(int i = 0; i < xNewPos - position[0]; i++)
+                        for (int i = 1; i < spaces; i++)
                         {
-                            for(int j = 0; j < yNewPos - position[1]; j++)
-                            {
-                                if(i == j && BoardPositions[position[0] + i][position[1] + j] != null)
-                                {
-                                    return true;
-                                }
-                            }   
+                            if(BoardPositions[position[0] + i][position[1] - i] != null) {
+                                return true;
+                            }
                         }
                         return false;
                     }
-                    else //if the queen is moving down
+                    else //if the queen is moving down and to the right
                     {
-                        for(int i = 0; i < xNewPos - position[0]; i++)
+                        for (int i = 1; i < spaces; i++)
                         {
-                            for(int j = yNewPos; yNewPos - position[1] >= 0; j--)
-                            {
-                                if(i == j && BoardPositions[position[0] + i][position[1] + j] != null)
-                                {
-                                    return true;
-                                }
-                            }   
+                            if(BoardPositions[position[0] + i][position[1] + i] != null) {
+                                return true;
+                            }
                         }
                         return false;
                     }
                 }
                 else // if the queen is moving left
                 {
-                    if(yNewPos > position[1])   //if the queen is moving up
+                    if(movingUp)   //if the queen is moving up and to the left
                     {
-                        for(int i = xNewPos; xNewPos - position[0] >= 0; i--)
+                        for (int i = 1; i < spaces; i++)
                         {
-                            for(int j = 0; j < yNewPos - position[1]; j++)
-                            {
-                                if(i == j && BoardPositions[position[0] + i][position[1] + j] != null)
-                                {
-                                    return true;
-                                }
-                            }   
+                            if(BoardPositions[position[0] - i][position[1] - i] != null) {
+                                return true;
+                            }
                         }
                         return false;
                     }
-                    else //if the queen is moveing down
+                    else //if the queen is moving down and to the left
                     {
-                        for(int i = xNewPos; xNewPos - position[0] >= 0; i--)
+                        for (int i = 1; i < spaces; i++)
                         {
-                            for(int j = yNewPos; yNewPos - position[1] >= 0; j--)
-                            {
-                                if(i == j && BoardPositions[position[0] + i][position[1] + j] != null)
-                                {
-                                    return true;
-                                }
-                            }   
+                            if(BoardPositions[position[0] - i][position[1] + i] != null) {
+                                return true;
+                            }
                         }
                         return false;
                     }
                 }
+
             }
         }
-        else if(piece.type == "King")
+        else if(piece.type.equals("King"))
         {
             if(BoardPositions[xNewPos][yNewPos] != null)
             {
@@ -1293,12 +1158,12 @@ public class GamePlay {
         else
         {
             return false;
-        }*/
+        }
     }
 
     public boolean PawnAttacking(Piece piece)
     {
-        if(piece.type != "Pawn")
+        if(!piece.type.equals("Pawn"))
         {
             //Return false for all non-Pawn pieces
             return false;
@@ -1309,7 +1174,7 @@ public class GamePlay {
             if(piece.isWhite())
             {
                 //if pawn is white
-                if(BoardPositions[position[0] + 1][position[1] + 1] != null || BoardPositions[position[0] - 1][position[1] + 1] != null)
+                if(BoardPositions[position[0] + 1][position[1] - 1] != null || BoardPositions[position[0] - 1][position[1] - 1] != null)
                 {
                     //if there is a piece in front of the pawn
                     return true;
@@ -1321,7 +1186,7 @@ public class GamePlay {
             }
             else
             {
-                if(BoardPositions[position[0] + 1][position[1] - 1] != null || BoardPositions[position[0] - 1][position[1] - 1] != null)
+                if(BoardPositions[position[0] + 1][position[1] + 1] != null || BoardPositions[position[0] - 1][position[1] + 1] != null)
                 {
                     //if there is a piece in front of the pawn
                     return true;
@@ -1336,7 +1201,27 @@ public class GamePlay {
 
     public boolean isKingInCheck(boolean color, int x, int y)
     {
-        if(color)
+        //Hardcoded to false until isValidMove works
+        //return false;
+
+        for(int i = 0; i < 8; i++)
+        {
+            for(int j = 0; j < 8; j++)
+            {
+                Piece temp = BoardPositions[i][j];
+                if(BoardPositions[i][j] != null && (color == temp.isWhite()))
+                {
+
+                    if(isValidMove(temp,i,j))
+                    {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+
+        /*if(color)
         {
             boolean[] bChecks = new boolean[16];
             bChecks[0] = isValidMove(bPawn1,x,y);
@@ -1395,7 +1280,7 @@ public class GamePlay {
             }
 
             return false;
-        }
+        }*/
     }
 
     public boolean isInCheckmate()
@@ -1404,7 +1289,7 @@ public class GamePlay {
         int[] wPosition = wKing.getPosition();
 
         // if white king is in check
-        if(isKinginCheck(true))
+        if(isKingInCheck(true,wPosition[0],wPosition[1]))
         {
             for(int i = 0; i < 8; i++)
             {
@@ -1422,7 +1307,7 @@ public class GamePlay {
         int[] bPosition = wKing.getPosition();
 
         // if black king is in check
-        if(isKinginCheck(false))
+        if(isKingInCheck(false,bPosition[0],bPosition[1]))
         {
             for(int i = 0; i < 8; i++)
             {
