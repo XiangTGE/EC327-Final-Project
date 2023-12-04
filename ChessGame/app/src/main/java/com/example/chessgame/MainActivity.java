@@ -12,6 +12,9 @@ import androidx.navigation.ui.AppBarConfiguration;
 public class MainActivity extends AppCompatActivity {
 
     public MediaPlayer mediaPlayer;                                                                 // To play pirate shanty
+    public boolean info_screen_clicked = false;                                                     // Determine if info screen clicked
+    public boolean board_screen_clicked = false;                                                    // Determine if board screen clicked
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         // Set up music!
-        mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.music_file);
+        mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.home_music);
         mediaPlayer.start();
 
 
@@ -31,6 +34,10 @@ public class MainActivity extends AppCompatActivity {
         playButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                // Set flag
+                board_screen_clicked = true;
+
                 // Draw board screen
                 Intent intent = new Intent (getApplicationContext(), BoardActivity.class);
                 startActivity(intent);
@@ -43,6 +50,10 @@ public class MainActivity extends AppCompatActivity {
         infoButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                // Set flag
+                info_screen_clicked = true;
+
                 // Draw info screen
                 Intent intent = new Intent (getApplicationContext(), InfoActivity.class);
                 startActivity(intent);
@@ -57,8 +68,9 @@ public class MainActivity extends AppCompatActivity {
         // Normal destroy process
         super.onDestroy();
 
-        // Release music
-        if (mediaPlayer != null) {
+
+        // Release music if info screen button clicked
+        if (info_screen_clicked) {
 
             mediaPlayer.release();
         }

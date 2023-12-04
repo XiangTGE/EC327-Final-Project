@@ -28,11 +28,12 @@ import android.view.View;
 public class BoardActivity extends AppCompatActivity {
 
     // UI Components
-    public MediaPlayer mediaPlayer;                                                                        // To play pirate shanty
-    public Button backButton;                                                                              // Button that returns user to menu
+    public MediaPlayer mediaPlayer;                                                                 // To play pirate shanty
+    public Button backButton;                                                                       // Button that returns user to menu
     public TextView WhiteInvalidMoveMsg;                                                            // Move invalid message for white
     public TextView BlackInvalidMoveMsg;                                                            // Move invalid message for black
-    public LinearLayout GameOverMsg;                                                                      // Displays the game over message box
+    public LinearLayout GameOverMsg;                                                                // Displays the game over message box
+    public boolean allowSquareTaps;                                                                 // Flags whether players are allowed to tap square tiles
     public TextView[][] BoardTiles = new TextView[8][8];                                            // Stores ids of board tiles
     public TextView[][] BoardPieceSlots = new TextView[8][8];                                       // Stores where proper piece images should be placed
 
@@ -200,6 +201,8 @@ public class BoardActivity extends AppCompatActivity {
         // positions are already recorded in BoardPositions
         setBoard(game);
 
+        // Allow square tiles to register taps
+        allowSquareTaps = true;
 
     
         // Set up listeners for each tile
@@ -218,7 +221,7 @@ public class BoardActivity extends AppCompatActivity {
 
 
                                     // Check if this is a valid tap, display proper messages if not
-                                    if (!game.validCoordinates()) {
+                                    if (!game.validCoordinates() && allowSquareTaps) {
 
                                         // Display error message
 
@@ -232,7 +235,7 @@ public class BoardActivity extends AppCompatActivity {
 
                                         // Refresh board tiles
                                         resetBoardTiles();
-                                    } else {
+                                    } else if (allowSquareTaps){
 
                                         // Erase error messages that might have been there from previous taps
                                         WhiteInvalidMoveMsg.setVisibility(View.INVISIBLE);
@@ -261,6 +264,7 @@ public class BoardActivity extends AppCompatActivity {
                                                 if (game.gameOver()) {
 
                                                     GameOverMsg.setVisibility(View.VISIBLE);
+                                                    allowSquareTaps = false;
                                                 }
                                             }
                                         }
