@@ -16,7 +16,9 @@ public class GamePlay {
 
     public int tapCount;                                                                            // Keeps track of how many valid taps have been made
                                                                                                     // (used to determine whether a full move has been made)
-    public boolean gameOver = false;                                                                // Keep track of whether game is over
+    public boolean gameOver;                                                                        // Keep track of whether game is over
+    public boolean kingChecked;                                                                     // Flags whether king is in check
+    public int[] checkedKingPos;                                                                    // Position of checked king
 
 
     // Declare Piece objects
@@ -67,6 +69,9 @@ public class GamePlay {
         //whiteTurn = true;                                                                           // Game starts with white --> Boolean variable outdated
         initializeBoard();
         tapCount = 0;// Set up board
+        gameOver = false;
+        kingChecked = false;
+        checkedKingPos = new int[2];
     }
 
 
@@ -358,6 +363,20 @@ public class GamePlay {
     public boolean validCoordinates () {
 
         return coordinatesValid;
+    }
+
+
+    // Let's UI know whether a king is checked
+    public boolean isKingChecked () {
+
+        return kingChecked;
+    }
+
+
+    // Get checked king position
+    public int[] getCheckedKingPos () {
+
+        return checkedKingPos;
     }
 
 
@@ -1214,11 +1233,16 @@ public class GamePlay {
 
                     if(isValidMove(temp,i,j))
                     {
+                        kingChecked = true;
+                        checkedKingPos[0] = x;
+                        checkedKingPos[1] = y;
                         return true;
                     }
                 }
             }
         }
+
+        kingChecked = false;
         return false;
 
         /*if(color)
