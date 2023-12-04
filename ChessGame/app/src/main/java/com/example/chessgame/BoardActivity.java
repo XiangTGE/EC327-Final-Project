@@ -408,7 +408,7 @@ public class BoardActivity extends AppCompatActivity {
 
 
         // Set up music!
-        mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.music_file);
+        mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.home_music);
         mediaPlayer.start();
 
 
