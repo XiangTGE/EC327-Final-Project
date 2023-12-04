@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
+import android.media.MediaActionSound;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.text.Layout;
@@ -28,7 +29,7 @@ import android.view.View;
 public class BoardActivity extends AppCompatActivity {
 
     // UI Components
-    public MediaPlayer mediaPlayer;                                                                 // To play pirate shanty
+    public MediaPlayer mediaPlayer;                                                                 // Plays the background music
     public Button backButton;                                                                       // Button that returns user to menu
     public TextView WhiteInvalidMoveMsg;                                                            // Move invalid message for white
     public TextView BlackInvalidMoveMsg;                                                            // Move invalid message for black
@@ -252,7 +253,7 @@ public class BoardActivity extends AppCompatActivity {
                                         } else {
 
                                             // If we are here, a move should have been made by GamePlay
-                                            if (game.isValidMoveMade()) {
+                                            if (game.gameOver()) {
 
                                                 // Refresh board tiles
                                                 resetBoardTiles();
@@ -411,8 +412,9 @@ public class BoardActivity extends AppCompatActivity {
         GameOverMsg.setVisibility(View.INVISIBLE);
 
 
-        // Set up music!
-        mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.home_music);
+        // Play music
+        mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.chess_bg);
+        mediaPlayer.setLooping(true);
         mediaPlayer.start();
 
 

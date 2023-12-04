@@ -19,6 +19,7 @@ public class InfoActivity extends AppCompatActivity {
 
         // Set up music!
         mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.chess_bg);
+        mediaPlayer.setLooping(true);
         mediaPlayer.start();
 
 

@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Set up music!
         mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.home_music);
+        mediaPlayer.setLooping(true);
         mediaPlayer.start();
 
 
@@ -44,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
                 finish();
             }
         });
+
 
         // Info button, will bring user to info screen upon tapping
         Button infoButton = (Button) findViewById(R.id.info_button);
@@ -70,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         // Release music if info screen button clicked
-        if (info_screen_clicked) {
+        if (mediaPlayer != null) {
 
             mediaPlayer.release();
         }
